@@ -1,13 +1,99 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* sidebar
+logo color white/40px/600
+icons/text / 22px/500/#F6FFFF
+*/
+
+/* chat recent section
+bg-#F5F5F5
+chat heading  30px/500/c=primary
+serchbar placeholder 24px/500/bg-#E5EBF6
+portal / border-1px 
+recent heading 25/500/primary
+item active-bg(#E5EBF6)
+itemheaindg-25/500/
+itemsubheadig-20px/500/#9BA0B6 iftyped color #8B83F7
+item-time-20px/#9BA0B6/
+message-tag 20px/#FD7FA4/bg-#FBD7E2
+online status #59E6BE border3px/white
+
+*/
+
+/* chat feed section
+bg-#F6F8FC
+username-25px
+nolinestattus - #AEB3C2/24px
+days 24px/400/#585A5C
+sender bg-#D4E6FF/24messages
+*/
+
+/* 
+media section
+
+username 24px 500
+subheading 24px/#AEB3C2
+media files link 35px/600/primayr
+media-headings 32px/500
+see=all 26px/500px/#E34A4A
+properties-number 28px/white
+linke-title 28px/500
+link 24px/500/#9BA0B6
+
+
+*/
+
+/* 
+Typography 
+in px
+40 /22   ||  30/24/25/25/20/20/20  || 25/24/25/24 || 24/24/35/32/26/28/28/24
+
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+}
+
+a,
+NavLink {
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.fs-a {
+  font-size: 28px;
+}
+
+.fs-b {
+  font-size: 25px;
+}
+
+.fs-c {
+  font-size: 24px;
+}
+
+.fs-d {
+  font-size: 20px;
+}
+
+.fs-logo {
+  font-size: 40px;
+}
+
+.fs-headngs {
+  font-size: 32px;
 }
