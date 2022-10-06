@@ -68,32 +68,109 @@ NavLink {
   text-decoration: none;
 }
 
+html{
+
+  /* font-size: 15px; */
+  /* 15/16=93.75 */
+  font-size: 93.75%;  /* 15px*/
+  overflow-x: hidden;
+}
+
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 1;
   font-weight: 400;
 }
 
-.fs-a {
-  font-size: 28px;
+
+/* ------------------------------------------------------------------ */
+/* ======================== font Sizes ============================== */
+/* ------------------------------------------------------------------ */
+.chativa-fs-a {
+  font-size: 28px ;
 }
 
-.fs-b {
+.chativa-fs-b {
   font-size: 25px;
 }
 
-.fs-c {
+.chativa-fs-c {
   font-size: 24px;
 }
 
-.fs-d {
+.chativa-fs-d {
   font-size: 20px;
 }
 
-.fs-logo {
+.chativa-fs-logo {
   font-size: 40px;
 }
 
-.fs-headngs {
+.chativa-fs-headngs {
   font-size: 32px;
+}
+
+/* ------------------------------------------------------------------ */
+/* ======================== Background colors============================= */
+/* ------------------------------------------------------------------ */
+
+.chativa-bg-primary {
+  background-color: #081d34 !important;
+}
+
+.chativa-bg-secondary {
+  background-color: #e5ebf6 !important;
+}
+
+.chativa-bg-sender {
+  background-color: #d4e6ff !important;
+}
+
+.chativa-bg-recent {
+  background-color: #f5f5f5;
+}
+
+.chativa-bg-chat {
+  background-color: #f6f8fc;
+}
+
+/* ------------------------------------------------------------------ */
+/* ======================== typogrphy colors============================== */
+/* ------------------------------------------------------------------ */
+.chativa-primary{
+  color: #081d34 !important;
+}
+
+.chativa-secondary{
+  /* user-name-recent / messages/recent-heading */
+  color: #62696f !important;
+}
+
+.chativa-accent{
+  color: #9ba0b6 !important;
+}
+
+.chativa-fourth{
+  color: #585a5c !important;
+}
+
+.chativa-danger{
+  color: #e34a4a;
+}
+/* ------------------------------------------------------------------ */
+/* ======================== font wight============================== */
+/* ------------------------------------------------------------------ */
+
+.chativa-fw-7{
+  font-weight: 700;
+}
+.chativa-fw-5{
+  font-weight: 500;
+}
+.chativa-fw-4{
+  font-weight: 400;
+}
+
+.chativa-first{
+  color: #081d34;
 }
