@@ -47,9 +47,7 @@ in px
 40 /22   ||  30/24/25/25/20/20/20  || 25/24/25/24 || 24/24/35/32/26/28/28/24
 
 */
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
 }
 
@@ -68,11 +66,10 @@ NavLink {
   text-decoration: none;
 }
 
-html{
-
+html {
   /* font-size: 15px; */
   /* 15/16=93.75 */
-  font-size: 93.75%;  /* 15px*/
+  font-size: 93.75%; /* 15px*/
   overflow-x: hidden;
 }
 
@@ -82,32 +79,32 @@ body {
   font-weight: 400;
 }
 
-
 /* ------------------------------------------------------------------ */
 /* ======================== font Sizes ============================== */
 /* ------------------------------------------------------------------ */
 .chativa-fs-a {
-  font-size: 28px ;
+  /* 20px  user-name/sidebar-menu-font */
+  font-size: 1.333rem;
 }
 
 .chativa-fs-b {
-  font-size: 25px;
+  /* 18px  see all / user-messages  / link*/
+  font-size: 1.2rem;
 }
 
 .chativa-fs-c {
-  font-size: 24px;
+  /* 16px  timm-in-recent-section  / usersubheading */
+  font-size: 1.06rem;
 }
 
-.chativa-fs-d {
-  font-size: 20px;
+.chativa-fs-titles {
+  /* 25px all heading */
+  font-size: 1.6rem;
 }
 
-.chativa-fs-logo {
-  font-size: 40px;
-}
-
-.chativa-fs-headngs {
-  font-size: 32px;
+.chativa-fs-main {
+  /* 28px all heading main-heading*/
+  font-size: 1.866rem;
 }
 
 /* ------------------------------------------------------------------ */
@@ -137,40 +134,60 @@ body {
 /* ------------------------------------------------------------------ */
 /* ======================== typogrphy colors============================== */
 /* ------------------------------------------------------------------ */
-.chativa-primary{
+.chativa-primary {
   color: #081d34 !important;
 }
 
-.chativa-secondary{
+.chativa-secondary {
   /* user-name-recent / messages/recent-heading */
   color: #62696f !important;
 }
 
-.chativa-accent{
+.chativa-accent {
   color: #9ba0b6 !important;
 }
 
-.chativa-fourth{
+.chativa-fourth {
   color: #585a5c !important;
 }
 
-.chativa-danger{
+.chativa-danger {
   color: #e34a4a;
+}
+
+.chativa-extra {
+  color: #aeb3c2;
 }
 /* ------------------------------------------------------------------ */
 /* ======================== font wight============================== */
 /* ------------------------------------------------------------------ */
 
-.chativa-fw-7{
+.chativa-fw-7 {
   font-weight: 700;
 }
-.chativa-fw-5{
+.chativa-fw-5 {
   font-weight: 500;
 }
-.chativa-fw-4{
+.chativa-fw-4 {
   font-weight: 400;
 }
 
-.chativa-first{
+.chativa-first {
   color: #081d34;
+}
+
+/* =====common class====== */
+input {
+  padding: 0.5rem 1rem;
+}
+
+.chativa-br {
+  border-radius: 0.5rem;
+}
+
+#myScrollbar::-webkit-scrollbar {
+  display: none;
+}
+#chatscrollbar::-webkit-scrollbar {
+  display: none;
 }
