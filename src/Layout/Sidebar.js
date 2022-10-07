@@ -1,4 +1,9 @@
 import React from "react";
+import { IoSettingsOutline } from "react-icons/io5";
+import { AiOutlineLogout, AiOutlineDashboard } from "react-icons/ai";
+import { BiUserCircle } from "react-icons/bi";
+import { BsChatDots } from "react-icons/bs";
+import { TbClipboardList } from "react-icons/tb";
 
 const Sidebar = () => {
   return (
@@ -12,7 +17,7 @@ const Sidebar = () => {
           <li className="nav-item">
             <a href="/" className="nav-link active ">
               <div className="item d-flex flex-column align-items-center  ">
-                <i class="fa-regular fa-gauge chativa-fs-titles mb-2"></i>
+                <AiOutlineDashboard className="chativa-fs-titles  mb-2" />
                 <p className="chativa-fs-a">Dashbord</p>
               </div>
             </a>
@@ -20,7 +25,7 @@ const Sidebar = () => {
           <li className="nav-item">
             <a href="/" className="nav-link">
               <div className="d-flex flex-column align-items-center">
-                <i class="fa-regular fa-comment-dots chativa-fs-titles mb-2"></i>
+                <BsChatDots className="chativa-fs-titles  mb-2" />{" "}
                 <p className="chativa-fs-a">Chats</p>
               </div>
             </a>
@@ -28,8 +33,8 @@ const Sidebar = () => {
           <li className="nav-item">
             <a href="/" className="nav-link">
               <div className="d-flex flex-column align-items-center">
-                <i class="fa-regular fa-clipboard-list   chativa-fs-titles mb-2"></i>
-                <p className="  chativa-fs-a">Activity</p>
+                <TbClipboardList className="chativa-fs-titles  mb-2" />
+                <p className="chativa-fs-a">Activity</p>
               </div>
             </a>
           </li>
@@ -39,7 +44,15 @@ const Sidebar = () => {
           <li className="nav-item">
             <a href="/" className="nav-link">
               <div className="d-flex flex-column align-items-center">
-                <i class="fa-regular fa-circle-user  chativa-fs-titles mb-2"></i>
+                <IoSettingsOutline className="chativa-fs-titles  mb-2" />
+                <p className="  chativa-fs-a">Setting</p>
+              </div>
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="/" className="nav-link">
+              <div className="d-flex flex-column align-items-center">
+                <BiUserCircle className="chativa-fs-titles  mb-2 mb-2" />
                 <p className="  chativa-fs-a">Profile</p>
               </div>
             </a>
@@ -47,15 +60,7 @@ const Sidebar = () => {
           <li className="nav-item">
             <a href="/" className="nav-link">
               <div className="d-flex flex-column align-items-center">
-                <i class="fa-regular fa-circle-user  chativa-fs-titles mb-2"></i>
-                <p className="  chativa-fs-a">Profile</p>
-              </div>
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="/" className="nav-link">
-              <div className="d-flex flex-column align-items-center">
-                <i class="fa-regular fa-arrow-right-from-bracket   chativa-fs-titles mb-2"></i>
+                <AiOutlineLogout className="chativa-fs-titles  mb-2" />
                 <p className="  chativa-fs-a">Log Out</p>
               </div>
             </a>

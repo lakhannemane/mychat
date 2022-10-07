@@ -5,7 +5,7 @@ const RecentSection = () => {
     <div className="recent-user-section chativa-bg-recent ">
       {/* title */}
 
-      <div className="mx-2">
+      <div className="mx-1">
 
         <div className="recent-title">
           <h5 className="title chativa-fs-main  chativa-fw-5">Chats</h5>
@@ -76,7 +76,7 @@ const RecentSection = () => {
                       </div>
                       <div className="user-name-message flex-grow-1 overflow-hidden">
                         <h5 className="chativa-fs-a chativa-secondary ">
-                          Alren richard{" "}
+                          Alren richard
                           <span className="ms-3">
                             <i
                               class="fa-solid fa-thumbtack"
