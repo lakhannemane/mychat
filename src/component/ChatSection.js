@@ -1,20 +1,31 @@
-import React from "react";
-import { BsThreeDots, BsTelephone, BsCameraVideo, BsSearch } from "react-icons/bs";
+import React, { useState } from "react";
+import {
+  BsThreeDots,
+  BsTelephone,
+  BsCameraVideo,
+  BsSearch,
+} from "react-icons/bs";
 import { BiMicrophone } from "react-icons/bi";
 import { GrSend } from "react-icons/gr";
 import { ImAttachment } from "react-icons/im";
 
 const ChatSection = () => {
+  const [message, setMessage] = useState();
+  const onChangeValue = (e) => {
+    console.log(e.target.value);
+    console.log(e.target.name);
+    setMessage(e.target.value);
+  };
+
+  const onSubminValues = (e) => {
+    e.preventDefault();
+  };
   return (
-
     <>
-
-
       <div className="messages-section chativa-bg-chat ">
         {/* user-name-and-status */}
 
         <div className="mx-3">
-
           <div className="user-name-status ">
             <div className="chat-user-recent px-3 py-2   ">
               <div className="d-flex align-items-center ">
@@ -26,11 +37,11 @@ const ChatSection = () => {
                   />
                 </div>
                 <div className="user-name-message flex-grow-1 overflow-hidden me-auto">
-                  <h5 className=" chativa-fourth  chativa-fs-a">Alren richard </h5>
+                  <h5 className=" chativa-fourth  chativa-fs-a">
+                    Alren richard{" "}
+                  </h5>
                   <p className="chativa-extra chativa-fs-c">Online</p>
                 </div>
-
-
 
                 <div className="user-heaings-icons">
                   <div className="icons-user-header d-flex w-50 justify-content-center">
@@ -134,26 +145,28 @@ const ChatSection = () => {
               <div className="w-75 mx-end ">
                 <div className="user-message msg">
                   <p className="client chativa-secondarychativa-fs-a">
-                    hi jacob did you find the affordable house i told you hi jacob
-                    did you find the affordable house i told you{" "}
+                    hi jacob did you find the affordable house i told you hi
+                    jacob did you find the affordable house i told you{" "}
                   </p>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
         {/* message send input */}
 
         <div className="message-sent-section   bg-white  d-flex justify-content-between">
           <div className="width-input position-relative">
             <div className="form-for-send-message ">
-              <form>
+              <form onSubmit={onSubminValues}>
                 <input
                   type="text"
                   placeholder="Enter message here"
                   className="
             sent-message-input chativa-br  w-100"
+                  name="message"
+                  value={message}
+                  onChange={(e) => onChangeValue(e)}
                 />
               </form>
             </div>
@@ -165,11 +178,15 @@ const ChatSection = () => {
                 <i class="far fa-smile"></i>
               </div>
             </div>
-
           </div>
           <div className="send-button">
-            <button className="btn border"><GrSend className="chativa-fs-titles" />  </button>
-            {/* <GrSend className="chativa-fs-titles" /> */}
+            <button className="btn border">
+              {!message ? (
+                <BiMicrophone className="chativa-fs-titles" />
+              ) : (
+                <GrSend className="chativa-fs-titles" />
+              )}
+            </button>
           </div>
         </div>
       </div>

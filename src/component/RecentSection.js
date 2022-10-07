@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const RecentSection = () => {
   return (
@@ -34,16 +35,49 @@ const RecentSection = () => {
         {/* poratls section */}
 
         <div className="poratls-section d-flex justify-content-between w-100">
-          <div className="one-portal position-relative">
-            <div className="google-message-notificaion">
-              <p className="count-number text-white chativa-fw-5">5</p>
-            </div>
-            <div className="portal chativa-br d-flex align-items-center justify-content-center">
-              <i class="fa-brands fa-google "></i>
-            </div>
-          </div>
+          <ul className="list-unstyled d-flex justify-content-between align-items-center w-100">
+            <li className="nav-item">
+              <NavLink className="portal-name">
+                <div className="one-portal position-relative">
+                  <div className="google-message-notificaion">
+                    <p className="count-number text-white chativa-fw-5">5</p>
+                  </div>
+                  <div className="portal chativa-br d-flex align-items-center justify-content-center">
+                    <i class="fa-brands fa-google "></i>
+                  </div>
+                </div>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="portal-name">
+                <div className="one-portal position-relative">
+                  <div className="google-message-notificaion">
+                    <p className="count-number text-white chativa-fw-5">7</p>
+                  </div>
+                  <div className="portal  chativa-br d-flex align-items-center justify-content-center">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </div>
+                </div>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="portal-name">
+                <div className="portal chativa-br d-flex align-items-center justify-content-center">
+                  <i class="fa-brands fa-instagram"></i>
+                </div>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="portal-name">
+                <div className="portal chativa-br d-flex align-items-center justify-content-center">
+                  <i class="fa-brands fa-facebook"></i>
+                </div>
+              </NavLink>
+            </li>
+          </ul>
 
-          <div className="one-portal position-relative">
+
+          {/* <div className="one-portal position-relative">
             <div className="google-message-notificaion">
               <p className="count-number text-white chativa-fw-5">7</p>
             </div>
@@ -58,7 +92,7 @@ const RecentSection = () => {
 
           <div className="portal chativa-br d-flex align-items-center justify-content-center">
             <i class="fa-brands fa-facebook"></i>
-          </div>
+          </div> */}
         </div>
         {/* recent users */}
         <div className="recent w-100">
@@ -156,7 +190,7 @@ const RecentSection = () => {
                         />
                         <span className="user-online-status"></span>
                       </div>
-                      <div className="user-name-message flex-grow-1 overflow-hidden">
+                      <div className="user-name-message flex-grow-1 overflow-hidden position-relative">
                         <h5 className="chativa-fs-a chativa-secondary  ">
                           Alren richard{" "}
                           <span className="ms-3">
@@ -169,9 +203,14 @@ const RecentSection = () => {
                             ></i>
                           </span>
                         </h5>
-                        <p className="chativa-secondary  chativa-fs-c">
-                          nice to meeting you😃
-                        </p>
+                        <div className="typing-div  position-relative">
+                          <p className="typing">Typing</p>
+                          <p className="circle"></p>
+                          <p className="circle"></p>
+                          <p className="circle"></p>
+
+                        </div>
+
                       </div>
 
                       <div className="user-message-time">
@@ -253,9 +292,13 @@ const RecentSection = () => {
                         <h5 className="chativa-fs-a chativa-secondary  ">
                           Alren richard{" "}
                         </h5>
-                        <p className="chativa-secondary  chativa-fs-c">
-                          nice to meeting you😃
-                        </p>
+                        <div className="typing-div  position-relative">
+                          <p className="typing">Typing</p>
+                          <p className="circle"></p>
+                          <p className="circle"></p>
+                          <p className="circle"></p>
+
+                        </div>
                       </div>
 
                       <div className="user-message-time">
