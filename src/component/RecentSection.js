@@ -42,9 +42,16 @@ const RecentSection = () => {
             </div>
           </div>
 
-          <div className="portal  chativa-br d-flex align-items-center justify-content-center">
-            <i class="fa-brands fa-linkedin-in"></i>
+          <div className="one-portal position-relative">
+            <div className="google-message-notificaion">
+              <p className="count-number text-white chativa-fw-5">7</p>
+            </div>
+            <div className="portal  chativa-br d-flex align-items-center justify-content-center">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </div>
           </div>
+
+
 
           <div className="portal chativa-br d-flex align-items-center justify-content-center">
             <i class="fa-brands fa-instagram"></i>
