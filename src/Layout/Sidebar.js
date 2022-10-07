@@ -13,7 +13,7 @@ const Sidebar = () => {
         <p className="logo text-uppercase text-white chativa-fw-7 ">Chat</p>
       </div>
 
-      <div className="menu-icon text-white d-flex flex-column justify-content-between ">
+      <div className="menu-icon  d-flex flex-column justify-content-between ">
         <ul className="ul nav-list list-unstyled">
           <li className="nav-item">
             <NavLink to="/home" className="nav-link  ">

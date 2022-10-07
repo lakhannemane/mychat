@@ -62,7 +62,7 @@ const MediaSection = () => {
 
       {/* media file and links  */}
 
-      <div className="media-files-heading-btn mx-auto w-100 user-name-status">
+      <div className="media-files-heading-btn mx-auto w-100 user-name-status pb-2">
         <h5 className="text-center chativa-primary chativa-fs-b chativa-fw-5">
           Media , Files and Links
         </h5>
@@ -179,7 +179,7 @@ const MediaSection = () => {
             <p className="chativa-extra">https://www.dribble.com</p>
           </div>
         </div>
-        <div className="title-and-link d-flex align-items-center">
+        {/* <div className="title-and-link d-flex align-items-center">
           <div className="link-icons-section me-3 chativa-br">
             <p>
               <i class="fa-solid fa-link link-fille-icon"></i>
@@ -189,7 +189,7 @@ const MediaSection = () => {
             <h5 className="chativa-fs-a chativa-fw-5">Figma</h5>
             <p className="chativa-extra">https://www.dribble.com</p>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
