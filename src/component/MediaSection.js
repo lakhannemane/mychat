@@ -1,9 +1,6 @@
 import React from "react";
 import { IoSettingsOutline } from "react-icons/io5";
-import {
-  MdNotificationsNone,
-  MdTimer
-} from "react-icons/md";
+import { MdNotificationsNone, MdTimer } from "react-icons/md";
 import { BiNote } from "react-icons/bi";
 
 const MediaSection = () => {
@@ -21,13 +18,13 @@ const MediaSection = () => {
             </div>
             <div className="user-name-message flex-grow-1 overflow-hidden">
               <h5 className=" chativa-fs-a  chativa-fs-a">Alren richard </h5>
-              <p className="chativa-extra chativa-fs-c">
-                Estate Agent Pro
-              </p>
+              <p className="chativa-extra chativa-fs-c">Estate Agent Pro</p>
             </div>
 
             <div className="user-heaings-icons">
-              <p className="chativa-extra"><IoSettingsOutline className="chativa-fs-titles chativa-extra" /></p>
+              <p className="chativa-extra">
+                <IoSettingsOutline className="chativa-fs-b chativa-extra" />
+              </p>
             </div>
           </div>
         </div>
@@ -47,14 +44,13 @@ const MediaSection = () => {
 
         <div className="portal  chativa-br d-flex align-items-center justify-content-center">
           {/* <FontAwesomeIcon icon="fa-regular fa-stopwatch" />
-                  */}
+           */}
           <MdTimer />
         </div>
 
         <div className="portal chativa-br d-flex align-items-center justify-content-center">
           <BiNote />
         </div>
-
 
         <div className="portal chativa-br d-flex align-items-center justify-content-center">
           <i class="fa-regular fa-calendar-days"></i>
@@ -67,43 +63,75 @@ const MediaSection = () => {
       {/* media file and links  */}
 
       <div className="media-files-heading-btn mx-auto w-100 user-name-status">
-        <h5 className="text-center chativa-primary chativa-fs-b chativa-fw-5">Media , Files and Links</h5>
-
-
+        <h5 className="text-center chativa-primary chativa-fs-b chativa-fw-5">
+          Media , Files and Links
+        </h5>
       </div>
 
       {/* media property section */}
       <div className="media-property-section  medias-artice">
         <div className="d-flex justify-content-between align-items-center">
-          <h6 className="media chativa-fs-a chativa-fw-5 ">Media <span className="chativa-fs-a chativa-accent  ms-3">5</span></h6>
-          <p className="chativa-fs-14px chativa-danger chativa-fw-5 see-all">see All</p>
+          <h6 className="media chativa-fs-a chativa-fw-5 ">
+            Media <span className="chativa-fs-a chativa-accent  ms-3">5</span>
+          </h6>
+          <p className="chativa-fs-14px chativa-danger chativa-fw-5 see-all">
+            see All
+          </p>
         </div>
         <div className="property-images d-flex justify-content-between ">
           <div className="property-media-item">
-            <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="first property" className="media-property-images chativa-br" />
+            <img
+              src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+              alt="first property"
+              className="media-property-images chativa-br"
+            />
           </div>
           <div className="property-media-item">
-            <img src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="second property" className="media-property-images chativa-br" />
+            <img
+              src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+              alt="second property"
+              className="media-property-images chativa-br"
+            />
           </div>
           <div className="property-media-item">
-            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="third property" className="media-property-images chativa-br" />
+            <img
+              src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+              alt="third property"
+              className="media-property-images chativa-br"
+            />
           </div>
         </div>
       </div>
       <div className="media-videos-section medias-artice">
         <div className="d-flex justify-content-between  align-items-center">
-          <h6 className="media chativa-fs-a chativa-fw-5">Videos <span className="chativa-fs-a chativa-accent  ms-3">7</span></h6>
-          <p className="chativa-fs-14px chativa-danger chativa-fw-5 see-all">see All</p>
+          <h6 className="media chativa-fs-a chativa-fw-5">
+            Videos <span className="chativa-fs-a chativa-accent  ms-3">7</span>
+          </h6>
+          <p className="chativa-fs-14px chativa-danger chativa-fw-5 see-all">
+            see All
+          </p>
         </div>
         <div className="property-images d-flex justify-content-between ">
           <div className="property-media-item">
-            <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="first property" className="media-property-images chativa-br" />
+            <img
+              src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+              alt="first property"
+              className="media-property-images chativa-br"
+            />
           </div>
           <div className="property-media-item">
-            <img src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="second property" className="media-property-images chativa-br" />
+            <img
+              src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+              alt="second property"
+              className="media-property-images chativa-br"
+            />
           </div>
           <div className="property-media-item">
-            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="third property" className="media-property-images chativa-br" />
+            <img
+              src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+              alt="third property"
+              className="media-property-images chativa-br"
+            />
           </div>
         </div>
       </div>
@@ -111,12 +139,18 @@ const MediaSection = () => {
       {/* media links */}
       <div className="files-link medias-artice">
         <div className="d-flex justify-content-between align-items-center">
-          <h6 className="media chativa-fs-a chativa-fw-5">Files <span className="chativa-fs-a chativa-accent  ms-3">3</span></h6>
-          <p className="chativa-fs-14px chativa-danger chativa-fw-5 see-all">see All</p>
+          <h6 className="media chativa-fs-a chativa-fw-5">
+            Files <span className="chativa-fs-a chativa-accent  ms-3">3</span>
+          </h6>
+          <p className="chativa-fs-14px chativa-danger chativa-fw-5 see-all">
+            see All
+          </p>
         </div>
         <div className="title-and-link d-flex align-items-center">
           <div className="link-icons-section me-3 chativa-br">
-            <p><i class="fa-solid fa-link link-fille-icon"></i></p>
+            <p>
+              <i class="fa-solid fa-link link-fille-icon"></i>
+            </p>
           </div>
           <div className="description">
             <h5 className="chativa-fs-a chativa-fw-5">Youtube</h5>
@@ -125,7 +159,9 @@ const MediaSection = () => {
         </div>
         <div className="title-and-link d-flex align-items-center">
           <div className="link-icons-section me-3 chativa-br">
-            <p><i class="fa-solid fa-link link-fille-icon"></i></p>
+            <p>
+              <i class="fa-solid fa-link link-fille-icon"></i>
+            </p>
           </div>
           <div className="description">
             <h5 className="chativa-fs-a chativa-fw-5">Dribble</h5>
@@ -134,7 +170,9 @@ const MediaSection = () => {
         </div>
         <div className="title-and-link d-flex align-items-center">
           <div className="link-icons-section me-3 chativa-br">
-            <p><i class="fa-solid fa-link link-fille-icon"></i></p>
+            <p>
+              <i class="fa-solid fa-link link-fille-icon"></i>
+            </p>
           </div>
           <div className="description">
             <h5 className="chativa-fs-a chativa-fw-5">Figma</h5>
@@ -143,14 +181,15 @@ const MediaSection = () => {
         </div>
         <div className="title-and-link d-flex align-items-center">
           <div className="link-icons-section me-3 chativa-br">
-            <p><i class="fa-solid fa-link link-fille-icon"></i></p>
+            <p>
+              <i class="fa-solid fa-link link-fille-icon"></i>
+            </p>
           </div>
           <div className="description">
             <h5 className="chativa-fs-a chativa-fw-5">Figma</h5>
             <p className="chativa-extra">https://www.dribble.com</p>
           </div>
         </div>
-
       </div>
     </div>
   );

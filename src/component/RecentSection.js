@@ -6,9 +6,10 @@ const RecentSection = () => {
       {/* title */}
 
       <div className="mx-1">
-
         <div className="recent-title">
-          <h5 className="title chativa-fs-main  chativa-fw-5">Chats</h5>
+          <h5 className="title  chativa-fw-5" style={{ fontSize: "22px" }}>
+            Chats
+          </h5>
         </div>
         {/* serchbar */}
         <div className="serchbar position-relative w-100">
@@ -51,8 +52,6 @@ const RecentSection = () => {
             </div>
           </div>
 
-
-
           <div className="portal chativa-br d-flex align-items-center justify-content-center">
             <i class="fa-brands fa-instagram"></i>
           </div>
@@ -64,7 +63,9 @@ const RecentSection = () => {
         {/* recent users */}
         <div className="recent w-100">
           <div className="recent-title-section">
-            <p className="chativa-fs-titles chativa-fw-5">Recents</p>
+            <p className="chativa-fs-b chativa-fw-5 chativa-secondary">
+              Recents
+            </p>
           </div>
 
           <div className="recent-users-section">
@@ -82,7 +83,7 @@ const RecentSection = () => {
                         <span className="user-online-status"></span>
                       </div>
                       <div className="user-name-message flex-grow-1 overflow-hidden">
-                        <h5 className="chativa-fs-a chativa-secondary ">
+                        <h5 className="chativa-fs-a chativa-secondary  ">
                           Alren richard
                           <span className="ms-3">
                             <i
@@ -119,7 +120,7 @@ const RecentSection = () => {
                         <span className="user-online-status"></span>
                       </div>
                       <div className="user-name-message flex-grow-1 overflow-hidden">
-                        <h5 className="chativa-fs-a chativa-secondary ">
+                        <h5 className="chativa-fs-a chativa-secondary  ">
                           Alren richard{" "}
                           <span className="ms-3">
                             <i
@@ -131,7 +132,7 @@ const RecentSection = () => {
                             ></i>
                           </span>
                         </h5>
-                        <p className="chativa-secondary chativa-fs-c">
+                        <p className="chativa-secondary  chativa-fs-c">
                           nice to meeting you😃
                         </p>
                       </div>
@@ -156,7 +157,7 @@ const RecentSection = () => {
                         <span className="user-online-status"></span>
                       </div>
                       <div className="user-name-message flex-grow-1 overflow-hidden">
-                        <h5 className="chativa-fs-a chativa-secondary ">
+                        <h5 className="chativa-fs-a chativa-secondary  ">
                           Alren richard{" "}
                           <span className="ms-3">
                             <i
@@ -168,7 +169,7 @@ const RecentSection = () => {
                             ></i>
                           </span>
                         </h5>
-                        <p className="chativa-secondary chativa-fs-c">
+                        <p className="chativa-secondary  chativa-fs-c">
                           nice to meeting you😃
                         </p>
                       </div>
@@ -193,10 +194,10 @@ const RecentSection = () => {
                         <span className="user-online-status"></span>
                       </div>
                       <div className="user-name-message flex-grow-1 overflow-hidden">
-                        <h5 className="chativa-fs-a chativa-secondary ">
+                        <h5 className="chativa-fs-a chativa-secondary  ">
                           Alren richard{" "}
                         </h5>
-                        <p className="chativa-secondary chativa-fs-c">
+                        <p className="chativa-secondary  chativa-fs-c">
                           nice to meeting you😃
                         </p>
                       </div>
@@ -221,10 +222,10 @@ const RecentSection = () => {
                         <span className="user-online-status"></span>
                       </div>
                       <div className="user-name-message flex-grow-1 overflow-hidden">
-                        <h5 className="chativa-fs-a chativa-secondary ">
+                        <h5 className="chativa-fs-a chativa-secondary  ">
                           Alren richard{" "}
                         </h5>
-                        <p className="chativa-secondary chativa-fs-c">
+                        <p className="chativa-secondary  chativa-fs-c">
                           nice to meeting you😃
                         </p>
                       </div>
@@ -249,10 +250,10 @@ const RecentSection = () => {
                         <span className="user-online-status"></span>
                       </div>
                       <div className="user-name-message flex-grow-1 overflow-hidden">
-                        <h5 className="chativa-fs-a chativa-secondary ">
+                        <h5 className="chativa-fs-a chativa-secondary  ">
                           Alren richard{" "}
                         </h5>
-                        <p className="chativa-secondary chativa-fs-c">
+                        <p className="chativa-secondary  chativa-fs-c">
                           nice to meeting you😃
                         </p>
                       </div>
@@ -268,8 +269,6 @@ const RecentSection = () => {
           </div>
         </div>
       </div>
-
-
     </div>
   );
 };
