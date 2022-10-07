@@ -83,14 +83,24 @@ body {
 /* ======================== font Sizes ============================== */
 /* ------------------------------------------------------------------ */
 .chativa-fs-a {
+
   /* 16px  user-name/sidebar-menu-font */
   font-size: 1.06rem;
+
 }
 
 .chativa-fs-b {
   /* 18px  see all / user-messages  / link*/
   font-size: 1.2rem;
 }
+
+
+.chativa-fs-c {
+  /* 16px  timm-in-recent-section  / usersubheading */
+  font-size: 1.06rem;
+
+}
+
 
 .chativa-fs-titles {
   /* 25px all heading */
@@ -101,6 +111,21 @@ body {
   /* 14px all heading main-heading*/
   font-size: 0.933rem;
 }
+
+}
+
+.chativa-fs-titles {
+  /* 25px all heading */
+  font-size: 1.66rem;
+}
+
+.chativa-fs-titles {
+  /* 28px all heading main-heading*/
+  font-size: 1.866rem;
+}
+
+
+
 
 /* ------------------------------------------------------------------ */
 /* ======================== Background colors============================= */
