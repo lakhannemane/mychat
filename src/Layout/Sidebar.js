@@ -4,6 +4,7 @@ import { AiOutlineLogout, AiOutlineDashboard } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
 import { BsChatDots } from "react-icons/bs";
 import { TbClipboardList } from "react-icons/tb";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -15,55 +16,55 @@ const Sidebar = () => {
       <div className="menu-icon text-white d-flex flex-column justify-content-between ">
         <ul className="ul nav-list list-unstyled">
           <li className="nav-item">
-            <a href="/" className="nav-link active ">
+            <NavLink to="/home" className="nav-link  ">
               <div className="item d-flex flex-column align-items-center  ">
                 <AiOutlineDashboard className="chativa-fs-titles  mb-2" />
                 <p className="chativa-fs-a">Dashbord</p>
               </div>
-            </a>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <a href="/" className="nav-link">
+            <NavLink to="/chat" className="nav-link">
               <div className="d-flex flex-column align-items-center">
                 <BsChatDots className="chativa-fs-titles  mb-2" />{" "}
                 <p className="chativa-fs-a">Chats</p>
               </div>
-            </a>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <a href="/" className="nav-link">
+            <NavLink to="/activity" className="nav-link">
               <div className="d-flex flex-column align-items-center">
                 <TbClipboardList className="chativa-fs-titles  mb-2" />
                 <p className="chativa-fs-a">Activity</p>
               </div>
-            </a>
+            </NavLink>
           </li>
         </ul>
 
         <ul className="ul nav-list list-unstyled">
           <li className="nav-item">
-            <a href="/" className="nav-link">
+            <NavLink to="/setting" className="nav-link">
               <div className="d-flex flex-column align-items-center">
                 <IoSettingsOutline className="chativa-fs-titles  mb-2" />
                 <p className="  chativa-fs-a">Setting</p>
               </div>
-            </a>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <a href="/" className="nav-link">
+            <NavLink to="/profile" className="nav-link">
               <div className="d-flex flex-column align-items-center">
                 <BiUserCircle className="chativa-fs-titles  mb-2 mb-2" />
                 <p className="  chativa-fs-a">Profile</p>
               </div>
-            </a>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <a href="/" className="nav-link">
+            <NavLink to="/logout" className="nav-link">
               <div className="d-flex flex-column align-items-center">
                 <AiOutlineLogout className="chativa-fs-titles  mb-2" />
                 <p className="  chativa-fs-a">Log Out</p>
               </div>
-            </a>
+            </NavLink>
           </li>
         </ul>
       </div>

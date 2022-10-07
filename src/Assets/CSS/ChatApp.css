@@ -13,7 +13,7 @@
 /* ======================================================= */
 
 .sidebar-logo-section {
-  width: 5%;
+  width: 6%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -29,7 +29,7 @@
 }
 
 .menu-icon {
-  height: 90%;
+  height: 95%;
   margin-top: 2.5rem;
 }
 
@@ -40,6 +40,18 @@
 
 .active {
   color: white;
+}
+
+.menu-icon ul li .active::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  align-items: center;
+  width: 0.5rem;
+  height: 4.3rem;
+  background-color: white;
+  border-radius: 0 0.6rem 0.6rem 0;
 }
 
 /* ====================================================== */
@@ -128,7 +140,7 @@
 /* ------------- --------messages  Section------------------------ */
 /* ======================================================= */
 .messages-section {
-  width: 54%;
+  width: 59%;
   padding: 1rem 0rem;
 }
 
