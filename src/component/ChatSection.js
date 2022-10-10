@@ -43,7 +43,7 @@ const ChatSection = ({ userData }) => {
                     style={{ background: "#D4D3FC" }}
                   >
                     <p
-                      className="fw-bold chativa-fs-b mt-3"
+                      className="fw-bold  mt-4 pt-2 fs-3"
                       style={{ color: "#7B76CD" }}
                     >
                       {userData.name.charAt(0).toUpperCase()}
