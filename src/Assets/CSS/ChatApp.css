@@ -82,9 +82,16 @@
   border: none;
   background-color: #e5ebf6;
   outline: none;
-  padding: 0.6rem 0 0.6rem 2.5rem;
+  padding: 0.6rem 0 0.6rem 3rem;
 }
-
+.message-count {
+  color: #fd7fa4;
+  background-color: #fbd7e2;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  text-align: center;
+}
 .poratls-section {
   margin: 2rem 0;
   position: relative;
