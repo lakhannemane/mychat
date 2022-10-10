@@ -53,10 +53,10 @@ const MediaSection = () => {
         </div>
 
         <div className="portal chativa-br d-flex align-items-center justify-content-center">
-          <i class="fa-regular fa-calendar-days"></i>
+          <i className="fa-regular fa-calendar-days"></i>
         </div>
-        <div className="portal chativa-br d-flex align-items-center justify-content-center">
-          <i class="fa-regular fa-images"></i>
+        <div className="portal new-item chativa-br d-flex align-items-center justify-content-center">
+          <i className="fa-regular fa-images"></i>
         </div>
       </div>
 
@@ -149,7 +149,7 @@ const MediaSection = () => {
         <div className="title-and-link d-flex align-items-center">
           <div className="link-icons-section me-3 chativa-br">
             <p>
-              <i class="fa-solid fa-link link-fille-icon"></i>
+              <i className="fa-solid fa-link chativa-fs-b"></i>
             </p>
           </div>
           <div className="description">
@@ -160,7 +160,7 @@ const MediaSection = () => {
         <div className="title-and-link d-flex align-items-center">
           <div className="link-icons-section me-3 chativa-br">
             <p>
-              <i class="fa-solid fa-link link-fille-icon"></i>
+              <i className="fa-solid fa-link chativa-fs-b"></i>
             </p>
           </div>
           <div className="description">
@@ -171,7 +171,7 @@ const MediaSection = () => {
         <div className="title-and-link d-flex align-items-center">
           <div className="link-icons-section me-3 chativa-br">
             <p>
-              <i class="fa-solid fa-link link-fille-icon"></i>
+              <i className="fa-solid fa-link chativa-fs-b"></i>
             </p>
           </div>
           <div className="description">
@@ -182,7 +182,7 @@ const MediaSection = () => {
         {/* <div className="title-and-link d-flex align-items-center">
           <div className="link-icons-section me-3 chativa-br">
             <p>
-              <i class="fa-solid fa-link link-fille-icon"></i>
+              <i className="fa-solid fa-link link-fille-icon"></i>
             </p>
           </div>
           <div className="description">
