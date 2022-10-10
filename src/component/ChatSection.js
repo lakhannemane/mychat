@@ -8,8 +8,11 @@ import {
 import { BiMicrophone } from "react-icons/bi";
 import { GrSend } from "react-icons/gr";
 import { ImAttachment } from "react-icons/im";
+import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
-const ChatSection = () => {
+const ChatSection = ({ userData }) => {
+
+  console.log("chatsection data in chat page", userData)
   const [message, setMessage] = useState();
   const onChangeValue = (e) => {
     console.log(e.target.value);
@@ -30,15 +33,26 @@ const ChatSection = () => {
             <div className="chat-user-recent px-3 py-2   ">
               <div className="d-flex align-items-center ">
                 <div className="chat-img-user align-self-center position-relative me-3">
-                  <img
+                  {/* <img
                     src="http://chatvia-light.react.themesbrand.com/static/media/avatar-2.feb0f89de58f0ef9b424.jpg"
                     alt=""
                     className="rounded-circle user-image"
-                  />
+                  /> */}
+                  <div
+                    className="rounded-circle user-image d-flex align-items-center justify-content-center"
+                    style={{ background: "#D4D3FC" }}
+                  >
+                    <p
+                      className="fw-bold chativa-fs-b mt-3"
+                      style={{ color: "#7B76CD" }}
+                    >
+                      {userData.name.charAt(0).toUpperCase()}
+                    </p>
+                  </div>
                 </div>
                 <div className="user-name-message flex-grow-1 overflow-hidden me-auto">
                   <h5 className=" chativa-fourth  chativa-fs-a">
-                    Alren richard{" "}
+                    {userData.name}
                   </h5>
                   <p className="chativa-extra chativa-fs-c">Online</p>
                 </div>
@@ -131,7 +145,7 @@ const ChatSection = () => {
               <div className="w-75 ms-auto d-flex justify-content-end">
                 <div className="your-message">
                   <p className="you chativa-secondarychativa-fs-a ">
-                    Hello, Mark I’m fine thank you how are you{" "}
+                    Hello, Mark I’m fine thank you how are you{" "} <span><IoCheckmarkDoneSharp style={{ color: "#32a7ff" }} /></span>
                   </p>
                 </div>
               </div>
@@ -172,19 +186,19 @@ const ChatSection = () => {
             </div>
             <div className="icons-send-section1 d-flex text-white ">
               <div className="attach-icon icons-send-section ">
-                <ImAttachment />
+                <ImAttachment className="chativa-extra" />
               </div>
               <div className="smily-icon icons-send-section">
-                <i class="far fa-smile"></i>
+                <i className="far fa-smile chativa-extra"></i>
               </div>
             </div>
           </div>
           <div className="send-button">
             <button className="btn border">
               {!message ? (
-                <BiMicrophone className="chativa-fs-titles" />
+                <BiMicrophone className="chativa-fs-titles chativa-extra" />
               ) : (
-                <GrSend className="chativa-fs-titles" />
+                <GrSend className="chativa-fs-titles chativa-extra" />
               )}
             </button>
           </div>

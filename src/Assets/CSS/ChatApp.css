@@ -82,9 +82,16 @@
   border: none;
   background-color: #e5ebf6;
   outline: none;
-  padding: 0.6rem 0 0.6rem 2.5rem;
+  padding: 0.6rem 0 0.6rem 3rem;
 }
-
+.message-count {
+  color: #fd7fa4;
+  background-color: #fbd7e2;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  text-align: center;
+}
 .poratls-section {
   margin: 2rem 0;
   position: relative;
@@ -96,14 +103,21 @@
   font-size: 1.866rem;
 }
 
-.poratls-section ul li .portal-name {
-  color: #000;
+.poratls-section ul li .active {
+  color: #081d34;
 }
 
 .myscrollbar {
   width: 100%;
-  height: 60vh;
+  height: 55vh;
   overflow: auto;
+}
+
+.new-item {
+  background-color: #081d34;
+  color: white;
+  border-radius: 0.6rem;
+  box-shadow: 0 3px 8px #081d34;
 }
 
 .google-message-notificaion {
@@ -118,8 +132,11 @@
   top: -8px;
 }
 
-.active-chat {
+.active-user {
   background-color: #e5ebf6;
+  border-radius: 0.6rem;
+  width: 100%;
+  padding: 0.3rem 0.8rem;
 }
 .user-item {
   margin: 0.6rem 0;
@@ -183,6 +200,28 @@
   width: 0.3rem;
   height: 0.3rem;
   border-radius: 50%;
+}
+
+.portal-scrollbar {
+  width: 20rem;
+  overflow-x: scroll;
+  height: 6.9rem;
+}
+.portal-scrollbar::-webkit-scrollbar {
+  background-color: #f5f5f5;
+  width: 10px;
+  margin-left: 10px;
+}
+
+.portal-scrollbar::-webkit-scrollbar-thumb {
+  /* border-radius: 10px; */
+  height: 20px;
+  border-radius: 10px;
+  background-color: rgba(217, 217, 217, 0.05);
+  border: 1px solid rgba(69, 89, 107, 0.18);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+
+  /* box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); */
 }
 
 /* ====================================================== */
