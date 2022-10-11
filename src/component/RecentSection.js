@@ -49,7 +49,7 @@ const RecentSection = ({ userData, setUserData }) => {
   const [name, setName] = useState();
   const [filterData, setFilterData] = useState();
 
-  const [portalActive, setPortalActive] = useState(true);
+  const [portalActive, setPortalActive] = useState({ media: "google" });
 
   const onHandleSubmitValue = (e) => {
     e.prventDefault();
@@ -81,7 +81,7 @@ const RecentSection = ({ userData, setUserData }) => {
           <h5
             className="title  chativa-fw-5"
             style={{ fontSize: "22px" }}
-            // onClick={() => alert("hellooo")}
+          // onClick={() => alert("hellooo")}
           >
             Chats
           </h5>
@@ -114,7 +114,14 @@ const RecentSection = ({ userData, setUserData }) => {
         <div className="poratls-section d-flex justify-content-between w-100 portal-scrollbar">
           <ul className="list-unstyled d-flex justify-content-between align-items-center w-100">
             <li className="nav-item">
-              <div className="one-portal position-relative new-item">
+              <div
+                className={
+                  portalActive.media === "google"
+                    ? "new-item position-relative "
+                    : " one-portal position-relative   chativa-primary "
+                }
+                onClick={() => setPortalActive({ media: "google" })}
+              >
                 <div className="google-message-notificaion">
                   <p className="count-number text-white chativa-fw-5">5</p>
                 </div>
@@ -125,30 +132,49 @@ const RecentSection = ({ userData, setUserData }) => {
             </li>
 
             <li className="nav-item">
-              <NavLink className="portal-name">
-                <div className="one-portal position-relative">
-                  <div className="google-message-notificaion">
-                    <p className="count-number text-white chativa-fw-5">7</p>
-                  </div>
-                  <div className="portal  chativa-br d-flex align-items-center justify-content-center">
-                    <i className="fa-brands fa-linkedin-in"></i>
-                  </div>
+              <div
+                className={
+                  portalActive.media === "linkdein"
+                    ? "new-item position-relative"
+                    : " one-portal position-relative chativa-primary"
+                }
+                onClick={() => setPortalActive({ media: "linkdein" })}
+              >
+                <div className="google-message-notificaion">
+                  <p className="count-number text-white chativa-fw-5">7</p>
                 </div>
-              </NavLink>
+                <div className="portal  chativa-br d-flex align-items-center justify-content-center">
+                  <i className="fa-brands fa-linkedin-in"></i>
+                </div>
+              </div>
             </li>
             <li className="nav-item">
-              <NavLink className="portal-name">
+              <div
+                className={
+                  portalActive.media === "Instagram"
+                    ? "new-item position-relative"
+                    : " one-portal position-relative  chativa-primary"
+                }
+                onClick={() => setPortalActive({ media: "Instagram" })}
+              >
                 <div className="portal chativa-br d-flex align-items-center justify-content-center">
                   <i className="fa-brands fa-instagram"></i>
                 </div>
-              </NavLink>
+              </div>
             </li>
             <li className="nav-item">
-              <NavLink className="portal-name">
+              <div
+                className={
+                  portalActive.media === "facebook"
+                    ? "new-item position-relative"
+                    : " one-portal position-relative  chativa-primary "
+                }
+                onClick={() => setPortalActive({ media: "facebook" })}
+              >
                 <div className="portal chativa-br d-flex align-items-center justify-content-center">
                   <i className="fa-brands fa-facebook"></i>
                 </div>
-              </NavLink>
+              </div>
             </li>
           </ul>
 
@@ -181,11 +207,12 @@ const RecentSection = ({ userData, setUserData }) => {
             </p>
           </div>
 
-          <div className="recent-users-section">
-            <ul className="list-unstyled myscrollbar" id="myScrollbar">
-              <li className="user-item">
-                {filterData
-                  ? filterData.map((ele, index) => {
+          {portalActive.media === "google" ? (
+            <div className="recent-users-section">
+              <ul className="list-unstyled myscrollbar" id="myScrollbar">
+                <li className="user-item">
+                  {filterData
+                    ? filterData.map((ele, index) => {
                       return (
                         <div className="user" key={index}>
                           <div
@@ -252,7 +279,7 @@ const RecentSection = ({ userData, setUserData }) => {
                         </div>
                       );
                     })
-                  : Users.map((ele, index) => {
+                    : Users.map((ele, index) => {
                       return (
                         <div className="user" key={index}>
                           <div
@@ -318,9 +345,9 @@ const RecentSection = ({ userData, setUserData }) => {
                         </div>
                       );
                     })}
-              </li>
+                </li>
 
-              {/* <li className="user-item">
+                {/* <li className="user-item">
                             <div className="user">
                                 <div className="chat-user-recent px-3 py-3 a chativa-br ">
                                     <div className="d-flex align-items-center">
@@ -448,8 +475,17 @@ const RecentSection = ({ userData, setUserData }) => {
                                 </div>
                             </div>
                         </li> */}
-            </ul>
-          </div>
+              </ul>
+            </div>
+          ) : portalActive.media === "linkdein" ? (
+            <h5 className="chativa-fs-a chativa-secondary text-center mt-4">No Users</h5>
+          ) : portalActive.media === "Instagram" ? (
+            <h5 className="chativa-fs-a chativa-secondary text-center mt-4">No Users</h5>
+          ) : portalActive.media === "facebook" ? (
+            <h5 className="chativa-fs-a chativa-secondary text-center mt-4">No Users</h5>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>
