@@ -110,7 +110,7 @@ const ChatSection = ({ userData }) => {
               <div className=" w-75 ms-auto d-flex justify-content-end ">
                 <div className="your-message">
                   <p className="you chativa-secondarychativa-fs-a">
-                    Hello, Mark I’m fine thank you how are you{" "}
+                    Hello, Mark I’m fine thank you how are you{" "}<span><IoCheckmarkDoneSharp style={{ color: "#32a7ff" }} /></span>
                   </p>
                 </div>
               </div>
