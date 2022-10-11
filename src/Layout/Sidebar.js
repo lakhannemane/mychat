@@ -16,7 +16,7 @@ const Sidebar = () => {
       <div className="menu-icon  d-flex flex-column justify-content-between ">
         <ul className="ul nav-list list-unstyled">
           <li className="nav-item">
-            <NavLink to="/home" className="nav-link  ">
+            <NavLink to="/dashbord" className="nav-link  ">
               <div className="item d-flex flex-column align-items-center  ">
                 <AiOutlineDashboard className="chativa-fs-titles  mb-2" />
                 <p className="chativa-fs-a">Dashbord</p>
