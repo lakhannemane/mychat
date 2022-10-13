@@ -76,7 +76,7 @@ const RecentSection = ({ userData, setUserData }) => {
     <div className="recent-user-section chativa-bg-recent ">
       {/* title */}
 
-      <div className="mx-1">
+      <div className="recentPanel">
         <div className="recent-title">
           <h5
             className="title  chativa-fw-5"
