@@ -12,10 +12,12 @@ const Home = () => {
     message: "how are you",
   });
   return (
-    <div className="chat-app d-flex">
+    <div className="chat-app d-flex home_panel golbalChildSection">
       <RecentSection userData={userData} setUserData={setUserData} />
-      <ChatSection userData={userData} setUserData={setUserData} />
-      <MediaSection />
+      <div className="leftContainer">
+        <ChatSection userData={userData} setUserData={setUserData} />
+        <MediaSection />
+      </div>
     </div>
   );
 };

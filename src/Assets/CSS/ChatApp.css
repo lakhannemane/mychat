@@ -7,18 +7,34 @@
   height: 100vh;
   /* background-color: aqua; */
 }
+.body_wrapper {
+  width: 100%;
+  position: relative;
+  padding-left: 6%;
+}
+.bodyContainer {
+  width: 100%;
+  position: relative;
+}
 
+.home_panel {
+}
 /* ====================================================== */
 /* ------------- --------Sidebar------------------------ */
 /* ======================================================= */
 
 .sidebar-logo-section {
   width: 6%;
-  height: 100%;
+  position: fixed;
   display: flex;
   align-items: center;
   flex-direction: column;
   padding: 1.5rem 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  height: 100vh;
 }
 
 /* .logo-section {
@@ -60,9 +76,17 @@
 
 .recent-user-section {
   width: 20%;
+  flex: 0 0 auto;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 6%;
+}
+.recentPanel {
+  width: 100%;
+  overflow: hidden;
   padding: 1rem 1.35rem;
 }
-
 .icon {
   position: absolute;
   top: 10px;
@@ -229,8 +253,10 @@
 /* ------------- --------messages  Section------------------------ */
 /* ======================================================= */
 .messages-section {
-  width: 59%;
-  padding: 1rem 0rem;
+  width: 72%;
+  padding: 1rem;
+  overflow: hidden;
+  flex: 0 0 auto;
 }
 
 .user-name-status {
@@ -309,8 +335,10 @@
 /* ======================================================= */
 
 .media-section {
-  width: 21%;
+  width: 28%;
   padding: 1rem 1rem;
+  overflow: hidden;
+  flex: 0 0 auto;
 }
 
 .media-property-images {
@@ -343,4 +371,66 @@
 
 .medias-artice {
   margin: 0.8rem 0;
+}
+
+/* ------------------------------------------------------------------------------------ */
+
+/* ========================================icon-info-page =============================== */
+/* --------------------------------------------------------------------------------------- */
+
+.icon-info-page {
+  color: #081d34;
+  font-size: 1.5rem;
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border: none;
+}
+
+tbody,
+td {
+  width: 50%;
+}
+
+.orgnization-main-name {
+  font-size: 2.5rem;
+  letter-spacing: -1px;
+}
+
+/*== Home Page css ==*/
+.home_panel .recent-user-section {
+}
+.home_panel .messages-section {
+}
+.home_panel .media-section {
+}
+/* === Global Class == */
+.golbalChildSection {
+  padding-left: 21%;
+}
+.leftContainer {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+.global_panel {
+  width: 100%;
+  position: relative;
+}
+
+.global_panel .recent-user-section {
+}
+.global_panel .leftGlobal {
+  padding: 0px 15px;
+}
+
+.global_panel .info-page {
+  width: 75%;
+  margin: auto;
+  display: flex;
 }
