@@ -17,8 +17,6 @@
   position: relative;
 }
 
-.home_panel {
-}
 /* ====================================================== */
 /* ------------- --------Sidebar------------------------ */
 /* ======================================================= */
@@ -382,6 +380,30 @@
   color: #081d34;
   font-size: 1.5rem;
 }
+.tab-list-item {
+  padding: 1rem 1rem !important;
+  display: block;
+}
+.info-icon-wraper {
+  background-color: rgb(212, 211, 252);
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  line-height: 35px;
+  text-align: center;
+  font-size: 20px;
+  margin-right: 7px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.info-bar-icon {
+  color: #7b76cd;
+}
+
+.active-tab {
+  background-color: #e5ebf6;
+  border-radius: 0.6rem;
+}
 
 tbody,
 td,
@@ -402,35 +424,149 @@ td {
   letter-spacing: -1px;
 }
 
+.service-info-image {
+  border-radius: 0.6rem 0.6rem 0 0;
+}
+
+/* ========================================= */
+/* -----------service page ----------------- */
+/* ========================================= */
+
+.buttons-product-manipulate {
+  margin: 2rem 0;
+}
+.buttons-product-manipulate button {
+  margin-right: 1rem;
+  border: 1px solid #081d34;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.add-product {
+  background-color: #081d34;
+  color: white;
+  font-weight: 500;
+}
+
+.ant-tabs-nav {
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.4);
+  /* border-radius: 0.25rem; */
+  /* border: 1px solid #081d34; */
+  /* border: none; */
+  padding: 0 3rem;
+
+  /* position: relative; */
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #081d34 !important;
+}
+.ant-tabs-tab-btn {
+  font-size: 1rem;
+  color: #62696f;
+}
+
+.ant-tabs-tab-btn:hover {
+  color: #081d34 !important;
+}
+
+.ant-tabs-ink-bar {
+  position: absolute;
+  background-color: #081d34;
+  pointer-events: none;
+}
+
+.tablist-product {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.product {
+  border: 1px solid #081d34;
+  border-radius: 0.3rem;
+  overflow: auto;
+}
+
 /*== Home Page css ==*/
-.home_panel .recent-user-section {
+/* .home_panel .recent-user-section {
 }
 .home_panel .messages-section {
 }
 .home_panel .media-section {
-}
+} */
 /* === Global Class == */
 .golbalChildSection {
-  padding-left: 21%;
+  padding-left: 21.2%;
 }
 .leftContainer {
   width: 100%;
   position: relative;
-  display: flex;
+  /* display: flex; */
+  /* padding-left: 15px; */
+  padding-right: 15px;
+  flex-direction: row;
+  height: 100vh;
 }
 .global_panel {
   width: 100%;
   position: relative;
 }
 
-.global_panel .recent-user-section {
-}
-.global_panel .leftGlobal {
+/* .global_panel .recent-user-section {
+} */
+/* .global_panel .leftGlobal {
   padding: 0px 15px;
-}
+} */
 
 .global_panel .info-page {
   width: 75%;
   margin: auto;
   display: flex;
+}
+
+/* ============================================================== */
+/* ---------------------addd product------------------------- */
+/* ==================================================== */
+.drag-photo-section {
+  position: relative;
+  width: 100%;
+}
+.pick-photo {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px dashed #62696f;
+}
+
+/* ===form ==== */
+.form-section {
+  margin: 2rem 0;
+}
+
+.form-section .input-field {
+  margin: 1rem 0;
+}
+
+/* =============================services setting pages=========================== */
+.setting-services-section {
+  border: 1px solid #e8e8e9;
+  border-radius: 0.6rem;
+  overflow: hidden;
+}
+
+.category-display-section .company-type {
+  background-color: #e8e8e9;
+  overflow: hidden;
+}
+.category-item {
+  border-bottom: 1px solid #e8e8e9;
+}
+
+.add-category-btn {
+  color: #7b76cd;
 }
