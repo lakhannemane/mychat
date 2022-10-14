@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div className="chat-app d-flex home_panel golbalChildSection">
       <RecentSection userData={userData} setUserData={setUserData} />
-      <div className="leftContainer">
+      <div className="leftContainer d-flex">
         <ChatSection userData={userData} setUserData={setUserData} />
         <MediaSection />
       </div>
