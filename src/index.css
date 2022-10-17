@@ -171,6 +171,10 @@ body {
   color: #585a5c !important;
 }
 
+.chativa-common {
+  color: #7b76cd;
+}
+
 .chativa-danger {
   color: #e34a4a;
 }
@@ -224,4 +228,27 @@ input {
 
 #chatscrollbar::-webkit-scrollbar {
   display: none;
+}
+
+::placeholder {
+  color: #081d34;
+}
+
+/*============================== buttons ===========================*/
+
+.chativa-btn {
+  font-weight: 500;
+  font-size: 1.02rem;
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border: none;
+  border: 1px solid #aeb3c2;
+}
+.chativa-btn-primary {
+  color: white;
+  background-color: #7b76cd;
+  border: 1px solid #7b76cd;
+  outline: none;
+
+  padding: 0.5rem 0.9rem;
 }

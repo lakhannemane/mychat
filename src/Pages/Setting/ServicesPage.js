@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   MdOutlineEdit,
   MdOutlineMoreTime,
@@ -22,12 +22,27 @@ import { useLinkClickHandler } from "react-router-dom";
 import { Tabs } from "antd";
 import AddProduct from "./Models/AddProduct";
 import Services from "./SettingPages/Services";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCategoryList } from "../../Store/Slices/getCategorySlice";
 
 const ServicesPage = ({ activeSetting, setActiveSetting }) => {
+
+
+  const dispatch = useDispatch()
+  const { category, status } = useSelector(state => state.category)
+
+  console.log("data values are there", category)
+  console.log("data values are there", status)
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
   };
+
+  useEffect(() => {
+    // if (status === "loading") {
+    dispatch(fetchCategoryList())
+    // }
+  }, [dispatch])
   return (
     <div className="chativa-bg-chat leftGlobal leftContainer py-4">
       <div className="row justify-content-center">
@@ -54,7 +69,7 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
                         Developement company in India
                       </h5>
                       <p>
-                        <MdOutlineEdit />
+                        <MdOutlineEdit className="chativa-fs-a" />
                       </p>
                     </div>
 
@@ -62,7 +77,7 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
                     <div className="orgnization-display-name d-flex justify-content-between mx-3">
                       <p className="chativa-primary">Software company</p>
                       <p>
-                        <MdOutlineEdit />
+                        <MdOutlineEdit className="chativa-fs-a" />
                       </p>
                     </div>
 
@@ -87,7 +102,7 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
                         </div>
                         <div className="col-1 text-end">
                           <p>
-                            <MdOutlineEdit />
+                            <MdOutlineEdit className="chativa-fs-a" />
                           </p>
                         </div>
                       </div>
@@ -106,7 +121,7 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
                         </div>
                         <div className="col-lg-1 text-end">
                           <p>
-                            <MdOutlineEdit />
+                            <MdOutlineEdit className="chativa-fs-a" />
                           </p>
                         </div>
                       </div>
@@ -148,7 +163,7 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
                         </div>
                         <div className="col-1 text-end">
                           <p>
-                            <MdOutlineEdit />
+                            <MdOutlineEdit className="chativa-fs-a" />
                           </p>
                         </div>
                       </div>
@@ -166,7 +181,7 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
                         </div>
                         <div className="col-lg-1 text-end">
                           <p>
-                            <MdOutlineEdit />
+                            <MdOutlineEdit className="chativa-fs-a" />
                           </p>
                         </div>
                       </div>
@@ -208,7 +223,7 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
                         </div>
                         <div className="col-1 text-end">
                           <p>
-                            <MdOutlineEdit />
+                            <MdOutlineEdit className="chativa-fs-a" />
                           </p>
                         </div>
                       </div>
@@ -227,7 +242,7 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
                         </div>
                         <div className="col-lg-1 text-end">
                           <p>
-                            <MdOutlineEdit />
+                            <MdOutlineEdit className="chativa-fs-a" />
                           </p>
                         </div>
                       </div>
@@ -246,7 +261,7 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
                         </div>
                         <div className="col-lg-1 text-end">
                           <p>
-                            <MdOutlineEdit />
+                            <MdOutlineEdit className="chativa-fs-a" />
                           </p>
                         </div>
                       </div>
@@ -267,7 +282,7 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
                         </div>
                         <div className="col-lg-1 text-end">
                           <p>
-                            <MdOutlineEdit />
+                            <MdOutlineEdit className="chativa-fs-a" />
                           </p>
                         </div>
                       </div>
@@ -291,7 +306,7 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
                         </div>
                         <div className="col-lg-1 text-end">
                           <p>
-                            <MdOutlineEdit />
+                            <MdOutlineEdit className="chativa-fs-a" />
                           </p>
                         </div>
                       </div>
@@ -314,7 +329,7 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
                         </div>
                         <div className="col-lg-1 text-end">
                           <p>
-                            <MdOutlineEdit />
+                            <MdOutlineEdit className="chativa-fs-a" />
                           </p>
                         </div>
                       </div>
@@ -345,7 +360,7 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
                         </div>
                         <div className="col-lg-1 text-end">
                           <p>
-                            <MdOutlineEdit />
+                            <MdOutlineEdit className="chativa-fs-a" />
                           </p>
                         </div>
                       </div>
@@ -379,7 +394,7 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
                         </div>
                         <div className="col-lg-1 text-end  my-4">
                           <p>
-                            <MdOutlineEdit />
+                            <MdOutlineEdit className="chativa-fs-a" />
                           </p>
                         </div>
                       </div>
@@ -412,7 +427,7 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
                         </div>
                         <div className="col-lg-1 text-end">
                           <p>
-                            <MdOutlineEdit />
+                            <MdOutlineEdit className="chativa-fs-a" />
                           </p>
                         </div>
                       </div>
@@ -431,7 +446,7 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
                         </div>
                         <div className="col-lg-1 text-end">
                           <p>
-                            <MdOutlineEdit />
+                            <MdOutlineEdit className="chativa-fs-a" />
                           </p>
                         </div>
                       </div>
@@ -450,7 +465,7 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
                         </div>
                         <div className="col-lg-1 text-end">
                           <p>
-                            <MdOutlineEdit />
+                            <MdOutlineEdit className="chativa-fs-a" />
                           </p>
                         </div>
                       </div>
@@ -482,7 +497,7 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
 
               </div> : activeSetting.name === "services" ?
                 <div className="row">
-                  <div className="col-12">
+                  <div className="col-12 ">
                     <Services />
                   </div>
                 </div> : activeSetting.name === "product" ?
@@ -500,60 +515,106 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
                         </div>
 
                         <div className="buttons-product-manipulate ">
-                          <button className="add-product" onClick={showModal}> Add Product</button>
-                          <button className="bg-white"> <IoEyeOutline className="me-2 " />see it on Google</button>
+                          <button className="chativa-btn chativa-btn-primary" onClick={showModal}> Add Product</button>
+                          <button className=" chativa-btn"> <IoEyeOutline className="me-2 " />see it on Google</button>
 
                         </div>
                         <div className="tablist-product ">
                           <div className="tablist-product-menu">
                             <Tabs defaultActiveKey="1">
                               <Tabs.TabPane tab="All Products" key="1">
-                                <div className="row">
-                                  <div className="col-3">
-                                    <div className="product ">
-                                      <div className="product-image">
-                                        <img src="https://thumbs.dreamstime.com/b/software-development-business-process-automation-internet-technology-concept-virtual-screen-software-development-143587196.jpg" alt="" width="100%" />
-                                      </div>
-                                      <div className="hedaing-pricing px-2">
-                                        <h5 className="headiing-name  ">
-                                          Brantford Project
-                                        </h5>
-                                        <p>$29.34</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div className="col-3">
-                                    <div className="product ">
-                                      <div className="product-image">
-                                        <img src="https://thumbs.dreamstime.com/b/software-development-business-process-automation-internet-technology-concept-virtual-screen-software-development-143587196.jpg" alt="" width="100%" />
-                                      </div>
-                                      <div className="hedaing-pricing px-2">
-                                        <h5 className="headiing-name">
-                                          Brantford Project
-                                        </h5>
-                                        <p>$29.34</p>
+                                <div className="row-for-product">
+
+                                  <div className="row">
+                                    <div className="col-3 ">
+
+                                      <div className="product ">
+                                        <div className="product-image">
+                                          <img src="https://images.unsplash.com/photo-1573165231859-48b6a66b8b1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="" width="100%" />
+                                        </div>
+                                        <div className="hedaing-pricing px-2 pt-2">
+                                          <h5 className="headiing-name chativa-fourth chativa-fs-b chativa-fw-4 ">
+                                            Brantford Project
+                                          </h5>
+                                          <p className="chativa-fs-a pt-2 chativa-common chativa-fw-7">$29.34 - $33.33</p>                                      </div>
                                       </div>
                                     </div>
-                                  </div><div className="col-3">
-                                    <div className="product ">
-                                      <div className="product-image">
-                                        <img src="https://thumbs.dreamstime.com/b/software-development-business-process-automation-internet-technology-concept-virtual-screen-software-development-143587196.jpg" alt="" width="100%" />
+                                    <div className="col-3">
+                                      <div className="product ">
+                                        <div className="product-image">
+                                          <img src="https://images.unsplash.com/photo-1573165231859-48b6a66b8b1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="" width="100%" />
+                                        </div>
+                                        <div className="hedaing-pricing px-2 pt-2">
+                                          <h5 className="headiing-name chativa-fourth chativa-fs-b chativa-fw-4">
+                                            Chativa Project
+                                          </h5>
+                                          <p className="chativa-fs-a pt-2 chativa-common chativa-fw-7">$12.34 - $20.33</p>                                      </div>
                                       </div>
-                                      <div className="hedaing-pricing px-2">
-                                        <h5 className="headiing-name">
-                                          Brantford Project
-                                        </h5>
-                                        <p>$29.34</p>
+                                    </div><div className="col-3">
+                                      <div className="product ">
+                                        <div className="product-image">
+                                          <img src="https://images.unsplash.com/photo-1573165231859-48b6a66b8b1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="" width="100%" />
+                                        </div>
+                                        <div className="hedaing-pricing px-2 pt-2">
+                                          <h5 className="headiing-name chativa-fourth chativa-fs-b chativa-fw-4">
+                                            Royle Court Project
+                                          </h5>
+                                          <p className="chativa-fs-a pt-2 chativa-common chativa-fw-7">$25.34 - $30.33</p>
+                                        </div>
                                       </div>
                                     </div>
+                                    <div className="col-3">
+                                      <div className="product ">
+                                        <div className="product-image">
+                                          <img src="https://images.unsplash.com/photo-1573165231859-48b6a66b8b1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="" width="100%" />
+                                        </div>
+                                        <div className="hedaing-pricing px-2 pt-2">
+                                          <h5 className="headiing-name chativa-fourth chativa-fs-b chativa-fw-4">
+                                            Royle Court Project
+                                          </h5>
+                                          <p className="chativa-fs-a pt-2 chativa-common  chativa-fw-7">$25.34 - $30.33</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div className="col-3">
+                                      <div className="product ">
+                                        <div className="product-image">
+                                          <img src="https://images.unsplash.com/photo-1573165231859-48b6a66b8b1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="" width="100%" />
+                                        </div>
+                                        <div className="hedaing-pricing px-2 pt-2">
+                                          <h5 className="headiing-name chativa-fourth chativa-fs-b chativa-fw-4">
+                                            Royle Court Project
+                                          </h5>
+                                          <p className="chativa-fs-a pt-2 chativa-common  chativa-fw-7">$25.34 - $30.33</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div className="col-3">
+                                      <div className="product ">
+                                        <div className="product-image">
+                                          <img src="https://images.unsplash.com/photo-1573165231859-48b6a66b8b1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="" width="100%" />
+                                        </div>
+                                        <div className="hedaing-pricing px-2 pt-2">
+                                          <h5 className="headiing-name chativa-fs-b chativa-fw-4">
+                                            Royle Court Project
+                                          </h5>
+                                          <p className="chativa-fs-a pt-2 chativa-common  chativa-fw-7">$25.34 - $30.33</p>
+                                        </div>
+                                      </div>
+                                    </div>
+
                                   </div>
                                 </div>
                               </Tabs.TabPane>
-                              <Tabs.TabPane tab="Product for Review" key="2">
-                                Content of Tab Pane 2
+                              <Tabs.TabPane tab="Software " key="2">
+                                <div className="row-for-product">
+                                  content-second
+                                </div>
                               </Tabs.TabPane>
-                              <Tabs.TabPane tab="Product" key="3">
-                                Content of Tab Pane 3
+                              <Tabs.TabPane tab="All" key="3">
+                                <div className="row-for-product">
+                                  contet third
+                                </div>
                               </Tabs.TabPane>
                             </Tabs>
                           </div>
@@ -574,10 +635,26 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
 
 
 
+          {/* =====================footer============= */}
+          <div className="row justify-content-center">
+            <div className="col-5">
+              <div className="row">
+                <div className="col-12">
+                  <div className="footer d-flex justify-content-between pt-5 position-sticky">
+                    <p className="copyright">&copy;2022 Googgle </p>
+                    <p className="copyright">Terms </p>
+                    <p className="copyright">Privacy & policy </p>
+                    <p className="copyright">Contact Policy</p>
+                    <p className="copyright">Help</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
 
         </div>
         <AddProduct isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
-
       </div>
 
     </div>

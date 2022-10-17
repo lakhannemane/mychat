@@ -5,7 +5,8 @@ import { HiChevronRight } from "react-icons/hi";
 const Services = () => {
     return (
 
-        <div className="setting-services-section ">
+        <div className="setting-services-section">
+
             <div className="category-display-section ">
 
                 <div className="company-type px-3 py-3">
@@ -13,15 +14,13 @@ const Services = () => {
                     <p className="sub-heaading-services">
                         primary category
                     </p>
-
-
                 </div>
 
                 <div className="categories-list-name-decription">
                     <ul className="list-unstyled">
 
                         <li className="category-item">
-                            <div className="first-category px-3 py-3 d-flex justify-content-between ">
+                            <div className="first-category px-3 py-3 d-flex justify-content-between align-items-center">
                                 <div className="category-item-detail flex-grow">
 
                                     <h5 className="category-name">Application developement</h5>
@@ -35,7 +34,7 @@ const Services = () => {
                         </li>
 
                         <li className="category-item">
-                            <div className="first-category px-3 py-3 d-flex justify-content-between ">
+                            <div className="first-category px-3 py-3 d-flex justify-content-between align-items-center">
                                 <div className="category-item-detail flex-grow">
 
                                     <h5 className="category-name">Big data consulting & Implementation</h5>
@@ -46,7 +45,7 @@ const Services = () => {
                             </div>
                         </li>
                         <li className="category-item">
-                            <div className="first-category px-3 py-3 d-flex justify-content-between ">
+                            <div className="first-category px-3 py-3 d-flex justify-content-between align-items-center">
                                 <div className="category-item-detail flex-grow">
 
                                     <h5 className="category-name">Bussiness to Bussiness</h5>
@@ -57,7 +56,7 @@ const Services = () => {
                             </div>
                         </li>
                         <li className="category-item">
-                            <div className="first-category px-3 py-3 d-flex justify-content-between ">
+                            <div className="first-category px-3 py-3 d-flex justify-content-between  align-items-center">
                                 <div className="category-item-detail flex-grow">
 
                                     <h5 className="category-name">Cloud Services</h5>
@@ -69,7 +68,7 @@ const Services = () => {
                         </li>
 
                         <li className="category-item">
-                            <div className="first-category px-3 py-3 d-flex justify-content-between ">
+                            <div className="first-category px-3 py-3 d-flex justify-content-between align-items-center">
                                 <div className="category-item-detail flex-grow">
 
                                     <h5 className="category-name">Computer Upgrades</h5>
@@ -81,7 +80,7 @@ const Services = () => {
                         </li>
 
                         <li className="category-item">
-                            <div className="first-category px-3 py-3 d-flex justify-content-between ">
+                            <div className="first-category px-3 py-3 d-flex justify-content-between align-items-center">
                                 <div className="category-item-detail flex-grow">
 
                                     <h5 className="category-name">Date Center Management</h5>
@@ -92,7 +91,7 @@ const Services = () => {
                             </div>
                         </li>
                         <li className="category-item">
-                            <div className="first-category px-3 py-3 d-flex justify-content-between ">
+                            <div className="first-category px-3 py-3 d-flex justify-content-between align-items-center">
                                 <div className="category-item-detail flex-grow">
 
                                     <h5 className="category-name">EnterPrices Software developrment</h5>
@@ -104,7 +103,7 @@ const Services = () => {
                             </div>
                         </li>
                         <li className="category-item">
-                            <div className="first-category px-3 py-3 d-flex justify-content-between ">
+                            <div className="first-category px-3 py-3 d-flex justify-content-between align-items-center">
                                 <div className="category-item-detail flex-grow">
 
                                     <h5 className="category-name">Application developement</h5>
@@ -116,7 +115,7 @@ const Services = () => {
                             </div>
                         </li>
                         <li className="category-item">
-                            <div className="first-category px-3 py-3 d-flex justify-content-between ">
+                            <div className="first-category px-3 py-3 d-flex justify-content-between align-items-center">
                                 <div className="category-item-detail flex-grow">
 
                                     <h5 className="category-name">Application developement</h5>
@@ -146,14 +145,17 @@ const Services = () => {
 
                     </ul>
 
-                    <div className="add-category px-3">
+                    <div className=" px-3">
                         <div className="content-of-category">
                             <h5 className="add-category-btn ">
-                                <BsPlusLg /> Add another Services
+                                <BsPlusLg /> Add Another Services
                             </h5>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="add-anthor-category py-4">
+                <button className="chativa-btn chativa-common">Add another bussiness category</button>
             </div>
         </div>
     );
