@@ -51,10 +51,10 @@ const Users = [
 const ChatMenuPage = ({ activeSetting, setActiveSetting }) => {
     const [portalActive, setPortalActive] = useState({ media: "google" });
 
-    console.log(activeSetting)
+    console.log(activeSetting);
 
     return (
-        <div className="recent-user-section chativa-bg-recent" >
+        <div className="recent-user-section chativa-bg-recent">
             {/* title */}
 
             <div className="recentPanel">
@@ -71,7 +71,6 @@ const ChatMenuPage = ({ activeSetting, setActiveSetting }) => {
                                 }
                                 onClick={() => setPortalActive({ media: "google" })}
                             >
-
                                 <div className="portal chativa-br d-flex align-items-center justify-content-center">
                                     <i className="fa-brands fa-google "></i>
                                 </div>
@@ -87,7 +86,6 @@ const ChatMenuPage = ({ activeSetting, setActiveSetting }) => {
                                 }
                                 onClick={() => setPortalActive({ media: "linkdein" })}
                             >
-
                                 <div className="portal  chativa-br d-flex align-items-center justify-content-center">
                                     <i className="fa-brands fa-linkedin-in"></i>
                                 </div>
@@ -108,15 +106,8 @@ const ChatMenuPage = ({ activeSetting, setActiveSetting }) => {
                             </div>
                         </li>
                         <li className="nav-item">
-                            <div
-                                className={
-                                    portalActive.media === "facebook"
-                                        ? "new-item position-relative"
-                                        : " one-portal position-relative  chativa-primary "
-                                }
-                                onClick={() => setPortalActive({ media: "facebook" })}
-                            >
-                                <div className="portal chativa-br d-flex align-items-center justify-content-center">
+                            <div>
+                                <div className="portal chativa-br d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Add new Portal">
                                     <BsPlusLg />
                                 </div>
                             </div>
@@ -129,32 +120,69 @@ const ChatMenuPage = ({ activeSetting, setActiveSetting }) => {
 
                 <div className="menu-options">
                     <ul className="list-unstyled tab-list">
-                        <li className={activeSetting.name === "info" ? "active-tab tab-list-item chativa-fs-a chativa-fw-5 " : "tab-list-item chativa-fs-a chativa-fw-5   "} onClick={() => setActiveSetting({ id: 1, name: "info" })}> <span className="info-icon-wraper"><MdOutlineStore className="info-bar-icon " /> </span>Info</li>
-                        <li className={activeSetting.name === "services" ? "active-tab tab-list-item chativa-fs-a chativa-fw-5  " : "tab-list-item chativa-fs-a chativa-fw-5 "} onClick={() => setActiveSetting({ id: 2, name: "services" })}>  <span className="info-icon-wraper"> <MdOutlineDesignServices className="info-bar-icon" /></span>Services</li>
-                        <li className={activeSetting.name === "product" ? "active-tab tab-list-item chativa-fs-a chativa-fw-5  " : "tab-list-item chativa-fs-a chativa-fw-5 "} onClick={() => setActiveSetting({ id: 3, name: "product" })}> <span className="info-icon-wraper"><IoBasketOutline className="info-bar-icon" /></span>  Products</li>
-                        <li className={activeSetting.name === "bussinesSetting" ? "active-tab tab-list-item chativa-fs-a chativa-fw-5  " : "tab-list-item chativa-fs-a chativa-fw-5 "} onClick={() => setActiveSetting({ id: 4, name: "bussinesSetting" })}> <span className="info-icon-wraper"><GoSettings className="info-bar-icon" /></span>  Bussiness Setting</li>
+                        <li
+                            className={
+                                activeSetting.name === "info"
+                                    ? "active-tab tab-list-item chativa-fs-a chativa-fw-5 "
+                                    : "tab-list-item chativa-fs-a chativa-fw-5   "
+                            }
+                            onClick={() => setActiveSetting({ id: 1, name: "info" })}
+                        >
+                            {" "}
+                            <span className="info-icon-wraper">
+                                <MdOutlineStore className="info-bar-icon " />{" "}
+                            </span>
+                            Info
+                        </li>
+                        <li
+                            className={
+                                activeSetting.name === "services"
+                                    ? "active-tab tab-list-item chativa-fs-a chativa-fw-5  "
+                                    : "tab-list-item chativa-fs-a chativa-fw-5 "
+                            }
+                            onClick={() => setActiveSetting({ id: 2, name: "services" })}
+                        >
+                            {" "}
+                            <span className="info-icon-wraper">
+                                {" "}
+                                <MdOutlineDesignServices className="info-bar-icon" />
+                            </span>
+                            Services
+                        </li>
+                        <li
+                            className={
+                                activeSetting.name === "product"
+                                    ? "active-tab tab-list-item chativa-fs-a chativa-fw-5  "
+                                    : "tab-list-item chativa-fs-a chativa-fw-5 "
+                            }
+                            onClick={() => setActiveSetting({ id: 3, name: "product" })}
+                        >
+                            {" "}
+                            <span className="info-icon-wraper">
+                                <IoBasketOutline className="info-bar-icon" />
+                            </span>{" "}
+                            Products
+                        </li>
+                        <li
+                            className={
+                                activeSetting.name === "bussinesSetting"
+                                    ? "active-tab tab-list-item chativa-fs-a chativa-fw-5  "
+                                    : "tab-list-item chativa-fs-a chativa-fw-5 "
+                            }
+                            onClick={() =>
+                                setActiveSetting({ id: 4, name: "bussinesSetting" })
+                            }
+                        >
+                            {" "}
+                            <span className="info-icon-wraper">
+                                <GoSettings className="info-bar-icon" />
+                            </span>{" "}
+                            Bussiness Setting
+                        </li>
                     </ul>
                 </div>
 
-                {/* recent users */}
-                {/* <div
-                    className="recent w-100 position-relative"
-                    style={{ top: "-15px" }}
-                >
-                    <div className="recent-title-section">
-                        <p className="chativa-fs-b chativa-fw-5 chativa-secondary"></p>
-                    </div>
 
-                    {portalActive.media === "google"
-                        ? "Google"
-                        : portalActive.media === "linkdein"
-                            ? "linkdain"
-                            : portalActive.media === "Instagram"
-                                ? "linkdain"
-                                : portalActive.media === "facebook"
-                                    ? "linkdain"
-                                    : ""}
-                </div> */}
             </div>
         </div>
     );

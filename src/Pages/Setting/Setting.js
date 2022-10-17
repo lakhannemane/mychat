@@ -10,7 +10,7 @@ const Setting = () => {
   });
 
   return (
-    <div class="global_panel golbalChildSection d-flex">
+    <div className="global_panel golbalChildSection d-flex">
       <ChatMenuPage
         activeSetting={activeSetting}
         setActiveSetting={setActiveSetting}
