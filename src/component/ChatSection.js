@@ -5,10 +5,10 @@ import {
   BsCameraVideo,
   BsSearch,
 } from "react-icons/bs";
-import { BiMicrophone } from "react-icons/bi";
+import { BiMicrophone, BiUserCircle } from "react-icons/bi";
 import { GrSend } from "react-icons/gr";
 import { ImAttachment } from "react-icons/im";
-import { IoCheckmarkDoneSharp } from "react-icons/io5";
+import { IoCheckmarkDoneSharp, IoSettingsOutline } from "react-icons/io5";
 import { Dropdown, Menu } from "antd";
 import { NavLink } from "react-router-dom";
 
@@ -34,11 +34,11 @@ const ChatSection = ({ userData }) => {
         },
         {
           key: "2",
-          label: <NavLink to="/chat">profile</NavLink>,
+          label: <NavLink to="/chat"><span className="chat-header-seeting-icon"><BiUserCircle className="setting-icon " /></span> &nbsp;profile</NavLink>,
         },
         {
           key: "3",
-          label: <NavLink to="/setting">Setting</NavLink>,
+          label: <NavLink to="/setting"> <span className="chat-header-seeting-icon"><IoSettingsOutline className="setting-icon" /></span> Setting</NavLink>,
         },
       ]}
     />

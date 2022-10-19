@@ -155,11 +155,22 @@
   top: -8px;
 }
 
+.chat-user-recent {
+  display: block;
+  padding: 0.6rem 0.6rem;
+}
+
 .active-user {
   background-color: #e5ebf6;
   border-radius: 0.6rem;
+  /* padding: 0.3rem 0.8rem; */
   width: 100%;
+}
+
+.recent-user-list {
   padding: 0.3rem 0.8rem;
+  overflow: auto;
+  display: block;
 }
 .user-item {
   margin: 0.6rem 0;
@@ -259,6 +270,27 @@
 
 .user-name-status {
   border-bottom: 1px solid rgba(88, 90, 92, 0.41);
+}
+
+.chat-header-seeting-icon {
+  background-color: rgb(212, 211, 252);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 100%;
+  line-height: 35px;
+  position: relative;
+
+  text-align: center;
+  font-size: 1rem;
+  margin-right: 7px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.setting-icon {
+  position: absolute;
+  top: 0.273rem;
+  right: 0.23rem;
 }
 
 .msg {
