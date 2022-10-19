@@ -1,9 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import categoryReducer from "./Slices/getCategorySlice";
+import serviceReducer from "./Slices/serviceSlice";
+import totalHoursReducer from "./Slices/getTotalhoursSlice";
+import InfoReducer from "./Slices/getCategorySlice";
 
 const store = configureStore({
   reducer: {
-    category: categoryReducer,
+    Info: InfoReducer,
+    service: serviceReducer,
+    hours: totalHoursReducer,
   },
 });
 

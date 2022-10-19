@@ -1,11 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const Baseurl = "newmne";
-
-const fetchHours = createAsyncThunk("hours/fetchHours", async () => {
+export const fetchHours = createAsyncThunk("hours/fetchHours", async () => {
   try {
-    let response = axios.get(`${Baseurl}`);
+    let response = axios.get(
+      `https://mybusinessbusinessinformation.googleapis.com/v1/accounts/118375854560050713875/locations?readMask=regularHours`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("a_token")}`,
+        },
+      }
+    );
     return response.data;
   } catch (error) {
     console.log(error);
@@ -30,3 +35,5 @@ const getTotalHouersSlice = createSlice({
     },
   },
 });
+
+export default getTotalHouersSlice.reducer;

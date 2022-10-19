@@ -5,14 +5,15 @@ import {
   BsCameraVideo,
   BsSearch,
 } from "react-icons/bs";
-import { BiMicrophone } from "react-icons/bi";
+import { BiMicrophone, BiUserCircle } from "react-icons/bi";
 import { GrSend } from "react-icons/gr";
 import { ImAttachment } from "react-icons/im";
-import { IoCheckmarkDoneSharp } from "react-icons/io5";
+import { IoCheckmarkDoneSharp, IoSettingsOutline } from "react-icons/io5";
+import { Dropdown, Menu } from "antd";
+import { NavLink } from "react-router-dom";
 
 const ChatSection = ({ userData }) => {
-
-  console.log("chatsection data in chat page", userData)
+  console.log("chatsection data in chat page", userData);
   const [message, setMessage] = useState();
   const onChangeValue = (e) => {
     console.log(e.target.value);
@@ -23,6 +24,25 @@ const ChatSection = ({ userData }) => {
   const onSubminValues = (e) => {
     e.preventDefault();
   };
+
+  const menu = (
+    <Menu
+      items={[
+        {
+          key: "1",
+          label: <a target="/chat">Home</a>,
+        },
+        {
+          key: "2",
+          label: <NavLink to="/chat"><span className="chat-header-seeting-icon"><BiUserCircle className="setting-icon " /></span> &nbsp;profile</NavLink>,
+        },
+        {
+          key: "3",
+          label: <NavLink to="/setting"> <span className="chat-header-seeting-icon"><IoSettingsOutline className="setting-icon" /></span> Setting</NavLink>,
+        },
+      ]}
+    />
+  );
   return (
     <>
       <div className="messages-section chativa-bg-chat ">
@@ -69,7 +89,9 @@ const ChatSection = ({ userData }) => {
                       <BsCameraVideo className="chativa-fs-b chativa-extra" />
                     </div>
                     <div className="dots user-header-icons">
-                      <BsThreeDots className="chativa-fs-b chativa-extra" />
+                      <Dropdown overlay={menu} placement="bottomRight">
+                        <BsThreeDots className="chativa-fs-b chativa-extra" />
+                      </Dropdown>
                     </div>
                   </div>
                 </div>
@@ -110,7 +132,10 @@ const ChatSection = ({ userData }) => {
               <div className=" w-75 ms-auto d-flex justify-content-end ">
                 <div className="your-message">
                   <p className="you chativa-secondarychativa-fs-a">
-                    Hello, Mark I’m fine thank you how are you{" "}<span><IoCheckmarkDoneSharp style={{ color: "#32a7ff" }} /></span>
+                    Hello, Mark I’m fine thank you how are you{" "}
+                    <span>
+                      <IoCheckmarkDoneSharp style={{ color: "#32a7ff" }} />
+                    </span>
                   </p>
                 </div>
               </div>
@@ -145,7 +170,10 @@ const ChatSection = ({ userData }) => {
               <div className="w-75 ms-auto d-flex justify-content-end">
                 <div className="your-message">
                   <p className="you chativa-secondarychativa-fs-a ">
-                    Hello, Mark I’m fine thank you how are you{" "} <span><IoCheckmarkDoneSharp style={{ color: "#32a7ff" }} /></span>
+                    Hello, Mark I’m fine thank you how are you{" "}
+                    <span>
+                      <IoCheckmarkDoneSharp style={{ color: "#32a7ff" }} />
+                    </span>
                   </p>
                 </div>
               </div>
