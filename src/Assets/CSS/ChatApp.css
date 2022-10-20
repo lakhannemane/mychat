@@ -634,3 +634,31 @@ select option {
 .add-category-btn {
   color: #7b76cd;
 }
+
+/* ===================================================================== */
+/* --------------------------login page--------------------------------- */
+/* ===================================================================== */
+.login-form {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-top: 12rem;
+}
+.login_form_section {
+  padding: 2rem;
+}
+.login_Card_Google {
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid #081d34; */
+  border-radius: 0.6rem;
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1);
+}
+
+.form-login {
+  padding: 3rem 0 5rem 0;
+}
+
+.field-input {
+  margin: 1rem 0;
+}
