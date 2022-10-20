@@ -1,11 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Activity from "./Pages/Activity/Activity";
 import Chat from "./Pages/Chat";
+import Dashbord from "./Pages/Dashbord/Dashbord";
 import Home from "./Pages/Home";
+import Login from "./Pages/Login/Login";
 import Setting from "./Pages/Setting/Setting";
 
 localStorage.setItem(
   "a_token",
-  "ya29.a0Aa4xrXPRJ71kwHZgAtM8qo_GdZYatjaeko3aIB2xfvGr05g2MJRqsX8aJNRPGJqZy3mkleXu0X2eKZ0Efmw6kLM0RDCzOo5EL4kmFDBeMFFhPcTZhdDDX4QTE39VZqTIxIFJmXh1bWfuOq41Sajr-b4PjTaubAaCgYKATASARISFQEjDvL9UQrfY0vpEdx163_yR9Ne3w0165"
+  "ya29.a0Aa4xrXNe6_ggql1aLUYEHrClOF9vHUNrPSb4HjDOHOJ9VsmO5WsSBoLY9ML2ozFZwzEmWL9SqJtWs2-cDeZvVcVPpllI2oNa9tn5-88UjO0s7TTgUyh8L-Z941iti3datUx13xSNcHArbkfMvfTeOUjqVDPnkQaCgYKATASARISFQEjDvL9ndKvVBMzRHZ9Qo_IzyrAEQ0165"
 );
 
 function App() {
@@ -13,8 +16,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/" element={<ApiCall />} /> */}
-          <Route path="/dashbord" element={<Chat />}></Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashbord" element={<Dashbord />}></Route>
+          <Route path="/activity" element={<Activity />}></Route>
           <Route path="/chat" element={<Home />}></Route>
           <Route path="/setting" element={<Setting />} />
         </Routes>

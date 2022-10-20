@@ -12,7 +12,7 @@ const MediaSection = () => {
   return (
     <div className="media-section">
       <div className="user-name-status">
-        <div className="chat-user-recent px-3 my-2  ">
+        <div className="chat-user-recent px-3   ">
           <div className="d-flex align-items-center">
             <div className="chat-img-user align-self-center position-relative me-3">
               <img

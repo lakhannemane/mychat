@@ -65,9 +65,9 @@ const RecentSection = ({ userData, setUserData }) => {
     console.log("handle submit values ");
   };
   const onSetvalues = (e) => {
-    console.log("values name of handleChage is ", e.target.name);
-    console.log("handle chnage value ");
-    console.log("values name of handleChage is ", e.target.values);
+    // console.log("values name of handleChage is ", e.target.name);
+    // console.log("handle chnage value ");
+    // console.log("values name of handleChage is ", e.target.values);
     const data = Users.filter((ele, index) => {
       return ele.name.toLowerCase().includes(e.target.value);
     });
