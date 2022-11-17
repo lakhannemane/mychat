@@ -4,9 +4,15 @@ import { AiOutlineLogout, AiOutlineDashboard } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
 import { BsChatDots } from "react-icons/bs";
 import { TbClipboardList } from "react-icons/tb";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+
+  const goLoginPage = () => {
+    navigate("/login");
+    localStorage.clear();
+  };
   return (
     <div className="sidebar-logo-section chativa-bg-primary">
       <div className="logo-section">
@@ -59,12 +65,15 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/logout" className="nav-link">
-              <div className="d-flex flex-column align-items-center">
-                <AiOutlineLogout className="chativa-fs-titles  mb-2" />
-                <p className="  chativa-fs-a">Log Out</p>
-              </div>
-            </NavLink>
+            {/* <NavLink to="/logout" className="nav-link"> */}
+            <div
+              className="d-flex flex-column align-items-center"
+              onClick={() => goLoginPage()}
+            >
+              <AiOutlineLogout className="chativa-fs-titles  mb-2" />
+              <p className="  chativa-fs-a">Log Out</p>
+            </div>
+            {/* </NavLink> */}
           </li>
         </ul>
       </div>

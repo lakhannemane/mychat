@@ -227,3 +227,7 @@ input {
 
   padding: 0.5rem 0.9rem;
 }
+
+.chativa-btn-primary:hover {
+  background-color: #8884d2;
+}

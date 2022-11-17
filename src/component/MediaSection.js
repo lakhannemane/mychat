@@ -37,7 +37,32 @@ const MediaSection = () => {
 
       {/* poratls section */}
 
-      <div className="poratls-section d-flex justify-content-between w-100">
+      <div className="poratls-section d-flex justify-content-between w-100 portal-scrollbar">
+        <ul className="list-unstyled  media-portal  align-items-center w-100">
+          <li>
+            <span>5</span>
+            <i className="fa-brands fa-google "></i>
+          </li>
+          <li>
+            <span>5</span>
+            <i className="fa-brands fa-linkedin-in"></i>
+          </li>
+          <li>
+            <span>5</span>
+            <i className="fa-brands fa-linkedin-in"></i>
+          </li>
+          <li>
+            <span>5</span>
+            <i className="fa-brands fa-linkedin-in"></i>
+          </li>
+          <li>
+            <span>5</span>
+            <i className="fa-brands fa-linkedin-in"></i>
+          </li>
+        </ul>
+      </div>
+
+      {/* <div className="poratls-section d-flex justify-content-between w-100">
         <div className="one-portal position-relative">
           <div className="google-message-notificaion">
             <p className="count-number text-white chativa-fw-5">5</p>
@@ -62,7 +87,7 @@ const MediaSection = () => {
         >
           {/* <FontAwesomeIcon icon="fa-regular fa-stopwatch" />
            */}
-          <MdTimer />
+      {/* <MdTimer />
         </div>
 
         <div
@@ -72,25 +97,25 @@ const MediaSection = () => {
           onClick={() => setActiveMedia({ id: 3, Notes: "media notes" })}
         >
           <BiNote />
-        </div>
+        </div> */}
 
-        <div
-          className={`${
-            activeMedia.id === 4 ? "active-potal" : ""
-          } portal  chativa-br d-flex align-items-center justify-content-center`}
-          onClick={() => setActiveMedia({ id: 4, calender: "media calender" })}
-        >
-          <i className="fa-regular fa-calendar-days"></i>
-        </div>
-        <div
-          className={`${
-            activeMedia.id === 5 ? "active-potal" : ""
-          }   portal  chativa-br d-flex align-items-center justify-content-center`}
-          onClick={() => setActiveMedia({ id: 5, media: "media file" })}
-        >
-          <i className="fa-regular fa-images"></i>
-        </div>
-      </div>
+      {/* //   <div */}
+      {/* //     className={`${ */}
+      {/* //       activeMedia.id === 4 ? "active-potal" : ""
+      //     } portal  chativa-br d-flex align-items-center justify-content-center`}
+      //     onClick={() => setActiveMedia({ id: 4, calender: "media calender" })}
+      //   >
+      //     <i className="fa-regular fa-calendar-days"></i>
+      //   </div> */}
+      {/* //   <div */}
+      {/* //     className={`${ */}
+      {/* //       activeMedia.id === 5 ? "active-potal" : ""
+      //     }   portal  chativa-br d-flex align-items-center justify-content-center`}
+      //     onClick={() => setActiveMedia({ id: 5, media: "media file" })}
+      //   >
+      //     <i className="fa-regular fa-images"></i>
+      //   </div> */}
+      {/* // </div> */}
 
       {/* media file and links  */}
 

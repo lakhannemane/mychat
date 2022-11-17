@@ -68,6 +68,7 @@ const RecentSection = ({ userData, setUserData }) => {
     // console.log("values name of handleChage is ", e.target.name);
     // console.log("handle chnage value ");
     // console.log("values name of handleChage is ", e.target.values);
+    setName(e.target.value);
     const data = Users.filter((ele, index) => {
       return ele.name.toLowerCase().includes(e.target.value);
     });
@@ -80,6 +81,31 @@ const RecentSection = ({ userData, setUserData }) => {
     console.log("data value is ", data);
   };
 
+  // let reg = /lakhan/g;
+  // var sites = {
+  //   links: [
+  //     { href: "https://www.example.com/v1/contact-us/ca" },
+  //     { href: "https://www.example.com/v1/contact-us/au" },
+  //     { href: "https://www.example.com/v1/contact-us/us" },
+  //     { href: "https://www.example.com/v1/dontcontact-us/us" },
+  //   ],
+  // };
+
+  const regex = new RegExp(name, "g");
+  console.log(regex, "regex value");
+  var new_text = Users.filter((href) => {
+    return (
+      <>{href.name.match(regex, <span class="highlight"> +name + </span>)}</>
+    );
+  });
+
+  console.log(new_text, "fdfsdfsd");
+
+  // document.getElementById("search_para").innerHTML=new_text;
+  // const matchedSites = sites.links.filter(({ href }) => href.match(regex));
+
+  // console.log(matchedSites);
+
   return (
     <div className="recent-user-section chativa-bg-recent ">
       {/* title */}
@@ -89,7 +115,7 @@ const RecentSection = ({ userData, setUserData }) => {
           <h5
             className="title  chativa-fw-5"
             style={{ fontSize: "22px" }}
-            // onClick={() => alert("hellooo")}
+          // onClick={() => alert("hellooo")}
           >
             Chats
           </h5>
@@ -120,8 +146,19 @@ const RecentSection = ({ userData, setUserData }) => {
         {/* poratls section */}
 
         <div className="poratls-section d-flex justify-content-between w-100 portal-scrollbar">
-          <ul className="list-unstyled d-flex justify-content-between align-items-center w-100">
-            <li className="nav-item">
+          <ul className="list-unstyled  recent-portal  align-items-center w-100">
+            <li>
+              <span>5</span>
+              <i className="fa-brands fa-google "></i>
+            </li>
+            <li><span>5</span>
+              <i className="fa-brands fa-linkedin-in"></i>
+            </li>
+            <li><span>5</span>
+              <i className="fa-brands fa-linkedin-in"></i></li>
+            <li><span>5</span>
+              <i className="fa-brands fa-linkedin-in"></i></li>
+            {/* <li className="nav-item">
               <div
                 className={
                   portalActive.media === "google"
@@ -134,7 +171,7 @@ const RecentSection = ({ userData, setUserData }) => {
                   <p className="count-number text-white chativa-fw-5">5</p>
                 </div>
                 <div className="portal chativa-br d-flex align-items-center justify-content-center">
-                  <i className="fa-brands fa-google "></i>
+                  
                 </div>
               </div>
             </li>
@@ -183,7 +220,7 @@ const RecentSection = ({ userData, setUserData }) => {
                   <i className="fa-brands fa-facebook"></i>
                 </div>
               </div>
-            </li>
+            </li> */}
           </ul>
         </div>
 
@@ -203,152 +240,153 @@ const RecentSection = ({ userData, setUserData }) => {
               <ul className="list-unstyled myscrollbar" id="myScrollbar">
                 {filterData
                   ? filterData.map((ele, index) => {
-                      return (
-                        <li
-                          key={index}
-                          className={
-                            userData.id === ele.id
-                              ? "active-user chat-user-recent a chativa-br"
-                              : "chat-user-recent a chativa-br"
-                          }
-                        >
-                          <div className="user">
-                            <div>
-                              <div className="d-flex align-items-center">
-                                {userImage ? (
-                                  <div className="chat-img-user align-self-center position-relative me-3">
-                                    <div
-                                      className="rounded-circle user-image d-flex align-items-center justify-content-center"
-                                      style={{ background: "#D4D3FC" }}
-                                    >
-                                      {ele.image ? (
-                                        <img
-                                          src={ele.image}
-                                          alt=""
-                                          className="rounded-circle user-image"
-                                        />
-                                      ) : (
-                                        <p
-                                          className="fw-bold chativa-fs-b mt-3"
-                                          style={{ color: "#7B76CD" }}
-                                          onClick={() => alert("hellooo")}
-                                        >
-                                          {ele.name.charAt(0).toUpperCase()}
-                                        </p>
-                                      )}
-                                    </div>
-
-                                    <span className="user-online-status"></span>
+                    return (
+                      <li
+                        key={index}
+                        className={
+                          userData.id === ele.id
+                            ? "active-user chat-user-recent a chativa-br"
+                            : "chat-user-recent a chativa-br"
+                        }
+                      >
+                        <div className="user">
+                          <div>
+                            <div className="d-flex align-items-center">
+                              {userImage ? (
+                                <div className="chat-img-user align-self-center position-relative me-3">
+                                  <div
+                                    className="rounded-circle user-image d-flex align-items-center justify-content-center"
+                                    style={{ background: "#D4D3FC" }}
+                                  >
+                                    {ele.image ? (
+                                      <img
+                                        src={ele.image}
+                                        alt=""
+                                        className="rounded-circle user-image"
+                                      />
+                                    ) : (
+                                      <p
+                                        className="fw-bold chativa-fs-b mt-3"
+                                        style={{ color: "#7B76CD" }}
+                                        onClick={() => alert("hellooo")}
+                                      >
+                                        {ele.name.charAt(0).toUpperCase()}
+                                      </p>
+                                    )}
                                   </div>
-                                ) : (
-                                  "no"
-                                )}
-                                <div
-                                  className="user-name-message flex-grow-1 overflow-hidden"
-                                  onClick={() => onSetUser(ele)}
-                                >
-                                  <h5 className="chativa-fs-a chativa-secondary">
-                                    {ele.name}
-                                    <span className="ms-3">
-                                      <i
-                                        className="fa-solid fa-thumbtack"
-                                        style={{
-                                          transform: "rotate(45deg)",
-                                          color: "#AEB3C2",
-                                        }}
-                                      ></i>
-                                    </span>
-                                  </h5>
-                                  <p className="chativa-secondary chativa-fs-c">
-                                    nice to meeting you😃
-                                  </p>
-                                </div>
 
-                                <div className="user-message-time">
-                                  <p className="tertary-fs chativa-accent">
-                                    12:00
-                                  </p>
-                                  <p className="message-count">2</p>
+                                  <span className="user-online-status"></span>
                                 </div>
+                              ) : (
+                                "no"
+                              )}
+                              <div
+                                className="user-name-message flex-grow-1 overflow-hidden"
+                                onClick={() => onSetUser(ele)}
+                              >
+                                <h5 className="chativa-fs-a chativa-secondary">
+                                  {/* {ele.name} */}
+                                  {ele.name}
+                                  <span className="ms-3">
+                                    <i
+                                      className="fa-solid fa-thumbtack"
+                                      style={{
+                                        transform: "rotate(45deg)",
+                                        color: "#AEB3C2",
+                                      }}
+                                    ></i>
+                                  </span>
+                                </h5>
+                                <p className="chativa-secondary chativa-fs-c">
+                                  nice to meeting you😃
+                                </p>
+                              </div>
+
+                              <div className="user-message-time">
+                                <p className="tertary-fs chativa-accent">
+                                  12:00
+                                </p>
+                                <p className="message-count">2</p>
                               </div>
                             </div>
                           </div>
-                        </li>
-                      );
-                    })
+                        </div>
+                      </li>
+                    );
+                  })
                   : Users.map((ele, index) => {
-                      return (
-                        <li
-                          className={
-                            userData.id === ele.id
-                              ? "active-user chat-user-recent a chativa-br"
-                              : "chat-user-recent a chativa-br"
-                          }
-                          key={index}
-                        >
-                          <div className="user">
-                            <div>
-                              <div className="d-flex align-items-center">
-                                {userImage ? (
-                                  <div className="chat-img-user align-self-center position-relative me-3">
-                                    <div
-                                      className="rounded-circle user-image d-flex align-items-center justify-content-center"
-                                      style={{ background: "#D4D3FC" }}
-                                    >
-                                      {ele.image ? (
-                                        <img
-                                          src={ele.image}
-                                          alt=""
-                                          className="rounded-circle user-image"
-                                        />
-                                      ) : (
-                                        <p
-                                          className="fw-bold chativa-fs-b mt-3"
-                                          style={{ color: "#7B76CD" }}
-                                          onClick={() => alert("hellooo")}
-                                        >
-                                          {ele.name.charAt(0).toUpperCase()}
-                                        </p>
-                                      )}
-                                    </div>
-                                    <span className="user-online-status"></span>
+                    return (
+                      <li
+                        className={
+                          userData.id === ele.id
+                            ? "active-user chat-user-recent a chativa-br"
+                            : "chat-user-recent a chativa-br"
+                        }
+                        key={index}
+                      >
+                        <div className="user">
+                          <div>
+                            <div className="d-flex align-items-center">
+                              {userImage ? (
+                                <div className="chat-img-user align-self-center position-relative me-3">
+                                  <div
+                                    className="rounded-circle user-image d-flex align-items-center justify-content-center"
+                                    style={{ background: "#D4D3FC" }}
+                                  >
+                                    {ele.image ? (
+                                      <img
+                                        src={ele.image}
+                                        alt=""
+                                        className="rounded-circle user-image"
+                                      />
+                                    ) : (
+                                      <p
+                                        className="fw-bold chativa-fs-b mt-3"
+                                        style={{ color: "#7B76CD" }}
+                                        onClick={() => alert("hellooo")}
+                                      >
+                                        {ele.name.charAt(0).toUpperCase()}
+                                      </p>
+                                    )}
                                   </div>
-                                ) : (
-                                  "no"
-                                )}
-                                <div
-                                  className="user-name-message flex-grow-1 overflow-hidden"
-                                  onClick={() => onSetUser(ele)}
-                                >
-                                  <h5 className="chativa-fs-a chativa-secondary  ">
-                                    {ele.name}
-                                    <span className="ms-3">
-                                      <i
-                                        className="fa-solid fa-thumbtack"
-                                        style={{
-                                          transform: "rotate(45deg)",
-                                          color: "#AEB3C2",
-                                        }}
-                                      ></i>
-                                    </span>
-                                  </h5>
-                                  <p className="chativa-secondary chativa-fs-c">
-                                    nice to meeting you😃
-                                  </p>
+                                  <span className="user-online-status"></span>
                                 </div>
+                              ) : (
+                                "no"
+                              )}
+                              <div
+                                className="user-name-message flex-grow-1 overflow-hidden"
+                                onClick={() => onSetUser(ele)}
+                              >
+                                <h5 className="chativa-fs-a chativa-secondary  ">
+                                  {ele.name}
+                                  <span className="ms-3">
+                                    <i
+                                      className="fa-solid fa-thumbtack"
+                                      style={{
+                                        transform: "rotate(45deg)",
+                                        color: "#AEB3C2",
+                                      }}
+                                    ></i>
+                                  </span>
+                                </h5>
+                                <p className="chativa-secondary chativa-fs-c">
+                                  nice to meeting you😃
+                                </p>
+                              </div>
 
-                                <div className="user-message-time">
-                                  <p className="tertary-fs chativa-accent">
-                                    12:00
-                                  </p>
-                                  <p className="message-count">2</p>
-                                </div>
+                              <div className="user-message-time">
+                                <p className="tertary-fs chativa-accent">
+                                  12:00
+                                </p>
+                                <p className="message-count">2</p>
                               </div>
                             </div>
                           </div>
-                        </li>
-                      );
-                    })}
+                        </div>
+                      </li>
+                    );
+                  })}
               </ul>
             </div>
           ) : portalActive.media === "linkdein" ? (
