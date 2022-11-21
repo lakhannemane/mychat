@@ -34,11 +34,26 @@ const ChatSection = ({ userData }) => {
         },
         {
           key: "2",
-          label: <NavLink to="/chat"><span className="chat-header-seeting-icon"><BiUserCircle className="setting-icon " /></span> &nbsp;profile</NavLink>,
+          label: (
+            <NavLink to="/chat">
+              <span className="chat-header-seeting-icon">
+                <BiUserCircle className="setting-icon " />
+              </span>{" "}
+              &nbsp;profile
+            </NavLink>
+          ),
         },
         {
           key: "3",
-          label: <NavLink to="/setting"> <span className="chat-header-seeting-icon"><IoSettingsOutline className="setting-icon" /></span> Setting</NavLink>,
+          label: (
+            <NavLink to="/setting">
+              {" "}
+              <span className="chat-header-seeting-icon">
+                <IoSettingsOutline className="setting-icon" />
+              </span>{" "}
+              Setting
+            </NavLink>
+          ),
         },
       ]}
     />
@@ -49,7 +64,10 @@ const ChatSection = ({ userData }) => {
         {/* user-name-and-status */}
 
         <div className="mx-3">
-          <div className="user-name-status ">
+          <div
+            className="user-name-status  py-2 "
+            // style={{ position: "sticky", top: "0", background: "#FBFDFF" }}
+          >
             <div className="chat-user-recent px-3 py-2   ">
               <div className="d-flex align-items-center ">
                 <div className="chat-img-user align-self-center position-relative me-3">
@@ -73,8 +91,9 @@ const ChatSection = ({ userData }) => {
                 <div className="user-name-message flex-grow-1 overflow-hidden me-auto">
                   <h5 className=" chativa-fourth  chativa-fs-a">
                     {userData.name}
+                    <br />
+                    <span className="chativa-extra chativa-fs-c">Online</span>
                   </h5>
-                  <p className="chativa-extra chativa-fs-c">Online</p>
                 </div>
 
                 <div className="user-heaings-icons">
@@ -194,41 +213,44 @@ const ChatSection = ({ userData }) => {
               </div>
             </div>
           </div>
-        </div>
-        {/* message send input */}
+          {/* message send input */}
 
-        <div className="message-sent-section   bg-white  d-flex justify-content-between">
-          <div className="width-input position-relative">
-            <div className="form-for-send-message ">
-              <form onSubmit={onSubminValues}>
-                <input
-                  type="text"
-                  placeholder="Enter message here"
-                  className="
+          <div
+            className="message-sent-section   bg-white  d-flex justify-content-between"
+            style={{ position: "sticky", bottom: "0" }}
+          >
+            <div className="width-input position-relative">
+              <div className="form-for-send-message ">
+                <form onSubmit={onSubminValues}>
+                  <input
+                    type="text"
+                    placeholder="Enter message here"
+                    className="
             sent-message-input chativa-br  w-100"
-                  name="message"
-                  value={message}
-                  onChange={(e) => onChangeValue(e)}
-                />
-              </form>
-            </div>
-            <div className="icons-send-section1 d-flex text-white ">
-              <div className="attach-icon icons-send-section ">
-                <ImAttachment className="chativa-extra" />
+                    name="message"
+                    value={message}
+                    onChange={(e) => onChangeValue(e)}
+                  />
+                </form>
               </div>
-              <div className="smily-icon icons-send-section">
-                <i className="far fa-smile chativa-extra"></i>
+              <div className="icons-send-section1 d-flex text-white ">
+                <div className="attach-icon icons-send-section ">
+                  <ImAttachment className="chativa-extra" />
+                </div>
+                <div className="smily-icon icons-send-section">
+                  <i className="far fa-smile chativa-extra"></i>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="send-button">
-            <button className="btn border">
-              {!message ? (
-                <BiMicrophone className="chativa-fs-titles chativa-extra" />
-              ) : (
-                <GrSend className="chativa-fs-titles chativa-extra" />
-              )}
-            </button>
+            <div className="send-button">
+              <button className="btn border">
+                {!message ? (
+                  <BiMicrophone className="chativa-fs-titles chativa-extra" />
+                ) : (
+                  <GrSend className="chativa-fs-titles chativa-extra" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </div>

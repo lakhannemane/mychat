@@ -202,7 +202,9 @@ input {
 }
 
 #chatscrollbar::-webkit-scrollbar {
-  display: none;
+  /* background-color: red; */
+  width: 10px;
+  margin-left: 10px;
 }
 
 ::placeholder {

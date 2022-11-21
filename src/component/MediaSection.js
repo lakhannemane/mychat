@@ -11,7 +11,15 @@ const MediaSection = () => {
 
   return (
     <div className="media-section">
-      <div className="user-name-status">
+      <div
+        className="user-name-status py-2"
+        // style={{
+        //   position: "sticky",
+        //   top: "0",
+        //   background: "#FFFFFF",
+        //   zIndex: "1",
+        // }}
+      >
         <div className="chat-user-recent px-3   ">
           <div className="d-flex align-items-center">
             <div className="chat-img-user align-self-center position-relative me-3">
@@ -22,8 +30,12 @@ const MediaSection = () => {
               />
             </div>
             <div className="user-name-message flex-grow-1 overflow-hidden">
-              <h5 className=" chativa-fs-a  chativa-fs-a">Alren richard </h5>
-              <p className="chativa-extra chativa-fs-c">Estate Agent Pro</p>
+              <h5 className=" chativa-fs-a  chativa-fs-a">
+                Alren richard <br />
+                <span className="chativa-extra chativa-fs-c">
+                  Estate Agent Pro
+                </span>
+              </h5>
             </div>
 
             <div className="user-heaings-icons">
@@ -37,27 +49,27 @@ const MediaSection = () => {
 
       {/* poratls section */}
 
-      <div className="poratls-section d-flex justify-content-between w-100 portal-scrollbar">
+      <div className="poratls-section d-flex justify-content-between w-100 ">
         <ul className="list-unstyled  media-portal  align-items-center w-100">
           <li>
-            <span>5</span>
-            <i className="fa-brands fa-google "></i>
+            {/* <span>5</span> */}
+            <MdNotificationsNone />
           </li>
           <li>
-            <span>5</span>
-            <i className="fa-brands fa-linkedin-in"></i>
+            {/* <span>5</span> */}
+            <MdTimer />{" "}
           </li>
           <li>
-            <span>5</span>
-            <i className="fa-brands fa-linkedin-in"></i>
+            {/* <span>5</span> */}
+            <BiNote />{" "}
           </li>
           <li>
-            <span>5</span>
-            <i className="fa-brands fa-linkedin-in"></i>
+            {/* <span>5</span> */}
+            <i className="fa-regular fa-calendar-days"></i>
           </li>
           <li>
-            <span>5</span>
-            <i className="fa-brands fa-linkedin-in"></i>
+            {/* <span>5</span> */}
+            <i className="fa-regular fa-images"></i>{" "}
           </li>
         </ul>
       </div>
@@ -75,7 +87,7 @@ const MediaSection = () => {
               setActiveMedia({ id: 1, notification: "media notifiction" })
             }
           >
-            <MdNotificationsNone />
+          
           </div>
         </div>
 
@@ -182,7 +194,7 @@ const MediaSection = () => {
                 see All
               </p>
             </div>
-            <div className="property-images d-flex justify-content-between ">
+            <div className="property-media-images  ">
               <div className="property-media-item">
                 <img
                   src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
@@ -216,7 +228,7 @@ const MediaSection = () => {
                 see All
               </p>
             </div>
-            <div className="property-images d-flex justify-content-between ">
+            <div className="property-video-images  ">
               <div className="property-media-item">
                 <img
                   src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
@@ -274,17 +286,7 @@ const MediaSection = () => {
                 <p className="chativa-extra">https://www.dribble.com</p>
               </div>
             </div>
-            <div className="title-and-link d-flex align-items-center">
-              <div className="link-icons-section me-3 chativa-br">
-                <p>
-                  <i className="fa-solid fa-link chativa-fs-b"></i>
-                </p>
-              </div>
-              <div className="description">
-                <h5 className="chativa-fs-a chativa-fw-5">Figma</h5>
-                <p className="chativa-extra">https://www.dribble.com</p>
-              </div>
-            </div>
+
             {/* <div className="title-and-link d-flex align-items-center">
           <div className="link-icons-section me-3 chativa-br">
             <p>

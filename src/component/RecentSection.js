@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const Users = [
   {
     id: 1,
-    name: "Mark Zukarberg",
+    name: "Mark Ja",
     message: "how are you",
     image:
       "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fGZhY2UlMjBwcm9maWxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
@@ -12,7 +12,7 @@ const Users = [
   },
   {
     id: 2,
-    name: "Mark Messar",
+    name: "Mark mesar",
     message: "how are you",
   },
   {
@@ -42,12 +42,12 @@ const Users = [
   },
   {
     id: 7,
-    name: "Shreyas Iyyer",
+    name: "Shreyas I",
     message: "how are you",
   },
   {
     id: 8,
-    name: "Akshay Kumar",
+    name: "Akshay ",
     message: "how are you",
   },
 ];
@@ -145,19 +145,22 @@ const RecentSection = ({ userData, setUserData }) => {
 
         {/* poratls section */}
 
-        <div className="poratls-section d-flex justify-content-between w-100 portal-scrollbar">
+        <div className="poratls-section d-flex justify-content-between w-100 ">
           <ul className="list-unstyled  recent-portal  align-items-center w-100">
             <li>
               <span>5</span>
               <i className="fa-brands fa-google "></i>
             </li>
-            <li><span>5</span>
+            <li>
+              {/* <span>5</span> */}
               <i className="fa-brands fa-linkedin-in"></i>
             </li>
-            <li><span>5</span>
-              <i className="fa-brands fa-linkedin-in"></i></li>
-            <li><span>5</span>
-              <i className="fa-brands fa-linkedin-in"></i></li>
+            <li>
+              {/* <span>5</span> */}
+              <i className="fa-brands fa-instagram"></i></li>
+            <li>
+              {/* <span>5</span> */}
+              <i className="fa-brands fa-facebook"></i></li>
             {/* <li className="nav-item">
               <div
                 className={
@@ -253,7 +256,7 @@ const RecentSection = ({ userData, setUserData }) => {
                           <div>
                             <div className="d-flex align-items-center">
                               {userImage ? (
-                                <div className="chat-img-user align-self-center position-relative me-3">
+                                <div className="chat-img-user align-self-center position-relative me-2">
                                   <div
                                     className="rounded-circle user-image d-flex align-items-center justify-content-center"
                                     style={{ background: "#D4D3FC" }}
@@ -293,12 +296,13 @@ const RecentSection = ({ userData, setUserData }) => {
                                       style={{
                                         transform: "rotate(45deg)",
                                         color: "#AEB3C2",
+                                        fontSize: "14px"
                                       }}
                                     ></i>
                                   </span>
                                 </h5>
                                 <p className="chativa-secondary chativa-fs-c">
-                                  nice to meeting you😃
+                                  {`${("nice to meeting you😃").slice(0, 12)}...`}
                                 </p>
                               </div>
 
@@ -366,12 +370,13 @@ const RecentSection = ({ userData, setUserData }) => {
                                       style={{
                                         transform: "rotate(45deg)",
                                         color: "#AEB3C2",
+                                        fontSize: "12px"
                                       }}
                                     ></i>
                                   </span>
                                 </h5>
                                 <p className="chativa-secondary chativa-fs-c">
-                                  nice to meeting you😃
+                                  {`${("nice to meeting you😃").slice(0, 12)}...`}
                                 </p>
                               </div>
 
