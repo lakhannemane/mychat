@@ -65,8 +65,8 @@ const ChatSection = ({ userData }) => {
 
         <div className="mx-3">
           <div
-            className="user-name-status  py-2 "
-            // style={{ position: "sticky", top: "0", background: "#FBFDFF" }}
+            className="user-name-status  header-chat py-2 "
+            style={{ background: "#FBFDFF" }}
           >
             <div className="chat-user-recent px-3 py-2   ">
               <div className="d-flex align-items-center ">
@@ -80,10 +80,7 @@ const ChatSection = ({ userData }) => {
                     className="rounded-circle user-image d-flex align-items-center justify-content-center"
                     style={{ background: "#D4D3FC" }}
                   >
-                    <p
-                      className="fw-bold  mt-4 pt-2 fs-3"
-                      style={{ color: "#7B76CD" }}
-                    >
+                    <p className="firstCharacter" style={{ color: "#7B76CD" }}>
                       {userData.name.charAt(0).toUpperCase()}
                     </p>
                   </div>
@@ -215,10 +212,7 @@ const ChatSection = ({ userData }) => {
           </div>
           {/* message send input */}
 
-          <div
-            className="message-sent-section   bg-white  d-flex justify-content-between"
-            style={{ position: "sticky", bottom: "0" }}
-          >
+          <div className="message-sent-section   bg-white  d-flex justify-content-between">
             <div className="width-input position-relative">
               <div className="form-for-send-message ">
                 <form onSubmit={onSubminValues}>

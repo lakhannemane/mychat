@@ -12,7 +12,7 @@ const MediaSection = () => {
   return (
     <div className="media-section">
       <div
-        className="user-name-status py-2"
+        className="user-name-status py-2 header-chat"
         // style={{
         //   position: "sticky",
         //   top: "0",
@@ -266,9 +266,7 @@ const MediaSection = () => {
             </div>
             <div className="title-and-link d-flex align-items-center">
               <div className="link-icons-section me-3 chativa-br">
-                <p>
-                  <i className="fa-solid fa-link chativa-fs-b"></i>
-                </p>
+                <i className="fa-solid fa-link chativa-fs-b"></i>
               </div>
               <div className="description">
                 <h5 className="chativa-fs-a chativa-fw-5">Youtube</h5>
@@ -277,9 +275,7 @@ const MediaSection = () => {
             </div>
             <div className="title-and-link d-flex align-items-center">
               <div className="link-icons-section me-3 chativa-br">
-                <p>
-                  <i className="fa-solid fa-link chativa-fs-b"></i>
-                </p>
+                <i className="fa-solid fa-link chativa-fs-b"></i>
               </div>
               <div className="description">
                 <h5 className="chativa-fs-a chativa-fw-5">Dribble</h5>

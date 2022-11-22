@@ -113,8 +113,8 @@ const RecentSection = ({ userData, setUserData }) => {
       <div className="recentPanel">
         <div className="recent-title">
           <h5
-            className="title  chativa-fw-5"
-            style={{ fontSize: "22px" }}
+            className="title-logo  chativa-fw-5"
+
           // onClick={() => alert("hellooo")}
           >
             Chats
@@ -287,22 +287,22 @@ const RecentSection = ({ userData, setUserData }) => {
                                 className="user-name-message flex-grow-1 overflow-hidden"
                                 onClick={() => onSetUser(ele)}
                               >
-                                <h5 className="chativa-fs-a chativa-secondary">
+                                <p className="chativa-fs-a chativa-secondary">
                                   {/* {ele.name} */}
                                   {ele.name}
-                                  <span className="ms-3">
+                                  {/* <span className="ms-3">
                                     <i
                                       className="fa-solid fa-thumbtack"
                                       style={{
                                         transform: "rotate(45deg)",
                                         color: "#AEB3C2",
-                                        fontSize: "14px"
+                                        fontSize: "10px"
                                       }}
                                     ></i>
+                                  </span> */}<br />
+                                  <span className="chativa-secondary chativa-fs-c">
+                                    {`${("nice to meeting you😃").slice(0, 8)}...`}
                                   </span>
-                                </h5>
-                                <p className="chativa-secondary chativa-fs-c">
-                                  {`${("nice to meeting you😃").slice(0, 12)}...`}
                                 </p>
                               </div>
 
@@ -362,7 +362,7 @@ const RecentSection = ({ userData, setUserData }) => {
                                 className="user-name-message flex-grow-1 overflow-hidden"
                                 onClick={() => onSetUser(ele)}
                               >
-                                <h5 className="chativa-fs-a chativa-secondary  ">
+                                <p className="chativa-fs-a chativa-secondary  ">
                                   {ele.name}
                                   <span className="ms-3">
                                     <i
@@ -370,13 +370,13 @@ const RecentSection = ({ userData, setUserData }) => {
                                       style={{
                                         transform: "rotate(45deg)",
                                         color: "#AEB3C2",
-                                        fontSize: "12px"
+                                        fontSize: "10px"
                                       }}
                                     ></i>
+                                  </span> <br />
+                                  <span className="chativa-secondary chativa-fs-c">
+                                    {`${("nice to meeting you😃").slice(0, 8)}...`}
                                   </span>
-                                </h5>
-                                <p className="chativa-secondary chativa-fs-c">
-                                  {`${("nice to meeting you😃").slice(0, 12)}...`}
                                 </p>
                               </div>
 
