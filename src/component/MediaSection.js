@@ -286,7 +286,7 @@ const MediaSection = () => {
           <div className="files-link medias-artice">
             <div className="d-flex justify-content-between align-items-center">
               <h6 className="media chativa-fs-a chativa-fw-5">
-                Files <span className=" chativa-accent files-count">3</span>
+                Files <span className=" chativa-accent files-count">2</span>
               </h6>
               <p className="chativa-fs-14px chativa-danger chativa-fw-5 see-all">
                 See All
