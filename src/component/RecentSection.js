@@ -133,7 +133,7 @@ const RecentSection = ({ userData, setUserData }) => {
             <form action="search-user" onSubmit={onHandleSubmitValue}>
               <input
                 type="text"
-                placeholder="search user here"
+                placeholder="search.. "
                 className="w-100 serchbar-input chativa-br "
                 name="name"
                 value={name}

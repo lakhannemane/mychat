@@ -187,11 +187,10 @@ const MediaSection = () => {
           <div className="media-property-section  medias-artice">
             <div className="d-flex justify-content-between align-items-center">
               <h6 className="media chativa-fs-a chativa-fw-5 ">
-                Media{" "}
-                <span className="chativa-fs-a chativa-accent  ms-3">5</span>
+                Media <span className=" chativa-accent files-count">5</span>
               </h6>
               <p className="chativa-fs-14px chativa-danger chativa-fw-5 see-all">
-                see All
+                See All
               </p>
             </div>
             <div className="property-media-images  ">
@@ -221,11 +220,10 @@ const MediaSection = () => {
           <div className="media-videos-section medias-artice">
             <div className="d-flex justify-content-between  align-items-center">
               <h6 className="media chativa-fs-a chativa-fw-5">
-                Videos{" "}
-                <span className="chativa-fs-a chativa-accent  ms-3">7</span>
+                Videos <span className="chativa-accent files-count">7</span>
               </h6>
               <p className="chativa-fs-14px chativa-danger chativa-fw-5 see-all">
-                see All
+                See All
               </p>
             </div>
             <div className="property-video-images  ">
@@ -257,11 +255,10 @@ const MediaSection = () => {
           <div className="files-link medias-artice">
             <div className="d-flex justify-content-between align-items-center">
               <h6 className="media chativa-fs-a chativa-fw-5">
-                Files{" "}
-                <span className="chativa-fs-a chativa-accent  ms-3">3</span>
+                Files <span className=" chativa-accent files-count">3</span>
               </h6>
               <p className="chativa-fs-14px chativa-danger chativa-fw-5 see-all">
-                see All
+                See All
               </p>
             </div>
             <div className="title-and-link d-flex align-items-center">
