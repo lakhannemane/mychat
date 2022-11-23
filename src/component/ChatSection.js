@@ -218,7 +218,7 @@ const ChatSection = ({ userData }) => {
                 <form onSubmit={onSubminValues}>
                   <input
                     type="text"
-                    placeholder="Enter message here"
+                    placeholder="Message"
                     className="
             sent-message-input chativa-br  w-100"
                     name="message"
