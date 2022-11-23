@@ -10,7 +10,7 @@ const Users = [
     image:
       "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fGZhY2UlMjBwcm9maWxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
     pin: true,
-    date: moment("2022-11-23T04:19:27.911Z").format('LT'),
+    date: moment("2022-11-23T06:19:27.911Z").format('LT'),
   },
   {
     id: 2,
@@ -61,6 +61,13 @@ const Users = [
     date: moment("2022-11-23T05:25:44.911Z").format('LT'),
     messageCount: "3"
   },
+  {
+    id: 8,
+    name: "Saini ",
+    message: "how are you",
+    date: moment().format('LT'),
+  },
+
 ];
 
 
@@ -102,21 +109,6 @@ const RecentSection = ({ userData, setUserData }) => {
     console.log("data value is ", data);
   };
 
-
-
-
-  // var new_text = Users.filter((href) => {
-  //   return (
-  //     <>{href.name.match(regex, <span class="highlight"> +name + </span>)}</>
-  //   );
-  // });
-
-  // console.log(new_text, "fdfsdfsd");
-
-  // document.getElementById("search_para").innerHTML=new_text;
-  // const matchedSites = sites.links.filter(({ href }) => href.match(regex));
-
-  // console.log(matchedSites);
 
   return (
     <div className="recent-user-section chativa-bg-recent ">
@@ -167,7 +159,7 @@ const RecentSection = ({ userData, setUserData }) => {
               }
               onClick={() => setPortalActive({ media: "google" })}
             >
-              <span>5</span>
+              <span>{Users.length}</span>
               <i className="fa-brands fa-google "></i>
             </li>
             <li
