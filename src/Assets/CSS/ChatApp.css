@@ -106,10 +106,16 @@
   outline: none;
   padding: 0.6rem 0 0.6rem 3rem;
 }
+
+.time-green {
+  color: #62696f;
+  font-weight: 600;
+}
 .message-count {
-  color: #fd7fa4;
-  background-color: #fbd7e2;
+  color: white;
+  background-color: #081d34;
   width: 20px;
+  font-weight: 600;
   height: 20px;
   border-radius: 20px;
   text-align: center;
@@ -171,9 +177,12 @@
 }
 
 .myscrollbar {
-  width: 100%;
+  /* width: 100%; */
+  /* position: absolute; */
+
   height: 59vh;
   overflow: auto;
+  z-index: 11;
 }
 
 .new-item,
@@ -434,7 +443,7 @@
 .media-section {
   width: 25%;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 100%;
   padding: 0rem 1rem;
 }
@@ -693,7 +702,7 @@ td {
   position: relative;
   /* display: flex; */
   /* padding-left: 15px; */
-  padding-right: 15px;
+  /* padding-right: 15px; */
   flex-direction: row;
   /* height: 100vh; */
   height: 100%;
@@ -829,8 +838,26 @@ select option {
 }
 
 .files-count {
-  font-size: 15px;
+  font-size: 13px;
   padding-left: 10px;
+}
+
+.poratls-media-section ul {
+  display: grid;
+  gap: 10px;
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+
+.poratls-media-section ul li {
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+}
+
+.poratls-media-section ul.media-portal {
+  grid-template-columns: repeat(5, 1fr);
+  /* gap: 7px; */
 }
 
 @media (min-width: 768px) and (max-width: 1200px) {
@@ -853,9 +880,9 @@ select option {
   .poratls-section ul.recent-portal {
     grid-template-columns: repeat(3, 1fr);
   }
-  .poratls-section ul.media-portal {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 7px;
+  .poratls-media-section ul.media-portal {
+    grid-template-columns: repeat(4, 1fr);
+    /* gap: 7px; */
   }
 
   /* all font Sizes */
@@ -940,6 +967,10 @@ select option {
   .icons-title {
     font-size: 12px;
   }
+  .files-count {
+    font-size: 10px;
+    padding-left: 10px;
+  }
 
   .firstCharacter {
     color: rgb(123, 118, 205);
@@ -987,6 +1018,13 @@ select option {
     grid-template-columns: repeat(4, 1fr);
     gap: 7px;
   }
+  .chativa-fs-a {
+    font-size: 0.86rem;
+  }
+
+  .chativa-fs-b {
+    font-size: 1rem;
+  }
 }
 
 @media (min-width: 1450px) {
@@ -1008,6 +1046,11 @@ select option {
     height: 2.9rem;
     background-color: white;
     border-radius: 0 0.6rem 0.6rem 0;
+  }
+
+  .files-count {
+    font-size: 12px;
+    padding-left: 10px;
   }
 
   .link-icons-section {
@@ -1051,5 +1094,9 @@ select option {
 
   .icons-title {
     font-size: 14px;
+  }
+  .files-count {
+    font-size: 14px;
+    padding-left: 10px;
   }
 }

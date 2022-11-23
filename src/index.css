@@ -186,8 +186,8 @@ input {
 
 #myScrollbar::-webkit-scrollbar {
   background-color: #f5f5f5;
-  width: 10px;
-  margin-left: 10px;
+  width: 5px;
+  /* margin-left: 10px; */
 }
 
 #myScrollbar::-webkit-scrollbar-thumb {
@@ -204,7 +204,7 @@ input {
 #chatscrollbar::-webkit-scrollbar {
   /* background-color: red; */
   width: 10px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
 }
 
 ::placeholder {

@@ -16,7 +16,8 @@ const Users = [
     id: 2,
     name: "Mark mesar",
     message: "how are you",
-    date: moment("2022-11-23T05:07:28.911Z").format('LT')
+    date: moment("2022-11-23T05:07:28.911Z").format('LT'),
+    messageCount: "2"
   },
   {
     id: 3,
@@ -57,7 +58,8 @@ const Users = [
     id: 8,
     name: "Akshay ",
     message: "how are you",
-    date: moment("2022-11-23T05:25:44.911Z").format('LT')
+    date: moment("2022-11-23T05:25:44.911Z").format('LT'),
+    messageCount: "3"
   },
 ];
 
@@ -100,25 +102,16 @@ const RecentSection = ({ userData, setUserData }) => {
     console.log("data value is ", data);
   };
 
-  // let reg = /lakhan/g;
-  // var sites = {
-  //   links: [
-  //     { href: "https://www.example.com/v1/contact-us/ca" },
-  //     { href: "https://www.example.com/v1/contact-us/au" },
-  //     { href: "https://www.example.com/v1/contact-us/us" },
-  //     { href: "https://www.example.com/v1/dontcontact-us/us" },
-  //   ],
-  // };
 
-  const regex = new RegExp(name, "g");
-  console.log(regex, "regex value");
-  var new_text = Users.filter((href) => {
-    return (
-      <>{href.name.match(regex, <span class="highlight"> +name + </span>)}</>
-    );
-  });
 
-  console.log(new_text, "fdfsdfsd");
+
+  // var new_text = Users.filter((href) => {
+  //   return (
+  //     <>{href.name.match(regex, <span class="highlight"> +name + </span>)}</>
+  //   );
+  // });
+
+  // console.log(new_text, "fdfsdfsd");
 
   // document.getElementById("search_para").innerHTML=new_text;
   // const matchedSites = sites.links.filter(({ href }) => href.match(regex));
@@ -166,83 +159,48 @@ const RecentSection = ({ userData, setUserData }) => {
 
         <div className="poratls-section d-flex justify-content-between w-100 ">
           <ul className="list-unstyled  recent-portal  align-items-center w-100">
-            <li>
+            <li
+              className={
+                portalActive.media === "google"
+                  ? "new-item position-relative "
+                  : " one-portal position-relative   chativa-primary "
+              }
+              onClick={() => setPortalActive({ media: "google" })}
+            >
               <span>5</span>
               <i className="fa-brands fa-google "></i>
             </li>
-            <li>
+            <li
+              className={
+                portalActive.media === "linkdein"
+                  ? "new-item position-relative"
+                  : " one-portal position-relative chativa-primary"
+              }
+              onClick={() => setPortalActive({ media: "linkdein" })}
+            >
               {/* <span>5</span> */}
               <i className="fa-brands fa-linkedin-in"></i>
             </li>
-            <li>
+            <li
+              className={
+                portalActive.media === "Instagram"
+                  ? "new-item position-relative"
+                  : " one-portal position-relative  chativa-primary"
+              }
+              onClick={() => setPortalActive({ media: "Instagram" })}
+            >
               {/* <span>5</span> */}
               <i className="fa-brands fa-instagram"></i></li>
-            <li>
+            <li
+              className={
+                portalActive.media === "facebook"
+                  ? "new-item position-relative"
+                  : " one-portal position-relative  chativa-primary "
+              }
+              onClick={() => setPortalActive({ media: "facebook" })}>
               {/* <span>5</span> */}
               <i className="fa-brands fa-facebook"></i></li>
-            {/* <li className="nav-item">
-              <div
-                className={
-                  portalActive.media === "google"
-                    ? "new-item position-relative "
-                    : " one-portal position-relative   chativa-primary "
-                }
-                onClick={() => setPortalActive({ media: "google" })}
-              >
-                <div className="google-message-notificaion">
-                  <p className="count-number text-white chativa-fw-5">5</p>
-                </div>
-                <div className="portal chativa-br d-flex align-items-center justify-content-center">
-                  
-                </div>
-              </div>
-            </li>
 
-            <li className="nav-item">
-              <div
-                className={
-                  portalActive.media === "linkdein"
-                    ? "new-item position-relative"
-                    : " one-portal position-relative chativa-primary"
-                }
-                onClick={() => setPortalActive({ media: "linkdein" })}
-              >
-                <div className="google-message-notificaion">
-                  <p className="count-number text-white chativa-fw-5">7</p>
-                </div>
-                <div className="portal  chativa-br d-flex align-items-center justify-content-center">
-                  <i className="fa-brands fa-linkedin-in"></i>
-                </div>
-              </div>
-            </li>
-            <li className="nav-item">
-              <div
-                className={
-                  portalActive.media === "Instagram"
-                    ? "new-item position-relative"
-                    : " one-portal position-relative  chativa-primary"
-                }
-                onClick={() => setPortalActive({ media: "Instagram" })}
-              >
-                <div className="portal chativa-br d-flex align-items-center justify-content-center">
-                  <i className="fa-brands fa-instagram"></i>
-                </div>
-              </div>
-            </li>
-            <li className="nav-item">
-              <div
-                className={
-                  portalActive.media === "facebook"
-                    ? "new-item position-relative"
-                    : " one-portal position-relative  chativa-primary "
-                }
-                onClick={() => setPortalActive({ media: "facebook" })}
-              >
-                <div className="portal chativa-br d-flex align-items-center justify-content-center">
-                  <i className="fa-brands fa-facebook"></i>
-                </div>
-              </div>
-            </li> */}
           </ul>
         </div>
 
@@ -258,8 +216,8 @@ const RecentSection = ({ userData, setUserData }) => {
           </div>
 
           {portalActive.media === "google" ? (
-            <div className="recent-users-section">
-              <ul className="list-unstyled myscrollbar" id="myScrollbar">
+            <div className="recent-users-section myscrollbar" id="myScrollbar">
+              <ul className="list-unstyled ">
                 {filterData
                   ? filterData.map((ele, index) => {
                     return (
@@ -328,10 +286,10 @@ const RecentSection = ({ userData, setUserData }) => {
                               </div>
 
                               <div className="user-message-time">
-                                <p className="tertary-fs chativa-accent">
+                                <p className={ele.messageCount ? "time-green" : "tertary-fs chativa-accent"}>
                                   {ele.date}
                                 </p>
-                                {/* <p className="message-count">2</p> */}
+                                {ele.messageCount ? <p className="message-count">{ele.messageCount}</p> : ""}
                               </div>
                             </div>
                           </div>
@@ -383,7 +341,7 @@ const RecentSection = ({ userData, setUserData }) => {
                                 className="user-name-message flex-grow-1 overflow-hidden"
                                 onClick={() => onSetUser(ele)}
                               >
-                                <p className="chativa-fs-a chativa-secondary  ">
+                                <p className={ele.messageCount ? "time-green chativa-fs-a" : "chativa-fs-a chativa-secondary  "}>
                                   {ele.name}
                                   {ele.pin === true && <span className="ms-3">
                                     <i
@@ -403,10 +361,10 @@ const RecentSection = ({ userData, setUserData }) => {
                               </div>
 
                               <div className="user-message-time">
-                                <p className="tertary-fs chativa-accent">
+                                <p className={ele.messageCount ? "time-green" : "tertary-fs chativa-accent"}>
                                   {ele.date}
                                 </p>
-                                {/* <p className="message-count">2</p> */}
+                                {ele.messageCount ? <p className="message-count">{ele.messageCount}</p> : ""}
                               </div>
                             </div>
                           </div>

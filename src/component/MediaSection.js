@@ -49,25 +49,56 @@ const MediaSection = () => {
 
       {/* poratls section */}
 
-      <div className="poratls-section d-flex justify-content-between w-100 ">
+      <div className="poratls-media-section d-flex justify-content-between w-100 ">
         <ul className="list-unstyled  media-portal  align-items-center w-100">
-          <li>
+          <li
+            className={`${
+              activeMedia.id === 1 ? "active-potal" : ""
+            } portal  chativa-br d-flex align-items-center justify-content-center`}
+            onClick={() =>
+              setActiveMedia({ id: 1, notification: "media notifiction" })
+            }
+          >
             {/* <span>5</span> */}
             <MdNotificationsNone />
           </li>
-          <li>
+          <li
+            className={`${
+              activeMedia.id === 2 ? "active-potal" : ""
+            } portal  chativa-br d-flex align-items-center justify-content-center`}
+            onClick={() =>
+              setActiveMedia({ id: 2, reminder: "media reminder" })
+            }
+          >
             {/* <span>5</span> */}
             <MdTimer />{" "}
           </li>
-          <li>
+          <li
+            className={`${
+              activeMedia.id === 3 ? "active-potal" : ""
+            } portal  chativa-br d-flex align-items-center justify-content-center`}
+            onClick={() => setActiveMedia({ id: 3, Notes: "media notes" })}
+          >
             {/* <span>5</span> */}
             <BiNote />{" "}
           </li>
-          <li>
+          <li
+            className={`${
+              activeMedia.id === 4 ? "active-potal" : ""
+            } portal  chativa-br d-flex align-items-center justify-content-center`}
+            onClick={() =>
+              setActiveMedia({ id: 4, calender: "media calender" })
+            }
+          >
             {/* <span>5</span> */}
             <i className="fa-regular fa-calendar-days"></i>
           </li>
-          <li>
+          <li
+            className={`${
+              activeMedia.id === 5 ? "active-potal" : ""
+            } portal  chativa-br d-flex align-items-center justify-content-center`}
+            onClick={() => setActiveMedia({ id: 5, media: "media file" })}
+          >
             {/* <span>5</span> */}
             <i className="fa-regular fa-images"></i>{" "}
           </li>
@@ -266,8 +297,8 @@ const MediaSection = () => {
                 <i className="fa-solid fa-link chativa-fs-b"></i>
               </div>
               <div className="description">
-                <h5 className="chativa-fs-a chativa-fw-5">Youtube</h5>
-                <p className="chativa-extra">https://www.dribble.com</p>
+                <h5 className="chativa-fs-a chativa-fw-5">Google</h5>
+                <p className="chativa-extra">https://www.google.com</p>
               </div>
             </div>
             <div className="title-and-link d-flex align-items-center">
@@ -276,7 +307,7 @@ const MediaSection = () => {
               </div>
               <div className="description">
                 <h5 className="chativa-fs-a chativa-fw-5">Dribble</h5>
-                <p className="chativa-extra">https://www.dribble.com</p>
+                <p className="chativa-extra">https://www.drible.com</p>
               </div>
             </div>
 
