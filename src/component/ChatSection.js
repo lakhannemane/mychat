@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BsThreeDots,
   BsTelephone,
@@ -11,8 +11,16 @@ import { ImAttachment } from "react-icons/im";
 import { IoCheckmarkDoneSharp, IoSettingsOutline } from "react-icons/io5";
 import { Dropdown, Menu } from "antd";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Allchat, fetchChat } from "../Store/Slices/Chat/chatSlice";
+import { fetchSendMessage } from "../Store/Slices/Chat/sendMessageSlice";
 
 const ChatSection = ({ userData }) => {
+  const dispatch = useDispatch();
+  const chatHistory = useSelector(Allchat);
+
+  const [render, setRender] = useState(false);
+  console.log("chat history getting from store", chatHistory.messages);
   console.log("chatsection data in chat page", userData);
   const [message, setMessage] = useState();
   const onChangeValue = (e) => {
@@ -58,6 +66,22 @@ const ChatSection = ({ userData }) => {
       ]}
     />
   );
+
+  const sendMessage = () => {
+    dispatch(
+      fetchSendMessage({
+        conversationId: userData.conversationId,
+        message: message,
+      })
+    );
+    setMessage("");
+    setRender(true);
+  };
+
+  useEffect(() => {
+    dispatch(fetchChat(userData.conversationId));
+    setRender(false);
+  }, [render]);
   return (
     <>
       <div className="messages-section chativa-bg-chat ">
@@ -81,13 +105,16 @@ const ChatSection = ({ userData }) => {
                     style={{ background: "#D4D3FC" }}
                   >
                     <p className="firstCharacter" style={{ color: "#7B76CD" }}>
-                      {userData.name.charAt(0).toUpperCase()}
+                      {/* {chatHistory &&
+                        chatHistory?.messages[0].displayName
+                          .charAt(0)
+                          .toUpperCase()} */}
                     </p>
                   </div>
                 </div>
                 <div className="user-name-message flex-grow-1 overflow-hidden me-auto">
                   <h5 className=" chativa-fourth  chativa-fs-a">
-                    {userData.name}
+                    {/* {chatHistory && chatHistory?.messages[0].displayName} */}
                     <br />
                     <span className="chativa-extra chativa-fs-c">Online</span>
                   </h5>
@@ -118,71 +145,48 @@ const ChatSection = ({ userData }) => {
           {/* message-section-field */}
           <div className="message-field mt-5 chatscrollbar " id="chatscrollbar">
             <div className="row">
-              <div className="d-flex ">
-                <div className="user-message msg">
-                  <p className="client chativa-secondarychativa-fs-a">
-                    Hello, how are you Jacob?{" "}
-                  </p>
-                </div>
-              </div>
+              {chatHistory?.messages?.map((ele, index) => {
+                if (ele.displayName === "Prometteur Solutions Pvt Ltd") {
+                  return (
+                    <div className="w-75 ms-auto d-flex justify-content-end">
+                      <div className="your-message">
+                        <p className="you chativa-secondarychativa-fs-a ">
+                          {ele.messageText}
+                          <span>
+                            {/* <IoCheckmarkDoneSharp
+                              style={{ color: "#32a7ff" }}
+                            /> */}
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div className=" w-75 mx-end d-flex justify-content-right">
+                      <div className="user-message msg">
+                        <p className="client chativa-secondarychativa-fs-a">
+                          {ele.messageText}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                }
+              })}
               {/* day status */}
-              <div className="  d-flex justify-content-center">
+              {/* <div className="  d-flex justify-content-center">
                 <div className="day-informartion">
                   <p className="day  chativa-br chativa-fs-a">yesterday</p>
                 </div>
-              </div>
-              <div className=" w-75 mx-end d-flex justify-content-right">
+              </div> */}
+              {/* <div className=" w-75 mx-end d-flex justify-content-right">
                 <div className="user-message msg">
                   <p className="client chativa-secondarychativa-fs-a">
                     Can you find a house for me at an affordable price?{" "}
                   </p>
                 </div>
               </div>
-              <div className=" w-75 mx-end d-flex justify-content-right">
-                <div className="user-message msg">
-                  <p className="client chativa-secondarychativa-fs-a">
-                    I’II give you a nice commission if you can find it.{" "}
-                  </p>
-                </div>
-              </div>
-              <div className=" w-75 ms-auto d-flex justify-content-end ">
-                <div className="your-message">
-                  <p className="you chativa-secondarychativa-fs-a">
-                    Hello, Mark I’m fine thank you how are you{" "}
-                    <span>
-                      <IoCheckmarkDoneSharp style={{ color: "#32a7ff" }} />
-                    </span>
-                  </p>
-                </div>
-              </div>
-              <div className=" w-75 mx-end d-flex justify-content-right ">
-                <div className="user-message msg">
-                  <p className="client chativa-secondarychativa-fs-a">
-                    hi jacob did you find the affordable house i told you{" "}
-                  </p>
-                </div>
-              </div>
-              <div className=" w-75 mx-end d-flex justify-content-right">
-                <div className="user-message msg">
-                  <p className="client chativa-secondarychativa-fs-a">
-                    Hello, how are you Jacob?{" "}
-                  </p>
-                </div>
-              </div>
-              <div className="w-75 mx-end d-flex justify-content-right">
-                <div className="user-message msg">
-                  <p className="client chativa-secondarychativa-fs-a">
-                    Can you find a house for me at an affordable price?{" "}
-                  </p>
-                </div>
-              </div>
-              <div className="w-75 mx-end d-flex justify-content-right">
-                <div className="user-message msg">
-                  <p className="client chativa-secondarychativa-fs-a">
-                    I’II give you a nice commission if you can find it.{" "}
-                  </p>
-                </div>
-              </div>
+
               <div className="w-75 ms-auto d-flex justify-content-end">
                 <div className="your-message">
                   <p className="you chativa-secondarychativa-fs-a ">
@@ -192,22 +196,13 @@ const ChatSection = ({ userData }) => {
                     </span>
                   </p>
                 </div>
-              </div>
+              </div> */}
               {/* day status */}
-              <div className="d-flex justify-content-center ">
+              {/* <div className="d-flex justify-content-center ">
                 <div className="day-informartion">
                   <p className="day chativa-br chativa-fs-a">Today</p>
                 </div>
-              </div>
-
-              <div className="w-75 mx-end ">
-                <div className="user-message msg">
-                  <p className="client chativa-secondarychativa-fs-a">
-                    hi jacob did you find the affordable house i told you hi
-                    jacob did you find the affordable house i told you{" "}
-                  </p>
-                </div>
-              </div>
+              </div> */}
             </div>
           </div>
           {/* message send input */}
@@ -237,7 +232,7 @@ const ChatSection = ({ userData }) => {
               </div>
             </div>
             <div className="send-button">
-              <button className="btn border">
+              <button className="btn border" onClick={() => sendMessage()}>
                 {!message ? (
                   <BiMicrophone className="chativa-fs-titles chativa-extra" />
                 ) : (
