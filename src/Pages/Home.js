@@ -9,14 +9,14 @@ import { chatUserList, fetchChatUser } from "../Store/Slices/Chat/userSlice";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const data = useSelector(chatUserList);
-  // array_eps[Object.keys(array_eps)[0]]
 
-  // const first = data?.threads[Object.keys(data?.threads)[0]];
+  const data = useSelector(chatUserList);
+
+  console.log("list Home page", data);
 
   const [userData, setUserData] = useState({
     lastUpdated: "17 minutes ago",
-    displayName: "Prometteur Solutions Pvt Ltd",
+    displayName: "gajanan kope",
     state: "Live Agent",
     conversationId: "921e5625-8c67-4c9d-a973-8c651b0c6a41",
     brandId: "7e374ce7-6197-4091-99b1-84076acb5b44",
@@ -25,7 +25,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchChatUser());
-  }, []);
+  }, [dispatch, userData]);
   return (
     <div className="chat-app d-flex home_panel golbalChildSection">
       <RecentSection userData={userData} setUserData={setUserData} />

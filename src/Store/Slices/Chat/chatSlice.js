@@ -6,6 +6,8 @@ export const fetchChat = createAsyncThunk("chat/fetchChat", async (id) => {
   let response = await axios.get(
     `https://gmb.prometteur.in:3330/retrieveMessages?conversationId=${id}`
   );
+
+  console.log("getting messsages using id", response.data);
   return response.data;
 });
 

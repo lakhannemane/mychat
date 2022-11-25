@@ -88,7 +88,7 @@ const RecentSection = ({ userData, setUserData }) => {
   const onHandleSubmitValue = (e) => {
     e.prventDefault();
 
-    console.log("handle submit values ");
+    // console.log("handle submit values ");
   };
   const onSetvalues = (e) => {
     // console.log("values name of handleChage is ", e.target.name);
@@ -98,31 +98,26 @@ const RecentSection = ({ userData, setUserData }) => {
     const data = TimeFilterData.filter((ele, index) => {
       return ele.name.toLowerCase().includes(e.target.value);
     });
-    console.log("daata values ", data);
+    // console.log("daata values ", data);
     setFilterData(data);
   };
 
-  console.log(
-    Users.map((ele) => ele.date),
-    "first user date"
-  );
-
   const data = useSelector(chatUserList);
 
-  console.log(data.threads, "data get from redux store");
+  // console.log(data.threads, "data get from redux store");
 
-  console.log("ordered data ", TimeFilterData);
+  // console.log("ordered data ", TimeFilterData);
 
   const onSetUser = (data) => {
     setUserData(data);
-    console.log("###########################", data);
-    console.log("user user id", data.conversationId);
+    // console.log("###########################", data);
+    // console.log("user user id", data.conversationId);
     dispatch(fetchChat(data.conversationId));
   };
 
   useEffect(() => {
     dispatch(fetchChatUser());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="recent-user-section chativa-bg-recent ">
@@ -278,16 +273,6 @@ const RecentSection = ({ userData, setUserData }) => {
                                 }
                               >
                                 {ele.displayName}
-                                {/* {ele.pin === true && <span className="ms-3">
-                                    <i
-                                      className="fa-solid fa-thumbtack"
-                                      style={{
-                                        transform: "rotate(45deg)",
-                                        color: "#AEB3C2",
-                                        fontSize: "10px"
-                                      }}
-                                    ></i>
-                                  </span>} */}
                                 <br />
                                 <span className="chativa-secondary chativa-fs-c">
                                   {`${ele.lastMessageText.slice(0, 8)}...`}

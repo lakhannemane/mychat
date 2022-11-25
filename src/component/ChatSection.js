@@ -20,12 +20,12 @@ const ChatSection = ({ userData }) => {
   const chatHistory = useSelector(Allchat);
 
   const [render, setRender] = useState(false);
-  console.log("chat history getting from store", chatHistory.messages);
-  console.log("chatsection data in chat page", userData);
+  console.log("Recent Page", chatHistory.messages);
+  // console.log("chatsection data in chat page", userData);
   const [message, setMessage] = useState();
   const onChangeValue = (e) => {
-    console.log(e.target.value);
-    console.log(e.target.name);
+    // console.log(e.target.value);
+    // console.log(e.target.name);
     setMessage(e.target.value);
   };
 
@@ -74,6 +74,7 @@ const ChatSection = ({ userData }) => {
         message: message,
       })
     );
+    dispatch(fetchChat(userData.conversationId));
     setMessage("");
     setRender(true);
   };
@@ -81,7 +82,8 @@ const ChatSection = ({ userData }) => {
   useEffect(() => {
     dispatch(fetchChat(userData.conversationId));
     setRender(false);
-  }, [render]);
+  }, [render, dispatch]);
+
   return (
     <>
       <div className="messages-section chativa-bg-chat ">
@@ -105,16 +107,13 @@ const ChatSection = ({ userData }) => {
                     style={{ background: "#D4D3FC" }}
                   >
                     <p className="firstCharacter" style={{ color: "#7B76CD" }}>
-                      {/* {chatHistory &&
-                        chatHistory?.messages[0].displayName
-                          .charAt(0)
-                          .toUpperCase()} */}
+                      {userData && userData.displayName.charAt(0).toUpperCase()}
                     </p>
                   </div>
                 </div>
                 <div className="user-name-message flex-grow-1 overflow-hidden me-auto">
                   <h5 className=" chativa-fourth  chativa-fs-a">
-                    {/* {chatHistory && chatHistory?.messages[0].displayName} */}
+                    {userData && userData.displayName}
                     <br />
                     <span className="chativa-extra chativa-fs-c">Online</span>
                   </h5>
@@ -152,11 +151,7 @@ const ChatSection = ({ userData }) => {
                       <div className="your-message">
                         <p className="you chativa-secondarychativa-fs-a ">
                           {ele.messageText}
-                          <span>
-                            {/* <IoCheckmarkDoneSharp
-                              style={{ color: "#32a7ff" }}
-                            /> */}
-                          </span>
+                          <span></span>
                         </p>
                       </div>
                     </div>
