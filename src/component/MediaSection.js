@@ -11,7 +11,15 @@ const MediaSection = () => {
 
   return (
     <div className="media-section">
-      <div className="user-name-status">
+      <div
+        className="user-name-status py-2 header-chat"
+        // style={{
+        //   position: "sticky",
+        //   top: "0",
+        //   background: "#FFFFFF",
+        //   zIndex: "1",
+        // }}
+      >
         <div className="chat-user-recent px-3   ">
           <div className="d-flex align-items-center">
             <div className="chat-img-user align-self-center position-relative me-3">
@@ -22,8 +30,12 @@ const MediaSection = () => {
               />
             </div>
             <div className="user-name-message flex-grow-1 overflow-hidden">
-              <h5 className=" chativa-fs-a  chativa-fs-a">Alren richard </h5>
-              <p className="chativa-extra chativa-fs-c">Estate Agent Pro</p>
+              <h5 className=" chativa-fs-a  chativa-fs-a">
+                Alren richard <br />
+                <span className="chativa-extra chativa-fs-c">
+                  Estate Agent Pro
+                </span>
+              </h5>
             </div>
 
             <div className="user-heaings-icons">
@@ -37,7 +49,63 @@ const MediaSection = () => {
 
       {/* poratls section */}
 
-      <div className="poratls-section d-flex justify-content-between w-100">
+      <div className="poratls-media-section d-flex justify-content-between w-100 ">
+        <ul className="list-unstyled  media-portal  align-items-center w-100">
+          <li
+            className={`${
+              activeMedia.id === 1 ? "active-potal" : ""
+            } portal  chativa-br d-flex align-items-center justify-content-center`}
+            onClick={() =>
+              setActiveMedia({ id: 1, notification: "media notifiction" })
+            }
+          >
+            {/* <span>5</span> */}
+            <MdNotificationsNone />
+          </li>
+          <li
+            className={`${
+              activeMedia.id === 2 ? "active-potal" : ""
+            } portal  chativa-br d-flex align-items-center justify-content-center`}
+            onClick={() =>
+              setActiveMedia({ id: 2, reminder: "media reminder" })
+            }
+          >
+            {/* <span>5</span> */}
+            <MdTimer />{" "}
+          </li>
+          <li
+            className={`${
+              activeMedia.id === 3 ? "active-potal" : ""
+            } portal  chativa-br d-flex align-items-center justify-content-center`}
+            onClick={() => setActiveMedia({ id: 3, Notes: "media notes" })}
+          >
+            {/* <span>5</span> */}
+            <BiNote />{" "}
+          </li>
+          <li
+            className={`${
+              activeMedia.id === 4 ? "active-potal" : ""
+            } portal  chativa-br d-flex align-items-center justify-content-center`}
+            onClick={() =>
+              setActiveMedia({ id: 4, calender: "media calender" })
+            }
+          >
+            {/* <span>5</span> */}
+            <i className="fa-regular fa-calendar-days"></i>
+          </li>
+          <li
+            className={`${
+              activeMedia.id === 5 ? "active-potal" : ""
+            } portal  chativa-br d-flex align-items-center justify-content-center`}
+            onClick={() => setActiveMedia({ id: 5, media: "media file" })}
+          >
+            {/* <span>5</span> */}
+            <i className="fa-regular fa-images"></i>{" "}
+          </li>
+        </ul>
+      </div>
+
+      {/* <div className="poratls-section d-flex justify-content-between w-100">
         <div className="one-portal position-relative">
           <div className="google-message-notificaion">
             <p className="count-number text-white chativa-fw-5">5</p>
@@ -50,7 +118,7 @@ const MediaSection = () => {
               setActiveMedia({ id: 1, notification: "media notifiction" })
             }
           >
-            <MdNotificationsNone />
+          
           </div>
         </div>
 
@@ -62,7 +130,7 @@ const MediaSection = () => {
         >
           {/* <FontAwesomeIcon icon="fa-regular fa-stopwatch" />
            */}
-          <MdTimer />
+      {/* <MdTimer />
         </div>
 
         <div
@@ -72,25 +140,25 @@ const MediaSection = () => {
           onClick={() => setActiveMedia({ id: 3, Notes: "media notes" })}
         >
           <BiNote />
-        </div>
+        </div> */}
 
-        <div
-          className={`${
-            activeMedia.id === 4 ? "active-potal" : ""
-          } portal  chativa-br d-flex align-items-center justify-content-center`}
-          onClick={() => setActiveMedia({ id: 4, calender: "media calender" })}
-        >
-          <i className="fa-regular fa-calendar-days"></i>
-        </div>
-        <div
-          className={`${
-            activeMedia.id === 5 ? "active-potal" : ""
-          }   portal  chativa-br d-flex align-items-center justify-content-center`}
-          onClick={() => setActiveMedia({ id: 5, media: "media file" })}
-        >
-          <i className="fa-regular fa-images"></i>
-        </div>
-      </div>
+      {/* //   <div */}
+      {/* //     className={`${ */}
+      {/* //       activeMedia.id === 4 ? "active-potal" : ""
+      //     } portal  chativa-br d-flex align-items-center justify-content-center`}
+      //     onClick={() => setActiveMedia({ id: 4, calender: "media calender" })}
+      //   >
+      //     <i className="fa-regular fa-calendar-days"></i>
+      //   </div> */}
+      {/* //   <div */}
+      {/* //     className={`${ */}
+      {/* //       activeMedia.id === 5 ? "active-potal" : ""
+      //     }   portal  chativa-br d-flex align-items-center justify-content-center`}
+      //     onClick={() => setActiveMedia({ id: 5, media: "media file" })}
+      //   >
+      //     <i className="fa-regular fa-images"></i>
+      //   </div> */}
+      {/* // </div> */}
 
       {/* media file and links  */}
 
@@ -150,14 +218,13 @@ const MediaSection = () => {
           <div className="media-property-section  medias-artice">
             <div className="d-flex justify-content-between align-items-center">
               <h6 className="media chativa-fs-a chativa-fw-5 ">
-                Media{" "}
-                <span className="chativa-fs-a chativa-accent  ms-3">5</span>
+                Media <span className=" chativa-accent files-count">5</span>
               </h6>
               <p className="chativa-fs-14px chativa-danger chativa-fw-5 see-all">
-                see All
+                See All
               </p>
             </div>
-            <div className="property-images d-flex justify-content-between ">
+            <div className="property-media-images  ">
               <div className="property-media-item">
                 <img
                   src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
@@ -184,14 +251,13 @@ const MediaSection = () => {
           <div className="media-videos-section medias-artice">
             <div className="d-flex justify-content-between  align-items-center">
               <h6 className="media chativa-fs-a chativa-fw-5">
-                Videos{" "}
-                <span className="chativa-fs-a chativa-accent  ms-3">7</span>
+                Videos <span className="chativa-accent files-count">7</span>
               </h6>
               <p className="chativa-fs-14px chativa-danger chativa-fw-5 see-all">
-                see All
+                See All
               </p>
             </div>
-            <div className="property-images d-flex justify-content-between ">
+            <div className="property-video-images  ">
               <div className="property-media-item">
                 <img
                   src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
@@ -220,46 +286,31 @@ const MediaSection = () => {
           <div className="files-link medias-artice">
             <div className="d-flex justify-content-between align-items-center">
               <h6 className="media chativa-fs-a chativa-fw-5">
-                Files{" "}
-                <span className="chativa-fs-a chativa-accent  ms-3">3</span>
+                Files <span className=" chativa-accent files-count">2</span>
               </h6>
               <p className="chativa-fs-14px chativa-danger chativa-fw-5 see-all">
-                see All
+                See All
               </p>
             </div>
             <div className="title-and-link d-flex align-items-center">
               <div className="link-icons-section me-3 chativa-br">
-                <p>
-                  <i className="fa-solid fa-link chativa-fs-b"></i>
-                </p>
+                <i className="fa-solid fa-link chativa-fs-b"></i>
               </div>
               <div className="description">
-                <h5 className="chativa-fs-a chativa-fw-5">Youtube</h5>
-                <p className="chativa-extra">https://www.dribble.com</p>
+                <h5 className="chativa-fs-a chativa-fw-5">Google</h5>
+                <p className="chativa-extra">https://www.google.com</p>
               </div>
             </div>
             <div className="title-and-link d-flex align-items-center">
               <div className="link-icons-section me-3 chativa-br">
-                <p>
-                  <i className="fa-solid fa-link chativa-fs-b"></i>
-                </p>
+                <i className="fa-solid fa-link chativa-fs-b"></i>
               </div>
               <div className="description">
                 <h5 className="chativa-fs-a chativa-fw-5">Dribble</h5>
-                <p className="chativa-extra">https://www.dribble.com</p>
+                <p className="chativa-extra">https://www.drible.com</p>
               </div>
             </div>
-            <div className="title-and-link d-flex align-items-center">
-              <div className="link-icons-section me-3 chativa-br">
-                <p>
-                  <i className="fa-solid fa-link chativa-fs-b"></i>
-                </p>
-              </div>
-              <div className="description">
-                <h5 className="chativa-fs-a chativa-fw-5">Figma</h5>
-                <p className="chativa-extra">https://www.dribble.com</p>
-              </div>
-            </div>
+
             {/* <div className="title-and-link d-flex align-items-center">
           <div className="link-icons-section me-3 chativa-br">
             <p>
