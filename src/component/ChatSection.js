@@ -14,6 +14,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Allchat, fetchChat } from "../Store/Slices/Chat/chatSlice";
 import { fetchSendMessage } from "../Store/Slices/Chat/sendMessageSlice";
+import { fetchChatUser } from "../Store/Slices/Chat/userSlice";
 
 const ChatSection = ({ userData }) => {
   const dispatch = useDispatch();
@@ -75,6 +76,7 @@ const ChatSection = ({ userData }) => {
       })
     );
     dispatch(fetchChat(userData.conversationId));
+    dispatch(fetchChatUser());
     setMessage("");
     setRender(true);
   };
