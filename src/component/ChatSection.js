@@ -14,6 +14,10 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Allchat, fetchChat } from "../Store/Slices/Chat/chatSlice";
 import { fetchSendMessage } from "../Store/Slices/Chat/sendMessageSlice";
+import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
+// import io from "socket.io-client";
+const socket = io.connect("https://gmb.prometteur.in:3330");
 
 const ChatSection = ({ userData }) => {
   const dispatch = useDispatch();
@@ -81,8 +85,16 @@ const ChatSection = ({ userData }) => {
 
   useEffect(() => {
     dispatch(fetchChat(userData.conversationId));
+
     setRender(false);
   }, [render, dispatch]);
+
+  useEffect(() => {
+    socket.on("message", (value) => {
+      console.log("value herre", value);
+    });
+    console.log("after socket io");
+  }, [socket]);
 
   return (
     <>
