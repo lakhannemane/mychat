@@ -7,7 +7,7 @@ import MainWraper from "../Hoc/MainWraper";
 import Sidebar from "../Layout/Sidebar";
 import { chatUserList, fetchChatUser } from "../Store/Slices/Chat/userSlice";
 
-const Home = () => {
+const Home = ({ socket }) => {
   const dispatch = useDispatch();
 
   const data = useSelector(chatUserList);
@@ -25,12 +25,16 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchChatUser());
-  }, [dispatch, userData]);
+  }, [dispatch, userData, socket]);
   return (
     <div className="chat-app d-flex home_panel golbalChildSection">
       <RecentSection userData={userData} setUserData={setUserData} />
       <div className="leftContainer d-flex">
-        <ChatSection userData={userData} setUserData={setUserData} />
+        <ChatSection
+          userData={userData}
+          setUserData={setUserData}
+          socket={socket}
+        />
         <MediaSection />
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   BsThreeDots,
   BsTelephone,
@@ -14,19 +14,23 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Allchat, fetchChat } from "../Store/Slices/Chat/chatSlice";
 import { fetchSendMessage } from "../Store/Slices/Chat/sendMessageSlice";
-import { io } from "socket.io-client";
-// import { io } from "socket.io-client";
 // import io from "socket.io-client";
+import { io } from "socket.io-client";
+// // import io from "socket.io-client";
 const socket = io.connect("https://gmb.prometteur.in:3330");
 
 const ChatSection = ({ userData }) => {
+  console.log(socket);
   const dispatch = useDispatch();
+  const [messageData, setMessageData] = useState();
   const chatHistory = useSelector(Allchat);
 
   const [render, setRender] = useState(false);
   console.log("Recent Page", chatHistory.messages);
   // console.log("chatsection data in chat page", userData);
+  const bottomRef = useRef(null);
   const [message, setMessage] = useState();
+
   const onChangeValue = (e) => {
     // console.log(e.target.value);
     // console.log(e.target.name);
@@ -81,20 +85,23 @@ const ChatSection = ({ userData }) => {
     dispatch(fetchChat(userData.conversationId));
     setMessage("");
     setRender(true);
+    // alert("send succesfully");
   };
 
   useEffect(() => {
     dispatch(fetchChat(userData.conversationId));
 
     setRender(false);
-  }, [render, dispatch]);
+    socket.on("message", (value) => {
+      console.log(value, "socket message get at index page");
+      setMessageData(value);
+    });
+    setMessageData("");
+  }, [render, dispatch, messageData]);
 
   useEffect(() => {
-    socket.on("message", (value) => {
-      console.log("value herre", value);
-    });
-    console.log("after socket io");
-  }, [socket]);
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [userData, messageData]);
 
   return (
     <>
@@ -180,6 +187,8 @@ const ChatSection = ({ userData }) => {
                   );
                 }
               })}
+
+              <div ref={bottomRef} />
               {/* day status */}
               {/* <div className="  d-flex justify-content-center">
                 <div className="day-informartion">
