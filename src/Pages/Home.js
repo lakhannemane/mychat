@@ -16,7 +16,7 @@ const Home = () => {
 
   const data = useSelector(chatUserList);
 
-  console.log("list Home page", data);
+  // console.log("list Home page", data);
 
   const [userData, setUserData] = useState({
     lastUpdated: "17 minutes ago",
