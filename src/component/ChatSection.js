@@ -82,10 +82,8 @@ const ChatSection = ({ userData }) => {
         message: message,
       })
     );
-    dispatch(fetchChat(userData.conversationId));
     setMessage("");
     setRender(true);
-    // alert("send succesfully");
   };
 
   useEffect(() => {
@@ -97,11 +95,11 @@ const ChatSection = ({ userData }) => {
       setMessageData(value);
     });
     setMessageData("");
-  }, [render, dispatch, messageData]);
+  }, [dispatch]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [userData, messageData]);
+  }, [dispatch]);
 
   return (
     <>

@@ -81,9 +81,9 @@ const RecentSection = ({ userData, setUserData }) => {
   const dispatch = useDispatch();
 
   const [portalActive, setPortalActive] = useState({ media: "google" });
-  const TimeFilterData = Users.slice().sort((a, b) =>
-    b.date.localeCompare(a.date)
-  );
+  // const TimeFilterData = Users.slice().sort((a, b) =>
+  //   b.date.localeCompare(a.date)
+  // );
 
   const onHandleSubmitValue = (e) => {
     e.prventDefault();
@@ -94,12 +94,12 @@ const RecentSection = ({ userData, setUserData }) => {
     // console.log("values name of handleChage is ", e.target.name);
     // console.log("handle chnage value ");
     // console.log("values name of handleChage is ", e.target.values);
-    setName(e.target.value);
-    const data = TimeFilterData.filter((ele, index) => {
-      return ele.name.toLowerCase().includes(e.target.value);
-    });
+    // setName(e.target.value);
+    // const data = TimeFilterData.filter((ele, index) => {
+    //   return ele.name.toLowerCase().includes(e.target.value);
+    // });
     // console.log("daata values ", data);
-    setFilterData(data);
+    // setFilterData(data);
   };
 
   const data = useSelector(chatUserList);

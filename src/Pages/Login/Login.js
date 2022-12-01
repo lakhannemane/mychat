@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { gapi } from "gapi-script";
 import GoogleLogin from "react-google-login";
+import { useDispatch } from "react-redux";
+import LoginSlice from "../../Store/Slices/LoginSlice";
 
 const clientId =
   "957385858873-7ifa7seicebvqta0810m9j789be9acse.apps.googleusercontent.com";
@@ -11,8 +13,10 @@ const clientId =
 // const scope2 = "https://www.googleapis.com/auth/businessmessages"
 
 const Login = () => {
+  const dispatch = useDispatch();
   const handleSubmit = (values) => {
     console.log(values, "valus in handlesubmit");
+    // dispatch(Login({ name: "lakhan", age: "23" }));
   };
 
   const navigate = useNavigate();
