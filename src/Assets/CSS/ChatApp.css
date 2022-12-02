@@ -1100,3 +1100,51 @@ select option {
     padding-left: 10px;
   }
 }
+
+/* ======================================== */
+/* -------------Activity changes------------------ */
+/* ============================================ */
+
+.feed {
+  width: 100%;
+  height: auto;
+  padding: 2rem 0;
+  background-color: #fbfdff;
+}
+
+.feed-rss-section h1 {
+  font-size: 20px;
+}
+
+.card-jobs {
+  padding: 2rem 0;
+}
+
+.update-time img {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+}
+
+.time-ago {
+  font-size: 10px !important;
+}
+
+.update-time span {
+  color: #45596b;
+  font-size: 12px;
+}
+
+.post-feed h5 a {
+  padding: 0.1rem 0;
+  color: #050d16;
+  font-weight: 700;
+  line-height: 25px;
+  font-size: 20px;
+}
+
+.post-feed div {
+  color: #081d34;
+  font-size: 12.4px;
+  width: 70%;
+}

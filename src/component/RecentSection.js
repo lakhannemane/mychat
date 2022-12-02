@@ -221,89 +221,92 @@ const RecentSection = ({ userData, setUserData }) => {
           {portalActive.media === "google" ? (
             <div className="recent-users-section myscrollbar" id="myScrollbar">
               <ul className="list-unstyled ">
-                {data?.threads?.map((ele, index) => {
-                  return (
-                    <li
-                      className={
-                        userData.conversationId === ele.conversationId
-                          ? "active-user chat-user-recent a chativa-br"
-                          : "chat-user-recent a chativa-br"
-                      }
-                      key={index}
-                    >
-                      <div className="user">
-                        <div>
-                          <div className="d-flex align-items-center">
-                            {userImage ? (
-                              <div className="chat-img-user align-self-center position-relative me-3">
-                                <div
-                                  className="rounded-circle user-image d-flex align-items-center justify-content-center"
-                                  style={{ background: "#D4D3FC" }}
-                                >
-                                  {ele.image ? (
-                                    <img
-                                      src={ele.image ? " " : ""}
-                                      alt=""
-                                      className="rounded-circle user-image"
-                                    />
-                                  ) : (
-                                    <p
-                                      className="fw-bold chativa-fs-b mt-3"
-                                      style={{ color: "#7B76CD" }}
-                                      onClick={() => alert("hellooo")}
-                                    >
-                                      {ele.displayName.charAt(0).toUpperCase()}
-                                    </p>
-                                  )}
+                {data?.threads &&
+                  data?.threads.map((ele, index) => {
+                    return (
+                      <li
+                        className={
+                          userData.conversationId === ele.conversationId
+                            ? "active-user chat-user-recent a chativa-br"
+                            : "chat-user-recent a chativa-br"
+                        }
+                        key={index}
+                      >
+                        <div className="user">
+                          <div>
+                            <div className="d-flex align-items-center">
+                              {userImage ? (
+                                <div className="chat-img-user align-self-center position-relative me-3">
+                                  <div
+                                    className="rounded-circle user-image d-flex align-items-center justify-content-center"
+                                    style={{ background: "#D4D3FC" }}
+                                  >
+                                    {ele.image ? (
+                                      <img
+                                        src={ele.image ? " " : ""}
+                                        alt=""
+                                        className="rounded-circle user-image"
+                                      />
+                                    ) : (
+                                      <p
+                                        className="fw-bold chativa-fs-b mt-3"
+                                        style={{ color: "#7B76CD" }}
+                                        onClick={() => alert("hellooo")}
+                                      >
+                                        {ele.displayName
+                                          .charAt(0)
+                                          .toUpperCase()}
+                                      </p>
+                                    )}
+                                  </div>
+                                  <span className="user-online-status"></span>
                                 </div>
-                                <span className="user-online-status"></span>
-                              </div>
-                            ) : (
-                              "no"
-                            )}
-                            <div
-                              className="user-name-message flex-grow-1 overflow-hidden"
-                              onClick={() => onSetUser(ele)}
-                            >
-                              <p
-                                className={
-                                  ele.messageCount
-                                    ? "time-green chativa-fs-a"
-                                    : "chativa-fs-a chativa-secondary  "
-                                }
-                              >
-                                {ele.displayName}
-                                <br />
-                                <span className="chativa-secondary chativa-fs-c">
-                                  {`${ele.lastMessageText.slice(0, 8)}...`}
-                                </span>
-                              </p>
-                            </div>
-
-                            <div className="user-message-time">
-                              <p
-                                className={
-                                  ele.messageCount
-                                    ? "time-green"
-                                    : "tertary-fs chativa-accent"
-                                }
-                              >
-                                {ele.lastUpdated}
-                              </p>
-                              {ele.messageCount ? (
-                                <p className="message-count">
-                                  {ele.messageCount}
-                                </p>
                               ) : (
-                                ""
+                                "no"
                               )}
+                              <div
+                                className="user-name-message flex-grow-1 overflow-hidden"
+                                onClick={() => onSetUser(ele)}
+                              >
+                                <p
+                                  className={
+                                    ele.messageCount
+                                      ? "time-green chativa-fs-a"
+                                      : "chativa-fs-a chativa-secondary  "
+                                  }
+                                >
+                                  {ele.displayName}
+                                  <br />
+                                  <span className="chativa-secondary chativa-fs-c">
+                                    {`${ele.lastMessageText.slice(0, 8)}...`}
+                                  </span>
+                                </p>
+                              </div>
+
+                              <div className="user-message-time">
+                                <p
+                                  className={
+                                    ele.messageCount
+                                      ? "time-green"
+                                      : "tertary-fs chativa-accent"
+                                  }
+                                >
+                                  {ele.lastUpdated}
+                                </p>
+                                {ele.messageCount ? (
+                                  <p className="message-count">
+                                    {ele.messageCount}
+                                  </p>
+                                ) : (
+                                  ""
+                                )}
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </li>
-                  );
-                })}
+                      </li>
+                    );
+                  })}
               </ul>
             </div>
           ) : portalActive.media === "linkdein" ? (

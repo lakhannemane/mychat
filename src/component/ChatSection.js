@@ -161,30 +161,31 @@ const ChatSection = ({ userData }) => {
           {/* message-section-field */}
           <div className="message-field mt-5 chatscrollbar " id="chatscrollbar">
             <div className="row">
-              {chatHistory?.messages?.map((ele, index) => {
-                if (ele.displayName === "Prometteur Solutions Pvt Ltd") {
-                  return (
-                    <div className="w-75 ms-auto d-flex justify-content-end">
-                      <div className="your-message">
-                        <p className="you chativa-secondarychativa-fs-a ">
-                          {ele.messageText}
-                          <span></span>
-                        </p>
+              {chatHistory.messages &&
+                chatHistory?.messages.map((ele, index) => {
+                  if (ele.displayName === "Prometteur Solutions Pvt Ltd") {
+                    return (
+                      <div className="w-75 ms-auto d-flex justify-content-end">
+                        <div className="your-message">
+                          <p className="you chativa-secondarychativa-fs-a ">
+                            {ele.messageText}
+                            <span></span>
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  );
-                } else {
-                  return (
-                    <div className=" w-75 mx-end d-flex justify-content-right">
-                      <div className="user-message msg">
-                        <p className="client chativa-secondarychativa-fs-a">
-                          {ele.messageText}
-                        </p>
+                    );
+                  } else {
+                    return (
+                      <div className=" w-75 mx-end d-flex justify-content-right">
+                        <div className="user-message msg">
+                          <p className="client chativa-secondarychativa-fs-a">
+                            {ele.messageText}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  );
-                }
-              })}
+                    );
+                  }
+                })}
 
               <div ref={bottomRef} />
             </div>
