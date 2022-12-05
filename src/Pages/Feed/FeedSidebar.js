@@ -7,6 +7,8 @@ import {
 import AddFeed from "../Setting/Models/AddFeed";
 import { SiFreelancer, SiUpwork } from "react-icons/si";
 import { Tooltip } from "antd";
+import { TbEdit } from "react-icons/tb";
+
 
 
 const ActivitySidebar = ({ setMenu, menu }) => {
@@ -79,22 +81,7 @@ const ActivitySidebar = ({ setMenu, menu }) => {
                 </div>
                 <div className="menu-options">
                     <ul className="list-unstyled tab-list">
-                        {/* <li
 
-                        className={
-                            menu.name === "activity"
-                                ? "active-tab tab-list-item chativa-fs-a chativa-fw-5 "
-                                : "tab-list-item chativa-fs-a chativa-fw-5   "
-                        }
-                        onClick={() => setMenu({ id: 2, name: "activity" })}
-                    >
-                        <span className="info-icon-wraper">
-                            {" "}
-                            <MdOutlineLocalActivity className="info-bar-icon" />
-                        </span>
-
-                        Activity
-                    </li> */}
                         <li
                             className={
                                 menu.name === "jobs"
@@ -103,10 +90,16 @@ const ActivitySidebar = ({ setMenu, menu }) => {
                             }
                             onClick={() => setMenu({ id: 1, name: "jobs" })}
                         >
-                            <span className="info-icon-wraper">
-                                <MdOutlineTipsAndUpdates className="info-bar-icon" />
-                            </span>
-                            Job Updates
+                            <div className="d-flex align-items-center justify-content-between">
+                                <span>
+                                    Job Updates
+                                </span>
+                                <span className="info-icon-wraper  " >
+                                    <TbEdit className="info-bar-icon" onClick={() => setIsModalOpen(true)} />
+                                </span>
+                            </div>
+
+
                         </li>
                     </ul>
 
