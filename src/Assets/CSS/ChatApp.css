@@ -1102,7 +1102,7 @@ select option {
 }
 
 /* ======================================== */
-/* -------------Activity changes------------------ */
+/* -------------Feeed changes------------------ */
 /* ============================================ */
 
 .feed {
@@ -1147,4 +1147,14 @@ select option {
   color: #081d34;
   font-size: 12.4px;
   width: 70%;
+}
+
+/* add-button-feed */
+
+.add-feed-button ul li {
+  color: #7b76cd;
+  font-size: 24px;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
 }
