@@ -58,62 +58,6 @@ const ChatMenuPage = ({ activeSetting, setActiveSetting }) => {
       {/* title */}
 
       <div className="recentPanel">
-        {/* poratls section */}
-        {/* 
-                <div className="poratls-section d-flex justify-content-between w-100 portal-scrollbar">
-                    <ul className="list-unstyled d-flex justify-content-between align-items-center w-100">
-                        <li className="nav-item">
-                            <div
-                                className={
-                                    portalActive.media === "google"
-                                        ? "new-item position-relative "
-                                        : " one-portal position-relative   chativa-primary "
-                                }
-                                onClick={() => setPortalActive({ media: "google" })}
-                            >
-                                <div className="portal chativa-br d-flex align-items-center justify-content-center">
-                                    <i className="fa-brands fa-google "></i>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li className="nav-item">
-                            <div
-                                className={
-                                    portalActive.media === "linkdein"
-                                        ? "new-item position-relative"
-                                        : " one-portal position-relative chativa-primary"
-                                }
-                                onClick={() => setPortalActive({ media: "linkdein" })}
-                            >
-                                <div className="portal  chativa-br d-flex align-items-center justify-content-center">
-                                    <i className="fa-brands fa-linkedin-in"></i>
-                                </div>
-                            </div>
-                        </li>
-                        <li className="nav-item">
-                            <div
-                                className={
-                                    portalActive.media === "Instagram"
-                                        ? "new-item position-relative"
-                                        : " one-portal position-relative  chativa-primary"
-                                }
-                                onClick={() => setPortalActive({ media: "Instagram" })}
-                            >
-                                <div className="portal chativa-br d-flex align-items-center justify-content-center">
-                                    <i className="fa-brands fa-instagram"></i>
-                                </div>
-                            </div>
-                        </li>
-                        <li className="nav-item">
-                            <div>
-                                <div className="portal chativa-br d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Add new Portal">
-                                    <BsPlusLg />
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div> */}
         <div className="poratls-section d-flex justify-content-between w-100 ">
           <ul className="list-unstyled  recent-portal  align-items-center w-100">
             <li>

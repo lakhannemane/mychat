@@ -7,6 +7,7 @@ import InfoReducer from "./Slices/getCategorySlice";
 import userListReducer from "./Slices/Chat/userSlice";
 import sendMessageReducer from "./Slices/Chat/sendMessageSlice";
 import chatReducer from "./Slices/Chat/chatSlice";
+import userSlice from "./Slices/Chat/userSlice";
 
 const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
     users: userListReducer,
     message: sendMessageReducer,
     chat: chatReducer,
+    user: userSlice,
   },
 });
 

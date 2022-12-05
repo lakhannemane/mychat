@@ -5,6 +5,7 @@ import { BiUserCircle } from "react-icons/bi";
 import { BsChatDots } from "react-icons/bs";
 import { TbClipboardList } from "react-icons/tb";
 import { NavLink, useNavigate } from "react-router-dom";
+import { MdDynamicFeed } from "react-icons/md";
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -42,6 +43,14 @@ const Sidebar = () => {
               <div className="d-flex flex-column align-items-center">
                 <TbClipboardList className="chativa-icons-sidebar " />
                 <p className="icons-title">Activity</p>
+              </div>
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/Feed" className="nav-link">
+              <div className="d-flex flex-column align-items-center">
+                <MdDynamicFeed className="chativa-icons-sidebar " />
+                <p className="icons-title">Feed</p>
               </div>
             </NavLink>
           </li>

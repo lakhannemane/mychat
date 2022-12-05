@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   BsThreeDots,
   BsTelephone,
@@ -14,15 +14,23 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Allchat, fetchChat } from "../Store/Slices/Chat/chatSlice";
 import { fetchSendMessage } from "../Store/Slices/Chat/sendMessageSlice";
+// import io from "socket.io-client";
+import { io } from "socket.io-client";
+// // import io from "socket.io-client";
+const socket = io.connect("https://gmb.prometteur.in:3330");
 
 const ChatSection = ({ userData }) => {
+  // console.log(socket);
   const dispatch = useDispatch();
+  const [messageData, setMessageData] = useState();
   const chatHistory = useSelector(Allchat);
 
   const [render, setRender] = useState(false);
-  console.log("Recent Page", chatHistory.messages);
+  // console.log("Recent Page", chatHistory.messages);
   // console.log("chatsection data in chat page", userData);
+  const bottomRef = useRef(null);
   const [message, setMessage] = useState();
+
   const onChangeValue = (e) => {
     // console.log(e.target.value);
     // console.log(e.target.name);
@@ -74,15 +82,24 @@ const ChatSection = ({ userData }) => {
         message: message,
       })
     );
-    dispatch(fetchChat(userData.conversationId));
     setMessage("");
     setRender(true);
   };
 
   useEffect(() => {
     dispatch(fetchChat(userData.conversationId));
+
     setRender(false);
-  }, [render, dispatch]);
+    socket.on("message", (value) => {
+      // console.log(value, "socket message get at index page");
+      setMessageData(value);
+    });
+    setMessageData("");
+  }, [dispatch, messageData]);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [dispatch]);
 
   return (
     <>
@@ -144,60 +161,33 @@ const ChatSection = ({ userData }) => {
           {/* message-section-field */}
           <div className="message-field mt-5 chatscrollbar " id="chatscrollbar">
             <div className="row">
-              {chatHistory?.messages?.map((ele, index) => {
-                if (ele.displayName === "Prometteur Solutions Pvt Ltd") {
-                  return (
-                    <div className="w-75 ms-auto d-flex justify-content-end">
-                      <div className="your-message">
-                        <p className="you chativa-secondarychativa-fs-a ">
-                          {ele.messageText}
-                          <span></span>
-                        </p>
+              {chatHistory.messages &&
+                chatHistory?.messages.map((ele, index) => {
+                  if (ele.displayName === "Prometteur Solutions Pvt Ltd") {
+                    return (
+                      <div className="w-75 ms-auto d-flex justify-content-end">
+                        <div className="your-message">
+                          <p className="you chativa-secondarychativa-fs-a ">
+                            {ele.messageText}
+                            <span></span>
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  );
-                } else {
-                  return (
-                    <div className=" w-75 mx-end d-flex justify-content-right">
-                      <div className="user-message msg">
-                        <p className="client chativa-secondarychativa-fs-a">
-                          {ele.messageText}
-                        </p>
+                    );
+                  } else {
+                    return (
+                      <div className=" w-75 mx-end d-flex justify-content-right">
+                        <div className="user-message msg">
+                          <p className="client chativa-secondarychativa-fs-a">
+                            {ele.messageText}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  );
-                }
-              })}
-              {/* day status */}
-              {/* <div className="  d-flex justify-content-center">
-                <div className="day-informartion">
-                  <p className="day  chativa-br chativa-fs-a">yesterday</p>
-                </div>
-              </div> */}
-              {/* <div className=" w-75 mx-end d-flex justify-content-right">
-                <div className="user-message msg">
-                  <p className="client chativa-secondarychativa-fs-a">
-                    Can you find a house for me at an affordable price?{" "}
-                  </p>
-                </div>
-              </div>
+                    );
+                  }
+                })}
 
-              <div className="w-75 ms-auto d-flex justify-content-end">
-                <div className="your-message">
-                  <p className="you chativa-secondarychativa-fs-a ">
-                    Hello, Mark I’m fine thank you how are you{" "}
-                    <span>
-                      <IoCheckmarkDoneSharp style={{ color: "#32a7ff" }} />
-                    </span>
-                  </p>
-                </div>
-              </div> */}
-              {/* day status */}
-              {/* <div className="d-flex justify-content-center ">
-                <div className="day-informartion">
-                  <p className="day chativa-br chativa-fs-a">Today</p>
-                </div>
-              </div> */}
+              <div ref={bottomRef} />
             </div>
           </div>
           {/* message send input */}
@@ -213,6 +203,9 @@ const ChatSection = ({ userData }) => {
             sent-message-input chativa-br  w-100"
                     name="message"
                     value={message}
+                    onKeyPress={(e) => {
+                      e.key === "Enter" && sendMessage();
+                    }}
                     onChange={(e) => onChangeValue(e)}
                   />
                 </form>
