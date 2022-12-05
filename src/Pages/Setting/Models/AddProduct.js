@@ -35,7 +35,6 @@ const AddProduct = ({ isModalOpen, setIsModalOpen }) => {
           <div className="form-section ">
             <a href="https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fbusiness.manage&state=%7B%7D&response_type=code&client_id=957385858873-u7dc3qfo4m87kcgb0noc9k5lc0pff17e.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Fgmb.prometteur.in%3A3330%2Fsteps">
               {" "}
-              loginddsfsdfds
             </a>
             <Formik
               initialValues={{
@@ -63,7 +62,7 @@ const AddProduct = ({ isModalOpen, setIsModalOpen }) => {
                     <Field
                       type="file"
                       name="image"
-                      className="   input-field"
+                      className="input-field"
                       placeholder="Product Name"
                     />
                   </div>
