@@ -7,6 +7,7 @@ import Setting from "./Pages/Setting/Setting";
 import io from "socket.io-client";
 import Feed from "./Pages/Feed/index";
 import Activity from "./Pages/Activity/Index";
+import Signup from "./Pages/SignUp/Signup";
 
 const socket = io.connect("https://gmb.prometteur.in:3330");
 
@@ -18,6 +19,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/dashbord" element={<Dashbord />}></Route>
           <Route path="/activity" element={<Activity />}></Route>
 

@@ -6,7 +6,10 @@ import { IoBasketOutline } from "react-icons/io5";
 import { MdOutlineDesignServices, MdOutlineStore } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { allAccounts } from "../../Store/Slices/Accounts/AccountSlice";
+import {
+  allAccounts,
+  fetchAccounts,
+} from "../../Store/Slices/Accounts/AccountSlice";
 import { fetchInfo } from "../../Store/Slices/getCategorySlice";
 import Index from "./AddAccount/Index";
 
@@ -73,10 +76,11 @@ const ChatMenuPage = ({
   };
 
   useEffect(() => {
-    if (portalActive.portal === "Google") {
-      dispatch(fetchInfo());
-    }
-  }, [addShow]);
+    // if (portalActive.portal === "Google") {
+    //   dispatch(fetchInfo());
+    // }
+    dispatch(fetchAccounts());
+  }, [addShow, dispatch]);
 
   console.log(activeSetting);
 
@@ -87,20 +91,20 @@ const ChatMenuPage = ({
       <div className="recentPanel">
         <div className="poratls-section d-flex justify-content-between w-100 ">
           <ul className="list-unstyled  recent-portal  align-items-center w-100">
-            {Accounts.map((ele, index) => {
-              return (
-                <li key={index} onClick={() => setActivehandler(ele)}>
-                  {/* <span>5</span> */}
-                  {ele.portal === "Google" ? (
-                    <i className="fa-brands fa-google "></i>
-                  ) : ele.portal === "Linkdein" ? (
-                    <i className="fa-brands fa-linkedin-in"></i>
-                  ) : (
-                    ""
-                  )}
-                </li>
-              );
-            })}
+            {/* {Accounts &&
+              Accounts?.account.map((ele, index) => {
+                return (
+                  <li key={index} onClick={() => setActivehandler(ele)}>
+                    {ele.account === "Google" ? (
+                      <i className="fa-brands fa-google "></i>
+                    ) : ele.portal === "Linkdein" ? (
+                      <i className="fa-brands fa-linkedin-in"></i>
+                    ) : (
+                      ""
+                    )}
+                  </li>
+                );
+              })} */}
             {/* 
             <li>
           

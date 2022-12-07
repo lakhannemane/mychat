@@ -4,9 +4,7 @@ import { gapi } from "gapi-script";
 import React, { useEffect } from "react";
 import GoogleLogin from "react-google-login";
 import { AiFillFacebook, AiFillLinkedin } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { AddAccount } from "../../../Store/Slices/Accounts/AccountSlice";
 
 const Index = ({ addShow, setAddShow }) => {
@@ -27,7 +25,6 @@ const Index = ({ addShow, setAddShow }) => {
 
     const clientId =
         "957385858873-7ifa7seicebvqta0810m9j789be9acse.apps.googleusercontent.com";
-    const navigate = useNavigate();
 
     useEffect(() => {
         function start() {
@@ -41,7 +38,7 @@ const Index = ({ addShow, setAddShow }) => {
     }, []);
     const onSuccess = (res) => {
 
-        dispatch(AddAccount({ id: "1 ", portal: "Google", token: `${res.accessToken}` }))
+        dispatch(AddAccount({ account: "Google", token: `${res.accessToken}` }))
         console.log("login si Succesfull0", res);
         localStorage.setItem("g_token", res.accessToken);
         setAddShow(false)
@@ -52,7 +49,7 @@ const Index = ({ addShow, setAddShow }) => {
     };
 
     const addAnotherOne = () => {
-        dispatch(AddAccount({ id: "2", portal: "Linkdein", token: `dhasjdgyijkdhe9u2398domojcye273rdi` }))
+        dispatch(AddAccount({ account: "Linkdein", token: `dhasjdgyijkdhe9u2398domojcye273rdi` }))
         setAddShow(false)
     }
 
