@@ -8,6 +8,7 @@ import userListReducer from "./Slices/Chat/userSlice";
 import sendMessageReducer from "./Slices/Chat/sendMessageSlice";
 import chatReducer from "./Slices/Chat/chatSlice";
 import userSlice from "./Slices/Chat/userSlice";
+import AccountSlice from "./Slices/Accounts/AccountSlice";
 
 const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ const store = configureStore({
     message: sendMessageReducer,
     chat: chatReducer,
     user: userSlice,
+    Account: AccountSlice,
   },
 });
 

@@ -469,7 +469,7 @@
 } */
 
 .description {
-  line-height: 0.2;
+  line-height: 1.2;
 }
 
 .link-fille-icon {
@@ -1155,6 +1155,42 @@ select option {
   color: #7b76cd;
   font-size: 40px;
   position: absolute;
-  bottom: 10px;
+  bottom: 30px;
   right: 20px;
+}
+
+/* ============================================================================ */
+/* -------------------------------add account in setting page----------------------- */
+/* ================================================================================== */
+
+.login-icons {
+  font-size: 24px;
+  margin-right: 5px;
+}
+
+.login-linkdin {
+  color: #0077b5;
+}
+
+.login-facebook {
+  color: #1977f3;
+}
+
+.btns {
+  border: none;
+  border-radius: 5px;
+  padding: 2px 0;
+  background: white;
+  font-weight: 400 !important;
+  color: #081d34 !important;
+  background: #efefef !important;
+  box-shadow: none !important;
+}
+
+.form-add-acount {
+  padding: 2rem 0 0.5rem 0;
+}
+
+button .btns {
+  background-color: none !important;
 }

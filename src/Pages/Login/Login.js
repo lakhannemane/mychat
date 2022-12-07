@@ -6,8 +6,7 @@ import GoogleLogin from "react-google-login";
 import { useDispatch } from "react-redux";
 import LoginSlice from "../../Store/Slices/LoginSlice";
 
-const clientId =
-  "957385858873-7ifa7seicebvqta0810m9j789be9acse.apps.googleusercontent.com";
+
 
 // const bussiness = "https://www.googleapis.com/auth/business.manage"
 // const scope2 = "https://www.googleapis.com/auth/businessmessages"
@@ -19,27 +18,10 @@ const Login = () => {
     // dispatch(Login({ name: "lakhan", age: "23" }));
   };
 
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    function start() {
-      gapi.client.init({
-        clientId: process.env.REACT_PUBLIC_GOOGLE_CLIENT_ID,
-        scope: "https://www.googleapis.com/auth/business.manage",
-      });
-    }
 
-    gapi.load("client:auth2", start);
-  }, []);
 
-  const onSuccess = (res) => {
-    console.log("login si Succesfull0", res.accessToken);
-    localStorage.setItem("a_token", res.accessToken);
-    navigate("/dashbord");
-  };
-  const onFailure = (res) => {
-    console.log("login si Succesfull0", res);
-  };
+
   return (
     <div className="login-form">
       <div className="row justify-content-center">
@@ -110,7 +92,7 @@ const Login = () => {
                                 <p
                                   style={{ cursor: "pointer" }}
                                   className="ps-3 chativa-fs-a"
-                                  // onClick={() => setIsModalVisible(true)}
+                                // onClick={() => setIsModalVisible(true)}
                                 >
                                   Forgot Password ?
                                 </p>
@@ -122,17 +104,12 @@ const Login = () => {
                                 Sign in
                               </button>
 
-                              <GoogleLogin
-                                clientId={clientId}
-                                buttonText="Login with Google"
-                                onSuccess={onSuccess}
-                                onFailure={onFailure}
-                                cookiePolicy={"single_host_origin"}
-                                // isSignedIn={true}
+                              <div className="another-option d-flex align-items-center justify-content-evenly" >
+                                <div className="lg-hr-line" style={{ height: "1px", background: "black", width: "40%" }}></div>
+                                <div>or</div>
+                                <div className="lg-hr-line" style={{ height: "1px", background: "black", width: "40%" }}></div>
+                              </div>
 
-                                style={{ width: "50px", color: "red" }}
-                                className="chativa-btn"
-                              ></GoogleLogin>
                             </Form>
                           )}
                         </Formik>

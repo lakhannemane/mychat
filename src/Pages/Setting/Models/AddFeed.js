@@ -2,7 +2,7 @@ import { Modal } from "antd";
 import { Field, Form, Formik } from "formik";
 import React from "react";
 
-const AddFeed = ({ isModalOpen, setIsModalOpen }) => {
+const AddFeed = ({ isModalOpen, setIsModalOpen, id }) => {
   const handleOk = () => {
     setIsModalOpen(false);
   };
@@ -16,7 +16,7 @@ const AddFeed = ({ isModalOpen, setIsModalOpen }) => {
 
   return (
     <Modal
-      title="Add Feed"
+      title={id ? "Add Feed" : "Update Feed "}
       open={isModalOpen}
       onOk={handleOk}
       onCancel={handleCancel}
@@ -40,13 +40,15 @@ const AddFeed = ({ isModalOpen, setIsModalOpen }) => {
               placeholder="Title"
               className="form-control field-input"
             />
+            {id && (
+              <Field
+                type="text"
+                name="Url"
+                placeholder="Feed Url"
+                className="form-control field-input"
+              />
+            )}
 
-            <Field
-              type="text"
-              name="Url"
-              placeholder="Feed Url"
-              className="form-control field-input"
-            />
             <div className="button-save-section text-end ">
               <button
                 type="submit"

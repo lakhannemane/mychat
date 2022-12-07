@@ -1,12 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import Activity from "./Pages/Activity/Activity";
-import Chat from "./Pages/Chat";
 import Dashbord from "./Pages/Dashbord/Dashbord";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login/Login";
 import Setting from "./Pages/Setting/Setting";
 import io from "socket.io-client";
-import { useEffect } from "react";
 import Feed from "./Pages/Feed/index";
 import Activity from "./Pages/Activity/Index";
 

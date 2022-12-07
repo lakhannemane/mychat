@@ -8,7 +8,7 @@ export const fetServiceList = createAsyncThunk(
       `https://mybusinessbusinessinformation.googleapis.com/v1/locations/17198295898980539095?readMask=serviceItems`,
       {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("a_token")}`,
+          Authorization: `Bearer ${localStorage.getItem("g_token")}`,
         },
       }
     );

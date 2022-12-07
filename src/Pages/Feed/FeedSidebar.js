@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 import { AiOutlinePlusCircle } from "react-icons/ai";
-import {
-    MdOutlineLocalActivity,
-    MdOutlineTipsAndUpdates,
-} from "react-icons/md";
+
 import AddFeed from "../Setting/Models/AddFeed";
 import { SiFreelancer, SiUpwork } from "react-icons/si";
 import { Tooltip } from "antd";
-import { TbEdit } from "react-icons/tb";
+import { BiPencil } from "react-icons/bi";
+
 
 
 
 const ActivitySidebar = ({ setMenu, menu }) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const [id, setId] = useState();
     const [name, setName] = useState();
 
     console.log("name", name)
@@ -24,6 +23,16 @@ const ActivitySidebar = ({ setMenu, menu }) => {
         e.prventDefault();
 
     };
+
+    const onEditHandler = (number) => {
+        setId("")
+        setIsModalOpen(true)
+    }
+
+    const addHandler = () => {
+        setId("2");
+        setIsModalOpen(true)
+    }
     return (
         <div className="recent-user-section" style={{ background: "#F5F5F5" }}>
             <div className="recentPanel ">
@@ -95,7 +104,7 @@ const ActivitySidebar = ({ setMenu, menu }) => {
                                     Job Updates
                                 </span>
                                 <span className="info-icon-wraper  " >
-                                    <TbEdit className="info-bar-icon" onClick={() => setIsModalOpen(true)} />
+                                    <BiPencil className="info-bar-icon" onClick={() => onEditHandler("2")} />
                                 </span>
                             </div>
 
@@ -108,14 +117,14 @@ const ActivitySidebar = ({ setMenu, menu }) => {
                             <li>
 
                                 <Tooltip title="Add Feed" placement="topRight">
-                                    <AiOutlinePlusCircle onClick={() => setIsModalOpen(true)} />
+                                    <AiOutlinePlusCircle onClick={() => addHandler()} />
                                 </Tooltip>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <AddFeed isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+            <AddFeed isModalOpen={isModalOpen} id={id} setIsModalOpen={setIsModalOpen} />
         </div>
     );
 };

@@ -1,9 +1,14 @@
-import React, { useState } from "react";
-import { BsPlusLg } from "react-icons/bs";
+import { Tooltip } from "antd";
+import React, { useEffect, useState } from "react";
+import { BiPlus } from "react-icons/bi";
 import { GoSettings } from "react-icons/go";
 import { IoBasketOutline } from "react-icons/io5";
 import { MdOutlineDesignServices, MdOutlineStore } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { allAccounts } from "../../Store/Slices/Accounts/AccountSlice";
+import { fetchInfo } from "../../Store/Slices/getCategorySlice";
+import Index from "./AddAccount/Index";
 
 const Users = [
   {
@@ -48,8 +53,30 @@ const Users = [
   },
 ];
 
-const ChatMenuPage = ({ activeSetting, setActiveSetting }) => {
-  const [portalActive, setPortalActive] = useState({ media: "google" });
+const ChatMenuPage = ({
+  activeSetting,
+  setActiveSetting,
+  portalActive,
+  setPortalActive,
+}) => {
+  const [addShow, setAddShow] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const Accounts = useSelector(allAccounts);
+
+  console.log(Accounts, "this is my cacounts here");
+
+  const setActivehandler = (data) => {
+    console.log("data valuu", data);
+    // setPortalActive()
+  };
+
+  useEffect(() => {
+    if (portalActive.portal === "Google") {
+      dispatch(fetchInfo());
+    }
+  }, [addShow]);
 
   console.log(activeSetting);
 
@@ -60,21 +87,34 @@ const ChatMenuPage = ({ activeSetting, setActiveSetting }) => {
       <div className="recentPanel">
         <div className="poratls-section d-flex justify-content-between w-100 ">
           <ul className="list-unstyled  recent-portal  align-items-center w-100">
+            {Accounts.map((ele, index) => {
+              return (
+                <li key={index} onClick={() => setActivehandler(ele)}>
+                  {/* <span>5</span> */}
+                  {ele.portal === "Google" ? (
+                    <i className="fa-brands fa-google "></i>
+                  ) : ele.portal === "Linkdein" ? (
+                    <i className="fa-brands fa-linkedin-in"></i>
+                  ) : (
+                    ""
+                  )}
+                </li>
+              );
+            })}
+            {/* 
             <li>
-              <span>5</span>
-              <i className="fa-brands fa-google "></i>
-            </li>
-            <li>
-              {/* <span>5</span> */}
+          
               <i className="fa-brands fa-linkedin-in"></i>
             </li>
             <li>
-              {/* <span>5</span> */}
+             
               <i className="fa-brands fa-instagram"></i>
-            </li>
+            </li> */}
             <li>
               {/* <span>5</span> */}
-              <i className="fa-brands fa-facebook"></i>
+              <Tooltip title="Add Account" placement="topLeft">
+                <BiPlus onClick={() => setAddShow(true)} />
+              </Tooltip>
             </li>
           </ul>
         </div>
@@ -146,6 +186,7 @@ const ChatMenuPage = ({ activeSetting, setActiveSetting }) => {
           </ul>
         </div>
       </div>
+      <Index addShow={addShow} setAddShow={setAddShow} />
     </div>
   );
 };

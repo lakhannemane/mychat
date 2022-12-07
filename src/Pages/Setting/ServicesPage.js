@@ -27,7 +27,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchInfo } from "../../Store/Slices/getCategorySlice";
 import moment from "moment";
 
-const ServicesPage = ({ activeSetting, setActiveSetting }) => {
+const ServicesPage = ({
+  activeSetting,
+  setActiveSetting,
+  portalActive,
+  setPortalActive,
+}) => {
   const dispatch = useDispatch();
   const Information = useSelector((state) => state.Info.category);
 
@@ -40,7 +45,9 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
   // localStorage.setItem("data", JSON.stringify(Information))
 
   useEffect(() => {
-    dispatch(fetchInfo());
+    if (portalActive.portal === "Google") {
+      dispatch(fetchInfo());
+    }
   }, [dispatch]);
 
   return (
