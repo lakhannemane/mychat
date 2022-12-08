@@ -2,59 +2,15 @@ import { Tooltip } from "antd";
 import React, { useEffect, useState } from "react";
 import { BiPlus } from "react-icons/bi";
 import { GoSettings } from "react-icons/go";
+import { GrFacebookOption } from "react-icons/gr";
 import { IoBasketOutline } from "react-icons/io5";
 import { MdOutlineDesignServices, MdOutlineStore } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
 import {
   allAccounts,
   fetchAccounts,
 } from "../../Store/Slices/Accounts/AccountSlice";
-import { fetchInfo } from "../../Store/Slices/getCategorySlice";
 import Index from "./AddAccount/Index";
-
-const Users = [
-  {
-    id: 1,
-    name: "Mark Zukarberg",
-    message: "how are you",
-  },
-  {
-    id: 2,
-    name: "Mark Messar",
-    message: "how are you",
-  },
-  {
-    id: 3,
-    name: "Genral",
-    message: "how are you",
-  },
-  {
-    id: 4,
-    name: "Alex deo",
-    message: "how are you",
-  },
-  {
-    id: 5,
-    name: "dwen Brawo",
-    message: "how are you",
-  },
-  {
-    id: 6,
-    name: "Msd ",
-    message: "how are you",
-  },
-  {
-    id: 7,
-    name: "Shreyas Iyyer",
-    message: "how are you",
-  },
-  {
-    id: 8,
-    name: "Akshay Kumar",
-    message: "how are you",
-  },
-];
 
 const ChatMenuPage = ({
   activeSetting,
@@ -91,20 +47,22 @@ const ChatMenuPage = ({
       <div className="recentPanel">
         <div className="poratls-section d-flex justify-content-between w-100 ">
           <ul className="list-unstyled  recent-portal  align-items-center w-100">
-            {/* {Accounts &&
-              Accounts?.account.map((ele, index) => {
+            {Accounts &&
+              Accounts?.account?.map((ele, index) => {
                 return (
                   <li key={index} onClick={() => setActivehandler(ele)}>
                     {ele.account === "Google" ? (
                       <i className="fa-brands fa-google "></i>
-                    ) : ele.portal === "Linkdein" ? (
+                    ) : ele.account === "Linkdein" ? (
                       <i className="fa-brands fa-linkedin-in"></i>
+                    ) : ele.account === "Flipkart" ? (
+                      <GrFacebookOption />
                     ) : (
                       ""
                     )}
                   </li>
                 );
-              })} */}
+              })}
             {/* 
             <li>
           

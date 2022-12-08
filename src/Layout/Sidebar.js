@@ -6,13 +6,27 @@ import { BsChatDots } from "react-icons/bs";
 import { TbClipboardList } from "react-icons/tb";
 import { NavLink, useNavigate } from "react-router-dom";
 import { MdDynamicFeed } from "react-icons/md";
+import axios from "axios";
 
 const Sidebar = () => {
   const navigate = useNavigate();
 
-  const goLoginPage = () => {
-    navigate("/login");
-    localStorage.clear();
+  const goLoginPage = async () => {
+    const response = await axios.post(
+      "https://gmb.prometteur.in:3330/users/logout",
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("user-token")}`,
+        },
+      }
+    );
+    if (response.status === 200) {
+      navigate("/");
+      localStorage.clear();
+    } else {
+      alert("try again");
+    }
   };
   return (
     <div className="sidebar-logo-section chativa-bg-primary">
@@ -73,12 +87,9 @@ const Sidebar = () => {
               </div>
             </NavLink>
           </li>
-          <li className="nav-item">
+          <li className="nav-item " onClick={() => goLoginPage()}>
             {/* <NavLink to="/logout" className="nav-link"> */}
-            <div
-              className="d-flex flex-column align-items-center"
-              onClick={() => goLoginPage()}
-            >
+            <div className="d-flex flex-column align-items-center">
               <AiOutlineLogout className="chativa-icons-sidebar " />
               <p className="  icons-title">Log Out</p>
             </div>

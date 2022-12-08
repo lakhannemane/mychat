@@ -23,9 +23,10 @@ export const fetchAccounts = createAsyncThunk(
 
 export const AddAccounts = createAsyncThunk(
   "accounts/AddAccounts",
-  async ({ data }) => {
+  async (data) => {
+    console.log("hello lakhan data", data);
     try {
-      let response = await axios.get(
+      let response = await axios.post(
         `https://gmb.prometteur.in:3330/accounts`,
         data,
         {
@@ -34,8 +35,12 @@ export const AddAccounts = createAsyncThunk(
           },
         }
       );
-      console.log("response", response.data);
-      return response.data;
+
+      if (response.data.message) {
+        alert("account already added");
+      } else {
+        return response.data;
+      }
     } catch (error) {
       console.log(error);
     }
@@ -66,6 +71,11 @@ const accountSlice = createSlice({
     [fetchAccounts.rejected]: (state, action) => {
       // state.Accounts = action.payload
     },
+    [AddAccounts.pending]: (state, action) => {},
+    [AddAccounts.fulfilled]: (state, action) => {
+      state.Accounts = action.payload;
+    },
+    [AddAccounts.rejected]: (state, action) => {},
   },
 });
 

@@ -1,6 +1,7 @@
 import moment from "moment/moment";
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { GrFacebookOption } from "react-icons/gr";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { allAccounts } from "../Store/Slices/Accounts/AccountSlice";
@@ -163,7 +164,7 @@ const RecentSection = ({ userData, setUserData }) => {
         <div className="poratls-section d-flex justify-content-between w-100 ">
           <ul className="list-unstyled  recent-portal  align-items-center w-100">
             {Accounts &&
-              Accounts.map((portal, index) => {
+              Accounts?.account?.map((portal, index) => {
                 return (
                   <li
                     className={
@@ -173,10 +174,12 @@ const RecentSection = ({ userData, setUserData }) => {
                     }
                     onClick={() => setPortalActive({ media: "google" })}
                   >
-                    {portal.portal === "Google" ? (
+                    {portal.account === "Google" ? (
                       <i className="fa-brands fa-google "></i>
-                    ) : portal.portal === "Linkdein" ? (
+                    ) : portal.account === "Linkdein" ? (
                       <i className="fa-brands fa-linkedin-in"></i>
+                    ) : portal.account === "Flipkart" ? (
+                      <GrFacebookOption />
                     ) : (
                       ""
                     )}
