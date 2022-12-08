@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { allAccounts } from "../Store/Slices/Accounts/AccountSlice";
 import { fetchChat } from "../Store/Slices/Chat/chatSlice";
 import { chatUserList, fetchChatUser } from "../Store/Slices/Chat/userSlice";
 
@@ -103,6 +104,7 @@ const RecentSection = ({ userData, setUserData }) => {
   };
 
   const data = useSelector(chatUserList);
+  const Accounts = useSelector(allAccounts);
 
   // console.log(data.threads, "data get from redux store");
 
@@ -160,7 +162,28 @@ const RecentSection = ({ userData, setUserData }) => {
 
         <div className="poratls-section d-flex justify-content-between w-100 ">
           <ul className="list-unstyled  recent-portal  align-items-center w-100">
-            <li
+            {Accounts &&
+              Accounts.map((portal, index) => {
+                return (
+                  <li
+                    className={
+                      portalActive.media === "googl"
+                        ? "new-item position-relative "
+                        : " one-portal position-relative   chativa-primary "
+                    }
+                    onClick={() => setPortalActive({ media: "google" })}
+                  >
+                    {portal.portal === "Google" ? (
+                      <i className="fa-brands fa-google "></i>
+                    ) : portal.portal === "Linkdein" ? (
+                      <i className="fa-brands fa-linkedin-in"></i>
+                    ) : (
+                      ""
+                    )}
+                  </li>
+                );
+              })}
+            {/* <li
               className={
                 portalActive.media === "google"
                   ? "new-item position-relative "
@@ -170,8 +193,8 @@ const RecentSection = ({ userData, setUserData }) => {
             >
               <span>{Users.length}</span>
               <i className="fa-brands fa-google "></i>
-            </li>
-            <li
+            </li> */}
+            {/* <li
               className={
                 portalActive.media === "linkdein"
                   ? "new-item position-relative"
@@ -179,10 +202,9 @@ const RecentSection = ({ userData, setUserData }) => {
               }
               onClick={() => setPortalActive({ media: "linkdein" })}
             >
-              {/* <span>5</span> */}
               <i className="fa-brands fa-linkedin-in"></i>
-            </li>
-            <li
+            </li> */}
+            {/* <li
               className={
                 portalActive.media === "Instagram"
                   ? "new-item position-relative"
@@ -190,10 +212,9 @@ const RecentSection = ({ userData, setUserData }) => {
               }
               onClick={() => setPortalActive({ media: "Instagram" })}
             >
-              {/* <span>5</span> */}
               <i className="fa-brands fa-instagram"></i>
-            </li>
-            <li
+            </li> */}
+            {/* <li
               className={
                 portalActive.media === "facebook"
                   ? "new-item position-relative"
@@ -201,9 +222,8 @@ const RecentSection = ({ userData, setUserData }) => {
               }
               onClick={() => setPortalActive({ media: "facebook" })}
             >
-              {/* <span>5</span> */}
               <i className="fa-brands fa-facebook"></i>
-            </li>
+            </li> */}
           </ul>
         </div>
 

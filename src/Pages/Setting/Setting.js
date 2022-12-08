@@ -9,13 +9,22 @@ const Setting = () => {
     name: "info",
   });
 
+  const [portalActive, setPortalActive] = useState({
+    id: "1 ",
+    portal: "Google",
+  });
+
   return (
     <div className="global_panel golbalChildSection d-flex">
       <ChatMenuPage
+        portalActive={portalActive}
+        setPortalActive={setPortalActive}
         activeSetting={activeSetting}
         setActiveSetting={setActiveSetting}
       />
       <ServicesPage
+        portalActive={portalActive}
+        setPortalActive={setPortalActive}
         activeSetting={activeSetting}
         setActiveSetting={setActiveSetting}
       />

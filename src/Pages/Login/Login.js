@@ -1,45 +1,39 @@
 import { Field, Form, Formik } from "formik";
-import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { gapi } from "gapi-script";
-import GoogleLogin from "react-google-login";
-import { useDispatch } from "react-redux";
-import LoginSlice from "../../Store/Slices/LoginSlice";
+import React from "react";
+import { Link } from "react-router-dom";
+// import { useDispatch } from "react-redux";
+// import LoginSlice from "../../Store/Slices/LoginSlice";
+import axios from "axios";
 
-const clientId =
-  "957385858873-7ifa7seicebvqta0810m9j789be9acse.apps.googleusercontent.com";
+const baseUrl = "https://gmb.prometteur.in:3330"
+
+
 
 // const bussiness = "https://www.googleapis.com/auth/business.manage"
 // const scope2 = "https://www.googleapis.com/auth/businessmessages"
 
 const Login = () => {
-  const dispatch = useDispatch();
-  const handleSubmit = (values) => {
+  // const dispatch = useDispatch();
+
+
+  const getValues = (values) => {
     console.log(values, "valus in handlesubmit");
+
+    axios.post(`${baseUrl}/users/login`, values).then((res) => {
+      console.log(res.data)
+      localStorage.setItem("user-token", res.data.newToken)
+    }
+    ).catch((error) => console.log(error))
+
     // dispatch(Login({ name: "lakhan", age: "23" }));
   };
 
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    function start() {
-      gapi.client.init({
-        clientId: process.env.REACT_PUBLIC_GOOGLE_CLIENT_ID,
-        scope: "https://www.googleapis.com/auth/business.manage",
-      });
-    }
 
-    gapi.load("client:auth2", start);
-  }, []);
 
-  const onSuccess = (res) => {
-    console.log("login si Succesfull0", res.accessToken);
-    localStorage.setItem("a_token", res.accessToken);
-    navigate("/dashbord");
-  };
-  const onFailure = (res) => {
-    console.log("login si Succesfull0", res);
-  };
+
+
+
   return (
     <div className="login-form">
       <div className="row justify-content-center">
@@ -63,24 +57,26 @@ const Login = () => {
                           initialValues={{ email: "", password: "" }}
                           validate={(values) => {
                             let errors = {};
-                            if (!values.email) {
-                              errors.email = "required*";
-                            } else if (
-                              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(
-                                values.email
-                              )
-                            ) {
-                              errors.email = "Invalid email address";
-                            }
-                            if (!values.password) {
-                              errors.password = "required*";
-                            } else if (values.password.length < 7) {
-                              errors.password = "enter valid password";
-                              // console.log("enter valid password");
-                            }
+                            // if (!values.email) {
+                            //   errors.email = "required*";
+                            // } else if (
+                            //   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(
+                            //     values.email
+                            //   )
+                            // ) {
+                            //   errors.email = "Invalid email address";
+                            // }
+                            // if (!values.password) {
+                            //   errors.password = "required*";
+                            // } else if (values.password.length < 7) {
+                            //   errors.password = "enter valid password";
+                            //   // console.log("enter valid password");
+                            // }
                             return errors;
                           }}
-                          onSubmit={handleSubmit}
+                          onSubmit={values => {
+                            getValues(values);
+                          }}
                           className="mt-4"
                         >
                           {({ values, errors, handleSubmit }) => (
@@ -110,7 +106,7 @@ const Login = () => {
                                 <p
                                   style={{ cursor: "pointer" }}
                                   className="ps-3 chativa-fs-a"
-                                  // onClick={() => setIsModalVisible(true)}
+                                // onClick={() => setIsModalVisible(true)}
                                 >
                                   Forgot Password ?
                                 </p>
@@ -122,23 +118,18 @@ const Login = () => {
                                 Sign in
                               </button>
 
-                              <GoogleLogin
-                                clientId={clientId}
-                                buttonText="Login with Google"
-                                onSuccess={onSuccess}
-                                onFailure={onFailure}
-                                cookiePolicy={"single_host_origin"}
-                                // isSignedIn={true}
+                              {/* <div className="another-option d-flex align-items-center justify-content-evenly" >
+                                <div className="lg-hr-line" style={{ height: "1px", background: "black", width: "40%" }}></div>
+                                <div>or</div>
+                                <div className="lg-hr-line" style={{ height: "1px", background: "black", width: "40%" }}></div>
+                              </div> */}
 
-                                style={{ width: "50px", color: "red" }}
-                                className="chativa-btn"
-                              ></GoogleLogin>
                             </Form>
                           )}
                         </Formik>
                         <p className="text-center chativa-fs-a">
                           Don't have account?{" "}
-                          <Link to="/" className="ms-2 text-dark">
+                          <Link to="/signup" className="ms-2 text-dark">
                             Click here
                           </Link>
                         </p>

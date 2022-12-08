@@ -7,7 +7,7 @@ export const fetchHours = createAsyncThunk("hours/fetchHours", async () => {
       `https://mybusinessbusinessinformation.googleapis.com/v1/accounts/118375854560050713875/locations?readMask=regularHours`,
       {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("a_token")}`,
+          Authorization: `Bearer ${localStorage.getItem("g_token")}`,
         },
       }
     );

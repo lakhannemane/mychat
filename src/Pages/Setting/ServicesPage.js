@@ -18,17 +18,21 @@ import { TbCameraPlus } from "react-icons/tb";
 import { BsTag } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { ImShare2 } from "react-icons/im";
-import { useLinkClickHandler } from "react-router-dom";
 import { Tabs } from "antd";
 import AddProduct from "./Models/AddProduct";
 import Services from "./SettingPages/Services";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchHours } from "../../Store/Slices/getTotalhoursSlice";
-import { fetServiceList } from "../../Store/Slices/serviceSlice";
+// import { fetchHours } from "../../Store/Slices/getTotalhoursSlice";
+// import { fetServiceList } from "../../Store/Slices/serviceSlice";
 import { fetchInfo } from "../../Store/Slices/getCategorySlice";
 import moment from "moment";
 
-const ServicesPage = ({ activeSetting, setActiveSetting }) => {
+const ServicesPage = ({
+  activeSetting,
+  setActiveSetting,
+  portalActive,
+  setPortalActive,
+}) => {
   const dispatch = useDispatch();
   const Information = useSelector((state) => state.Info.category);
 
@@ -41,7 +45,9 @@ const ServicesPage = ({ activeSetting, setActiveSetting }) => {
   // localStorage.setItem("data", JSON.stringify(Information))
 
   useEffect(() => {
-    dispatch(fetchInfo());
+    if (portalActive.portal === "Google") {
+      dispatch(fetchInfo());
+    }
   }, [dispatch]);
 
   return (
