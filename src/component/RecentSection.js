@@ -4,7 +4,10 @@ import { useEffect } from "react";
 import { GrFacebookOption } from "react-icons/gr";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { allAccounts } from "../Store/Slices/Accounts/AccountSlice";
+import {
+  allAccounts,
+  fetchAccounts,
+} from "../Store/Slices/Accounts/AccountSlice";
 import { fetchChat } from "../Store/Slices/Chat/chatSlice";
 import { chatUserList, fetchChatUser } from "../Store/Slices/Chat/userSlice";
 
@@ -78,7 +81,6 @@ const Users = [
 const RecentSection = ({ userData, setUserData }) => {
   const [userImage, setUserImages] = useState(true);
   const [name, setName] = useState();
-  const [filterData, setFilterData] = useState();
 
   const dispatch = useDispatch();
 
@@ -120,6 +122,7 @@ const RecentSection = ({ userData, setUserData }) => {
 
   useEffect(() => {
     dispatch(fetchChatUser());
+    dispatch(fetchAccounts());
   }, [dispatch]);
 
   return (
