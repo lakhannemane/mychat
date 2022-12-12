@@ -1,6 +1,6 @@
 import { Field, Form, Formik } from "formik";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { useDispatch } from "react-redux";
 // import LoginSlice from "../../Store/Slices/LoginSlice";
 import axios from "axios";
@@ -14,6 +14,7 @@ const baseUrl = "https://gmb.prometteur.in:3330"
 
 const Login = () => {
   // const dispatch = useDispatch();
+  const navigate = useNavigate();
 
 
   const getValues = (values) => {
@@ -21,7 +22,10 @@ const Login = () => {
 
     axios.post(`${baseUrl}/users/login`, values).then((res) => {
       console.log(res.data)
-      localStorage.setItem("user-token", res.data.newToken)
+      if (res.status === 200) {
+        localStorage.setItem("user-token", res.data.newToken)
+        navigate("/dashbord")
+      }
     }
     ).catch((error) => console.log(error))
 

@@ -1,13 +1,27 @@
+import axios from "axios";
 import { Field, Form, Formik } from "formik";
 import React from "react";
 import { Link } from "react-router-dom";
 
 const Signup = () => {
 
-    const getValues = (values, resetForm) => {
+    const getValues = async (values, resetForm) => {
         console.log(values)
+        try {
+            const response = await axios.post("https://gmb.prometteur.in:3330/users", values, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("user-token")}`
+                }
+            })
+            if (response.status === 200) {
+                alert("successfully registerd")
+            }
+        } catch (error) {
+            console.log(error)
+        }
         resetForm();
     }
+
     return (
         <div className="signup-section pt-5">
             <div className="row justify-content-center">
@@ -25,32 +39,25 @@ const Signup = () => {
 
                                     <Formik
                                         initialValues={{
-                                            firstName: "",
-                                            lastName: "",
+                                            name: "",
                                             email: "",
+                                            password: "",
                                             contact: "",
-                                            password: ""
                                         }}
                                         onSubmit={(values, resetForm) => {
                                             getValues(values, resetForm);
                                         }}
                                     >
                                         <Form>
-                                            <label htmlFor="firstName">First Name</label>
+                                            <label htmlFor="firstName"> Name</label>
                                             <Field
-                                                id="firstName"
-                                                name="firstName"
+                                                id="name"
+                                                name="name"
                                                 placeholder="Jane"
                                                 className="form-control"
                                             />
 
-                                            <label htmlFor="lastName">Last Name</label>
-                                            <Field
-                                                id="lastName"
-                                                name="lastName"
-                                                placeholder="Doe"
-                                                className="form-control"
-                                            />
+
 
                                             <label htmlFor="email">Email</label>
                                             <Field
@@ -83,7 +90,7 @@ const Signup = () => {
                                                 &nbsp; I am agree the terms of services and priacy policy
                                             </label>
 
-                                            <button type="submit" className="chativa-btn-primary mt-2 form-control">Submit</button>
+                                            <button type="submit" className="chativa-btn-primary mt-2 form-control"     >Submit</button>
                                         </Form>
                                     </Formik>
                                 </div>

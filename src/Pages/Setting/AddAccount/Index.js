@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 import GoogleLogin from "react-google-login";
 import { AiFillFacebook, AiFillLinkedin } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import { AddAccount } from "../../../Store/Slices/Accounts/AccountSlice";
+import { AddAccounts } from "../../../Store/Slices/Accounts/AccountSlice";
 
 const Index = ({ addShow, setAddShow }) => {
 
@@ -38,9 +38,9 @@ const Index = ({ addShow, setAddShow }) => {
     }, []);
     const onSuccess = (res) => {
 
-        dispatch(AddAccount({ account: "Google", token: `${res.accessToken}` }))
         console.log("login si Succesfull0", res);
         localStorage.setItem("g_token", res.accessToken);
+        dispatch(AddAccounts({ account: "Google", token: "eyaHDsannnde7989dakbe" }))
         setAddShow(false)
     };
 
@@ -49,8 +49,15 @@ const Index = ({ addShow, setAddShow }) => {
     };
 
     const addAnotherOne = () => {
-        dispatch(AddAccount({ account: "Linkdein", token: `dhasjdgyijkdhe9u2398domojcye273rdi` }))
+        dispatch(AddAccounts({ account: "Linkdein", token: `dhasjdgyijkdhe9u2398domojcye273rdi` }))
+        // dispatch(AddAccount())
         setAddShow(false)
+    }
+
+    const addFlipKart = () => {
+        dispatch(AddAccounts({ account: "Flipkart", token: `dhasjdgyijkdhe9u2398domojcye273rdi` }))
+        setAddShow(false)
+
     }
 
 
@@ -84,7 +91,7 @@ const Index = ({ addShow, setAddShow }) => {
                     {/* <button className="btns my-2 "><span className="login-icons login-linkdin"><FcGoogle /></span>Login in With Google </button> */}
 
                     <button className="btns my-2 " onClick={() => addAnotherOne()}><span className="login-icons login-linkdin"><AiFillLinkedin /></span>Login in With Linkedln </button>
-                    <button className="btns  my-2 "> <span className="login-icons login-facebook"><AiFillFacebook /></span>Login in With Facebook </button>
+                    <button className="btns  my-2 " onClick={() => addFlipKart()}> <span className="login-icons login-facebook"><AiFillFacebook /></span>Login in With Facebook </button>
                 </div>
 
                 <div className="or d-flex align-items-center justify-content-evenly mt-3">
