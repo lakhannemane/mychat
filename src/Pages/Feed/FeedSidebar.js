@@ -14,36 +14,61 @@ import { allFeeds, fetchAllFeed, fetchSingleFeed } from "../../Store/Slices/Feed
 
 
 
-const ActivitySidebar = ({ setMenu, menu }) => {
+const ActivitySidebar = ({ Accounts }) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [id, setId] = useState();
     const [name, setName] = useState();
     const [element, setElement] = useState();
     const dispatch = useDispatch();
+    const [feedActive, setFeedActive] = useState(Accounts.account ? Accounts.account[0] : "")
 
-    console.log("name", name)
+    let activeElement;
+    if (Accounts.account && Accounts.account[0].account === "Google" && !Accounts.account.message) {
+        activeElement = Accounts.account[0]
+    }
+    console.log(activeElement, "active element")
 
-    const accounts = useSelector(allAccounts);
-    // const [portalActive, setPortalActive] = useState(false)
-    // console.log(portalActive, "portal active")
-    // const accounts = useSelector(allAccounts);
     const allFeedData = useSelector(allFeeds);
+
+    let activeFeed;
+    if (allFeedData && allFeedData.feed) {
+        activeFeed = allFeedData.feed[0]._id
+        console.log(activeFeed, "active feed ==============================================")
+    }
+
+    useEffect(() => {
+        if (activeElement) {
+            dispatch(fetchAllFeed(activeElement._id))
+        }
+        if (activeFeed) {
+            dispatch(fetchSingleFeed(activeFeed))
+        }
+    }, [activeElement, isModalOpen])
+
+
+    console.log("=======feed active element=======", feedActive)
+
+    useEffect(() => {
+        if (feedActive) {
+            dispatch(fetchAllFeed(feedActive._id))
+        }
+        if (feedActive) {
+            dispatch(fetchSingleFeed(activeFeed))
+        }
+    }, [feedActive, isModalOpen])
+
+
+
+
 
     console.log("all feed data ", allFeedData)
 
-    console.log(accounts, "this data from from feeeeed section")
     const onHandleSubmitValue = (e) => {
         e.prventDefault();
 
     };
 
-    let portalActive;
-    if (accounts?.length !== 0) {
-        portalActive = accounts?.account[0]?._id;
-    }
-
-    console.log("active object", portalActive)
 
 
     const onEditHandler = (number) => {
@@ -57,17 +82,14 @@ const ActivitySidebar = ({ setMenu, menu }) => {
         setId("")
     }
 
-    useEffect(() => {
-        dispatch(fetchAccounts());
-        if (allFeedData) {
-            dispatch(fetchAllFeed(allFeedData?.account_id))
-        }
-    }, [isModalOpen, portalActive])
+
+
 
     const ongethandelr = (values) => {
         dispatch(fetchAllFeed(values._id))
+        setFeedActive(values)
+        // activeElement = values
 
-        portalActive = values
     }
 
     const getFeeddataHandler = (data) => {
@@ -103,12 +125,13 @@ const ActivitySidebar = ({ setMenu, menu }) => {
 
                 <div className="poratls-section d-flex justify-content-between w-100 ">
                     <ul className="list-unstyled  recent-portal  align-items-center w-100">
-                        {accounts?.account && accounts?.account?.map((portal, index) => {
+                        {Accounts?.account && Accounts?.account?.map((portal, index) => {
                             return (
                                 <li
                                     key={index}
                                     onClick={() => ongethandelr(portal)}
-                                    className={portalActive === portal._id ? "new-item position-relative " : "position-relative"}>
+                                    className={feedActive && feedActive._id === portal._id ? "new-item position-relative " : !feedActive && activeElement?._id === portal._id ? "new-item position-relative" : "position-relative"}
+                                >
                                     {portal.account === "Google" ? <i className="fa-brands fa-google "></i> : portal.account === "Flipkart" ? <i className="fa-brands fa-linkedin-in"></i> : portal.account === "Linkdein" ? <GrFacebookOption /> : ""}
                                 </li>
                             )
@@ -195,7 +218,7 @@ const ActivitySidebar = ({ setMenu, menu }) => {
                 </div>
             </div>
             <AddFeed isModalOpen={isModalOpen} element={element} id={id} setIsModalOpen={setIsModalOpen} />
-        </div>
+        </div >
     );
 };
 
