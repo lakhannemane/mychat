@@ -59,8 +59,6 @@ const ActivitySidebar = ({ setMenu, menu }) => {
 
     useEffect(() => {
         dispatch(fetchAccounts());
-
-
         if (allFeedData) {
             dispatch(fetchAllFeed(allFeedData?.account_id))
         }

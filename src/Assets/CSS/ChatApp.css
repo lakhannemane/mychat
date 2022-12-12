@@ -191,6 +191,7 @@
   color: white;
   border-radius: 0.6rem;
   box-shadow: 0 2px 5px 2px rgba(8, 29, 52, 0.4);
+  cursor: grab;
 }
 
 .google-message-notificaion {
@@ -574,6 +575,7 @@
 .tab-list-item {
   padding: 1rem 1rem !important;
   display: block;
+  cursor: pointer;
 }
 .info-icon-wraper {
   background-color: rgb(212, 211, 252);
