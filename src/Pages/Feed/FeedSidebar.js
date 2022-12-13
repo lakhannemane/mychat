@@ -47,16 +47,16 @@ const ActivitySidebar = ({ Accounts }) => {
     }, [activeElement, isModalOpen])
 
 
-    console.log("=======feed active element=======", feedActive)
+    // console.log("=======feed active element=======", feedActive)
 
     useEffect(() => {
         if (feedActive) {
             dispatch(fetchAllFeed(feedActive._id))
         }
-        if (feedActive) {
+        if (feedActive === undefined) {
             dispatch(fetchSingleFeed(activeFeed))
         }
-    }, [feedActive, isModalOpen])
+    }, [feedActive])
 
 
 
