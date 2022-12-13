@@ -14,50 +14,45 @@ import { allFeeds, fetchAllFeed, fetchSingleFeed } from "../../Store/Slices/Feed
 
 
 
-const ActivitySidebar = ({ Accounts }) => {
+const ActivitySidebar = ({ Accounts, feedActive, setFeedActive }) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [id, setId] = useState();
     const [name, setName] = useState();
     const [element, setElement] = useState();
     const dispatch = useDispatch();
-    const [feedActive, setFeedActive] = useState(Accounts.account ? Accounts.account[0] : "")
 
-    let activeElement;
-    if (Accounts.account && Accounts.account[0].account === "Google" && !Accounts.account.message) {
-        activeElement = Accounts.account[0]
-    }
-    console.log(activeElement, "active element")
+    const [portalActive, setPortalActive] = useState()
+
+
+
+
+
 
     const allFeedData = useSelector(allFeeds);
 
-    let activeFeed;
-    if (allFeedData && allFeedData.feed) {
-        activeFeed = allFeedData.feed[0]._id
-        console.log(activeFeed, "active feed ==============================================")
-    }
 
     useEffect(() => {
-        if (activeElement) {
-            dispatch(fetchAllFeed(activeElement._id))
-        }
-        if (activeFeed) {
-            dispatch(fetchSingleFeed(activeFeed))
-        }
-    }, [activeElement, isModalOpen])
+        if (Accounts.account) {
+            dispatch(fetchAllFeed(Accounts.account[0]._id))
+            setPortalActive(Accounts.account[0]._id)
 
+        }
 
-    // console.log("=======feed active element=======", feedActive)
+    }, [Accounts.account, dispatch, isModalOpen])
 
     useEffect(() => {
-        if (feedActive) {
-            dispatch(fetchAllFeed(feedActive._id))
+        if (allFeedData.feed) {
+            dispatch(fetchSingleFeed(allFeedData.feed[0]._id))
+            setFeedActive(allFeedData.feed[0]._id)
         }
-        if (feedActive === undefined) {
-            dispatch(fetchSingleFeed(activeFeed))
-        }
-    }, [feedActive])
+    }, [allFeedData.feed])
 
+
+
+
+    console.log("feed active  ", feedActive)
+    console.log("active portal", portalActive)
 
 
 
@@ -87,8 +82,8 @@ const ActivitySidebar = ({ Accounts }) => {
 
     const ongethandelr = (values) => {
         dispatch(fetchAllFeed(values._id))
-        setFeedActive(values)
-        // activeElement = values
+        setPortalActive(values._id)
+        // activeElement = values   
 
     }
 
@@ -130,7 +125,7 @@ const ActivitySidebar = ({ Accounts }) => {
                                 <li
                                     key={index}
                                     onClick={() => ongethandelr(portal)}
-                                    className={feedActive && feedActive._id === portal._id ? "new-item position-relative " : !feedActive && activeElement?._id === portal._id ? "new-item position-relative" : "position-relative"}
+                                    className={feedActive && portalActive === portal._id ? "new-item position-relative " : "position-relative"}
                                 >
                                     {portal.account === "Google" ? <i className="fa-brands fa-google "></i> : portal.account === "Flipkart" ? <i className="fa-brands fa-linkedin-in"></i> : portal.account === "Linkdein" ? <GrFacebookOption /> : ""}
                                 </li>
@@ -167,7 +162,8 @@ const ActivitySidebar = ({ Accounts }) => {
                             return (
                                 <li
                                     key={index}
-                                    className={
+
+                                    className={feedActive === feed._id ? "active-tab tab-list-item chativa-fs-a chativa-fw-5 " :
                                         "tab-list-item chativa-fs-a chativa-fw-5 "}
                                     onClick={() => getFeeddataHandler(feed)}
                                 >

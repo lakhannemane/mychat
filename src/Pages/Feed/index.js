@@ -7,6 +7,7 @@ import ActivitySidebar from "./FeedSidebar";
 
 const Index = () => {
   const [Accounts, setAccounts] = useState([]);
+  const [feedActive, setFeedActive] = useState();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAccounts()).then((res) => {
@@ -19,8 +20,12 @@ const Index = () => {
   console.log("account in home page", Accounts);
   return (
     <div className="global_panel golbalChildSection d-flex">
-      <ActivitySidebar Accounts={Accounts} />
-      <Activity />
+      <ActivitySidebar
+        Accounts={Accounts}
+        feedActive={feedActive}
+        setFeedActive={setFeedActive}
+      />
+      <Activity feedActive={feedActive} setFeedActive={setFeedActive} />
     </div>
   );
 };
