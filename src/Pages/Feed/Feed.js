@@ -9,11 +9,6 @@ const Activity = ({ feedActive, setFeedActive }) => {
   const Job = useSelector(allJobs);
   const feedData = useSelector(allFeeds);
 
-  console.log(
-    "feed Active-----------------------------------------------------------------------",
-    feedData
-  );
-
   return (
     <div style={{ width: "100%" }}>
       <div className="feed">

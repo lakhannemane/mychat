@@ -22,7 +22,6 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashbord" element={<Dashbord />}></Route>
           <Route path="/activity" element={<Activity />}></Route>
-
           <Route path="/feed" element={<Feed />}></Route>
           <Route path="/chat" element={<Home socket={socket} />}></Route>
           <Route path="/setting" element={<Setting />} />
