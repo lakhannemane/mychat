@@ -14,7 +14,7 @@ import { allFeeds, fetchAllFeed, fetchSingleFeed } from "../../Store/Slices/Feed
 
 
 
-const ActivitySidebar = ({ setMenu, menu }) => {
+const ActivitySidebar = ({ Accounts, feedActive, setFeedActive }) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [id, setId] = useState();
@@ -22,28 +22,48 @@ const ActivitySidebar = ({ setMenu, menu }) => {
     const [element, setElement] = useState();
     const dispatch = useDispatch();
 
-    console.log("name", name)
+    const [portalActive, setPortalActive] = useState()
 
-    const accounts = useSelector(allAccounts);
-    // const [portalActive, setPortalActive] = useState(false)
-    // console.log(portalActive, "portal active")
-    // const accounts = useSelector(allAccounts);
+
+
+
+
+
     const allFeedData = useSelector(allFeeds);
+
+
+    useEffect(() => {
+        if (Accounts.account) {
+            dispatch(fetchAllFeed(Accounts.account[0]._id))
+            setPortalActive(Accounts.account[0]._id)
+
+        }
+
+    }, [Accounts.account, dispatch, isModalOpen])
+
+    useEffect(() => {
+        if (allFeedData.feed) {
+            dispatch(fetchSingleFeed(allFeedData.feed[0]._id))
+            setFeedActive(allFeedData.feed[0]._id)
+        }
+    }, [allFeedData.feed])
+
+
+
+
+    console.log("feed active  ", feedActive)
+    console.log("active portal", portalActive)
+
+
+
 
     console.log("all feed data ", allFeedData)
 
-    console.log(accounts, "this data from from feeeeed section")
     const onHandleSubmitValue = (e) => {
         e.prventDefault();
 
     };
 
-    let portalActive;
-    if (accounts?.length !== 0) {
-        portalActive = accounts?.account[0]?._id;
-    }
-
-    console.log("active object", portalActive)
 
 
     const onEditHandler = (number) => {
@@ -57,17 +77,14 @@ const ActivitySidebar = ({ setMenu, menu }) => {
         setId("")
     }
 
-    useEffect(() => {
-        dispatch(fetchAccounts());
-        if (allFeedData) {
-            dispatch(fetchAllFeed(allFeedData?.account_id))
-        }
-    }, [isModalOpen, portalActive])
+
+
 
     const ongethandelr = (values) => {
         dispatch(fetchAllFeed(values._id))
+        setPortalActive(values._id)
+        // activeElement = values   
 
-        portalActive = values
     }
 
     const getFeeddataHandler = (data) => {
@@ -103,12 +120,13 @@ const ActivitySidebar = ({ setMenu, menu }) => {
 
                 <div className="poratls-section d-flex justify-content-between w-100 ">
                     <ul className="list-unstyled  recent-portal  align-items-center w-100">
-                        {accounts?.account && accounts?.account?.map((portal, index) => {
+                        {Accounts?.account && Accounts?.account?.map((portal, index) => {
                             return (
                                 <li
                                     key={index}
                                     onClick={() => ongethandelr(portal)}
-                                    className={portalActive === portal._id ? "new-item position-relative " : "position-relative"}>
+                                    className={feedActive && portalActive === portal._id ? "new-item position-relative " : "position-relative"}
+                                >
                                     {portal.account === "Google" ? <i className="fa-brands fa-google "></i> : portal.account === "Flipkart" ? <i className="fa-brands fa-linkedin-in"></i> : portal.account === "Linkdein" ? <GrFacebookOption /> : ""}
                                 </li>
                             )
@@ -144,7 +162,8 @@ const ActivitySidebar = ({ setMenu, menu }) => {
                             return (
                                 <li
                                     key={index}
-                                    className={
+
+                                    className={feedActive === feed._id ? "active-tab tab-list-item chativa-fs-a chativa-fw-5 " :
                                         "tab-list-item chativa-fs-a chativa-fw-5 "}
                                     onClick={() => getFeeddataHandler(feed)}
                                 >
@@ -195,7 +214,7 @@ const ActivitySidebar = ({ setMenu, menu }) => {
                 </div>
             </div>
             <AddFeed isModalOpen={isModalOpen} element={element} id={id} setIsModalOpen={setIsModalOpen} />
-        </div>
+        </div >
     );
 };
 

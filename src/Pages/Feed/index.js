@@ -1,14 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import MainWraper from "../../Hoc/MainWraper";
+import { fetchAccounts } from "../../Store/Slices/Accounts/AccountSlice";
 import Activity from "./Feed";
 import ActivitySidebar from "./FeedSidebar";
 
 const Index = () => {
-  const [menu, setMenu] = useState({ name: "jobs", id: 1 });
+  const [Accounts, setAccounts] = useState([]);
+  const [feedActive, setFeedActive] = useState();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchAccounts()).then((res) => {
+      if (res.payload) {
+        setAccounts(res.payload);
+      }
+    });
+  }, []);
+
+  console.log("account in home page", Accounts);
   return (
     <div className="global_panel golbalChildSection d-flex">
-      <ActivitySidebar menu={menu} setMenu={setMenu} />
-      <Activity menu={menu} setMenu={setMenu} />
+      <ActivitySidebar
+        Accounts={Accounts}
+        feedActive={feedActive}
+        setFeedActive={setFeedActive}
+      />
+      <Activity feedActive={feedActive} setFeedActive={setFeedActive} />
     </div>
   );
 };
