@@ -17,15 +17,8 @@ const Home = () => {
   const data = useSelector(chatUserList);
 
   // console.log("list Home page", data);
-
-  const [userData, setUserData] = useState({
-    lastUpdated: "17 minutes ago",
-    displayName: "gajanan kope",
-    state: "Live Agent",
-    conversationId: "921e5625-8c67-4c9d-a973-8c651b0c6a41",
-    brandId: "7e374ce7-6197-4091-99b1-84076acb5b44",
-    lastMessageText: "how are you",
-  });
+  const [portalActive, setPortalActive] = useState();
+  const [userData, setUserData] = useState();
 
   useEffect(() => {
     dispatch(fetchChatUser());
@@ -36,7 +29,12 @@ const Home = () => {
   }, [render]);
   return (
     <div className="chat-app d-flex home_panel golbalChildSection">
-      <RecentSection userData={userData} setUserData={setUserData} />
+      <RecentSection
+        userData={userData}
+        setUserData={setUserData}
+        portalActive={portalActive}
+        setPortalActive={setPortalActive}
+      />
       <div className="leftContainer d-flex">
         <ChatSection
           userData={userData}
