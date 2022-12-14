@@ -9,10 +9,7 @@ const Setting = () => {
     name: "info",
   });
 
-  const [portalActive, setPortalActive] = useState({
-    id: "1 ",
-    portal: "Google",
-  });
+  const [portalActive, setPortalActive] = useState();
 
   return (
     <div className="global_panel golbalChildSection d-flex">

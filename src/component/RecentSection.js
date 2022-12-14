@@ -166,7 +166,7 @@ const RecentSection = ({
                       return (
                         <li
                           className={
-                            userData.conversationId === ele.conversationId
+                            userData?.conversationId === ele.conversationId
                               ? "active-user chat-user-recent a chativa-br"
                               : "chat-user-recent a chativa-br"
                           }

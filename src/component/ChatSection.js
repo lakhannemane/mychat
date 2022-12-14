@@ -77,7 +77,7 @@ const ChatSection = ({ userData }) => {
   const sendMessage = () => {
     dispatch(
       fetchSendMessage({
-        conversationId: userData.conversationId,
+        conversationId: userData?.conversationId,
         message: message,
       })
     );
@@ -87,7 +87,7 @@ const ChatSection = ({ userData }) => {
 
   useEffect(() => {
     if (userData) {
-      dispatch(fetchChat(userData.conversationId));
+      dispatch(fetchChat(userData?.conversationId));
     }
 
     setRender(false);
@@ -100,7 +100,7 @@ const ChatSection = ({ userData }) => {
 
   useEffect(() => {
     if (userData) {
-      dispatch(fetchChat(userData.conversationId));
+      dispatch(fetchChat(userData?.conversationId));
     }
   }, [dispatch, userData]);
 

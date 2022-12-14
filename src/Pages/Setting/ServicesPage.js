@@ -36,17 +36,17 @@ const ServicesPage = ({
   const dispatch = useDispatch();
   const Information = useSelector((state) => state.Info.category);
 
-  console.log("information value ", portalActive);
+  console.log("I am in sercvie page ", portalActive);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
   };
 
   useEffect(() => {
-    // if (portalActive.account === "Google") {
+    // if (portalActive && portalActive?.account === "Google") {
     dispatch(fetchInfo());
     // }
-  }, [dispatch, portalActive.account]);
+  }, [dispatch]);
 
   return (
     <div className="chativa-bg-chat leftGlobal leftContainer py-4">
