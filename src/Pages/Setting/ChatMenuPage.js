@@ -102,67 +102,71 @@ const ChatMenuPage = ({
         {/* list for services */}
 
         <div className="menu-options">
-          <ul className="list-unstyled tab-list">
-            <li
-              className={
-                activeSetting.name === "info"
-                  ? "active-tab tab-list-item chativa-fs-a chativa-fw-5 "
-                  : "tab-list-item chativa-fs-a chativa-fw-5   "
-              }
-              onClick={() => setActiveSetting({ id: 1, name: "info" })}
-            >
-              {" "}
-              <span className="info-icon-wraper">
-                <MdOutlineStore className="info-bar-icon " />{" "}
-              </span>
-              Info
-            </li>
-            <li
-              className={
-                activeSetting.name === "services"
-                  ? "active-tab tab-list-item chativa-fs-a chativa-fw-5  "
-                  : "tab-list-item chativa-fs-a chativa-fw-5 "
-              }
-              onClick={() => setActiveSetting({ id: 2, name: "services" })}
-            >
-              {" "}
-              <span className="info-icon-wraper">
+          {portalActive && portalActive?.account === "Google" ? (
+            <ul className="list-unstyled tab-list">
+              <li
+                className={
+                  activeSetting.name === "info"
+                    ? "active-tab tab-list-item chativa-fs-a chativa-fw-5 "
+                    : "tab-list-item chativa-fs-a chativa-fw-5   "
+                }
+                onClick={() => setActiveSetting({ id: 1, name: "info" })}
+              >
                 {" "}
-                <MdOutlineDesignServices className="info-bar-icon" />
-              </span>
-              Services
-            </li>
-            <li
-              className={
-                activeSetting.name === "product"
-                  ? "active-tab tab-list-item chativa-fs-a chativa-fw-5  "
-                  : "tab-list-item chativa-fs-a chativa-fw-5 "
-              }
-              onClick={() => setActiveSetting({ id: 3, name: "product" })}
-            >
-              {" "}
-              <span className="info-icon-wraper">
-                <IoBasketOutline className="info-bar-icon" />
-              </span>{" "}
-              Products
-            </li>
-            <li
-              className={
-                activeSetting.name === "bussinesSetting"
-                  ? "active-tab tab-list-item chativa-fs-a chativa-fw-5  "
-                  : "tab-list-item chativa-fs-a chativa-fw-5 "
-              }
-              onClick={() =>
-                setActiveSetting({ id: 4, name: "bussinesSetting" })
-              }
-            >
-              {" "}
-              <span className="info-icon-wraper">
-                <GoSettings className="info-bar-icon" />
-              </span>{" "}
-              Bussiness Setting
-            </li>
-          </ul>
+                <span className="info-icon-wraper">
+                  <MdOutlineStore className="info-bar-icon " />{" "}
+                </span>
+                Info
+              </li>
+              <li
+                className={
+                  activeSetting.name === "services"
+                    ? "active-tab tab-list-item chativa-fs-a chativa-fw-5  "
+                    : "tab-list-item chativa-fs-a chativa-fw-5 "
+                }
+                onClick={() => setActiveSetting({ id: 2, name: "services" })}
+              >
+                {" "}
+                <span className="info-icon-wraper">
+                  {" "}
+                  <MdOutlineDesignServices className="info-bar-icon" />
+                </span>
+                Services
+              </li>
+              <li
+                className={
+                  activeSetting.name === "product"
+                    ? "active-tab tab-list-item chativa-fs-a chativa-fw-5  "
+                    : "tab-list-item chativa-fs-a chativa-fw-5 "
+                }
+                onClick={() => setActiveSetting({ id: 3, name: "product" })}
+              >
+                {" "}
+                <span className="info-icon-wraper">
+                  <IoBasketOutline className="info-bar-icon" />
+                </span>{" "}
+                Products
+              </li>
+              <li
+                className={
+                  activeSetting.name === "bussinesSetting"
+                    ? "active-tab tab-list-item chativa-fs-a chativa-fw-5  "
+                    : "tab-list-item chativa-fs-a chativa-fw-5 "
+                }
+                onClick={() =>
+                  setActiveSetting({ id: 4, name: "bussinesSetting" })
+                }
+              >
+                {" "}
+                <span className="info-icon-wraper">
+                  <GoSettings className="info-bar-icon" />
+                </span>{" "}
+                Bussiness Setting
+              </li>
+            </ul>
+          ) : (
+            ""
+          )}
         </div>
       </div>
       <Index addShow={addShow} setAddShow={setAddShow} />

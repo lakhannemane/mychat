@@ -10,15 +10,10 @@ const Services = (props) => {
   const dispatch = useDispatch();
   const service = useSelector((state) => state.service);
 
-  console.log("ervice page", service);
-
   useEffect(() => {
     dispatch(fetServiceList());
   }, [dispatch]);
 
-  // service.services.map((e) => {
-  //   console.log("values", e.structuredServiceItem.serviceTypeId);
-  // });
   return (
     <div className="setting-services-section">
       <div className="category-display-section ">
