@@ -52,7 +52,9 @@ const ServicesPage = ({
     <div className="chativa-bg-chat leftGlobal leftContainer py-4">
       <div className="row justify-content-center">
         <div className="col col-xl-10 col-12">
-          {activeSetting.name === "info" ? (
+          {/* {activeSetting.name ? "yes" : "no"} */}
+          {activeSetting.name === "info" &&
+          portalActive?.account === "Google" ? (
             <div className="row">
               <div className="col-8 ">
                 {Information.length !== 0 && (
@@ -711,7 +713,7 @@ const ServicesPage = ({
               <div className="col-12">bussiness</div>
             </div>
           ) : (
-            "nothing"
+            <h5 style={{ fontSize: "14px" }}>No Record...</h5>
           )}
 
           {/* =====================footer============= */}
