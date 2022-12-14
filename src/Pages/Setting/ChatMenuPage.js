@@ -38,7 +38,7 @@ const ChatMenuPage = ({
     if (Accounts.account) {
       setPortalActive(Accounts.account[0]);
     }
-  }, [Accounts.account]);
+  }, [Accounts.account, setPortalActive]);
 
   const setActivehandler = (data) => {
     console.log("data valuu", data);
