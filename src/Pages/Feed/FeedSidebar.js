@@ -21,9 +21,9 @@ const ActivitySidebar = ({ Accounts, feedActive, setFeedActive }) => {
     const [name, setName] = useState();
     const [element, setElement] = useState();
     const dispatch = useDispatch();
+    const [render, setRender] = useState(false)
 
     const [portalActive, setPortalActive] = useState()
-
 
 
 
@@ -33,12 +33,11 @@ const ActivitySidebar = ({ Accounts, feedActive, setFeedActive }) => {
 
 
     useEffect(() => {
+
         if (Accounts.account) {
             dispatch(fetchAllFeed(Accounts.account[0]._id))
             setPortalActive(Accounts.account[0]._id)
-
         }
-
     }, [Accounts.account, dispatch])
 
     useEffect(() => {
@@ -46,13 +45,17 @@ const ActivitySidebar = ({ Accounts, feedActive, setFeedActive }) => {
             dispatch(fetchSingleFeed(allFeedData.feed[0]._id))
             setFeedActive(allFeedData.feed[0]._id)
         }
-    }, [allFeedData.feed])
+    }, [allFeedData.feed, dispatch])
+
 
 
 
     useEffect(() => {
-    }, [isModalOpen])
+        dispatch(fetchAllFeed(portalActive));
+        console.log(portalActive, "hwllo active portal is here")
+    }, [dispatch, isModalOpen])
 
+    console.log("all feedd data", allFeedData)
 
 
 
@@ -70,6 +73,7 @@ const ActivitySidebar = ({ Accounts, feedActive, setFeedActive }) => {
     const onEditHandler = (number) => {
         setId(number)
         setIsModalOpen(true)
+        setRender(true)
     }
 
     const addHandler = (IdNumber) => {
@@ -90,6 +94,8 @@ const ActivitySidebar = ({ Accounts, feedActive, setFeedActive }) => {
 
     const getFeeddataHandler = (data) => {
         dispatch(fetchSingleFeed(data._id))
+        setFeedActive(data._id)
+        setRender(true)
     }
     return (
         <div className="recent-user-section" style={{ background: "#F5F5F5" }}>
@@ -214,7 +220,7 @@ const ActivitySidebar = ({ Accounts, feedActive, setFeedActive }) => {
                     </div>
                 </div>
             </div>
-            <AddFeed isModalOpen={isModalOpen} element={element} id={id} setIsModalOpen={setIsModalOpen} />
+            <AddFeed isModalOpen={isModalOpen} element={element} id={id} setIsModalOpen={setIsModalOpen} setRender={setRender} />
         </div >
     );
 };

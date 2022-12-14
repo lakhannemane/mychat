@@ -46,7 +46,7 @@ const ServicesPage = ({
     // if (portalActive && portalActive?.account === "Google") {
     dispatch(fetchInfo());
     // }
-  }, [dispatch]);
+  }, [dispatch, portalActive]);
 
   return (
     <div className="chativa-bg-chat leftGlobal leftContainer py-4">
@@ -540,7 +540,8 @@ const ServicesPage = ({
                 </div>
               </div>
             </div>
-          ) : activeSetting.name === "services" ? (
+          ) : activeSetting.name === "services" &&
+            portalActive?.account === "Google" ? (
             <div className="row">
               <div className="col-12 ">
                 <Services />
