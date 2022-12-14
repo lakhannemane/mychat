@@ -5,6 +5,7 @@ import { GoSettings } from "react-icons/go";
 import { GrFacebookOption } from "react-icons/gr";
 import { IoBasketOutline } from "react-icons/io5";
 import { MdOutlineDesignServices, MdOutlineStore } from "react-icons/md";
+import { SiUpwork } from "react-icons/si";
 import { useDispatch, useSelector } from "react-redux";
 import {
   allAccounts,
@@ -26,17 +27,23 @@ const ChatMenuPage = ({
 
   console.log(Accounts, "this is my cacounts here");
 
-  const setActivehandler = (data) => {
-    console.log("data valuu", data);
-    // setPortalActive()
-  };
-
   useEffect(() => {
     // if (portalActive.portal === "Google") {
     //   dispatch(fetchInfo());
     // }
     dispatch(fetchAccounts());
   }, [addShow, dispatch]);
+
+  useEffect(() => {
+    if (Accounts.account) {
+      setPortalActive(Accounts.account[0]);
+    }
+  }, [Accounts.account]);
+
+  const setActivehandler = (data) => {
+    console.log("data valuu", data);
+    setPortalActive(data);
+  };
 
   console.log(activeSetting);
 
@@ -50,13 +57,23 @@ const ChatMenuPage = ({
             {Accounts &&
               Accounts?.account?.map((ele, index) => {
                 return (
-                  <li key={index} onClick={() => setActivehandler(ele)}>
+                  <li
+                    key={index}
+                    onClick={() => setActivehandler(ele)}
+                    className={
+                      portalActive && portalActive._id === ele._id
+                        ? "new-item position-relative "
+                        : "position-relative"
+                    }
+                  >
                     {ele.account === "Google" ? (
                       <i className="fa-brands fa-google "></i>
                     ) : ele.account === "Linkdein" ? (
                       <i className="fa-brands fa-linkedin-in"></i>
                     ) : ele.account === "Flipkart" ? (
                       <GrFacebookOption />
+                    ) : ele.account === "upwork" ? (
+                      <SiUpwork />
                     ) : (
                       ""
                     )}

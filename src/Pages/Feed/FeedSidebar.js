@@ -127,7 +127,7 @@ const ActivitySidebar = ({ Accounts, feedActive, setFeedActive }) => {
                                     onClick={() => ongethandelr(portal)}
                                     className={feedActive && portalActive === portal._id ? "new-item position-relative " : "position-relative"}
                                 >
-                                    {portal.account === "Google" ? <i className="fa-brands fa-google "></i> : portal.account === "Flipkart" ? <i className="fa-brands fa-linkedin-in"></i> : portal.account === "Linkdein" ? <GrFacebookOption /> : ""}
+                                    {portal.account === "Google" ? <i className="fa-brands fa-google "></i> : portal.account === "Linkdein" ? <i className="fa-brands fa-linkedin-in"></i> : portal.account === "upwork" ? <SiUpwork /> : ""}
                                 </li>
                             )
                         })}

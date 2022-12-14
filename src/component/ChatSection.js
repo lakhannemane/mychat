@@ -16,6 +16,7 @@ import { Allchat, fetchChat } from "../Store/Slices/Chat/chatSlice";
 import { fetchSendMessage } from "../Store/Slices/Chat/sendMessageSlice";
 // import io from "socket.io-client";
 import { io } from "socket.io-client";
+// import { fetchChatUser } from "../Store/Slices/Chat/userSlice";
 // // import io from "socket.io-client";
 const socket = io.connect("https://gmb.prometteur.in:3330");
 
@@ -26,14 +27,12 @@ const ChatSection = ({ userData }) => {
   const chatHistory = useSelector(Allchat);
 
   const [render, setRender] = useState(false);
-  // console.log("Recent Page", chatHistory.messages);
-  // console.log("chatsection data in chat page", userData);
+  console.log("Recent Page", userData);
+  console.log("chatsection data in chat page", userData);
   const bottomRef = useRef(null);
   const [message, setMessage] = useState();
 
   const onChangeValue = (e) => {
-    // console.log(e.target.value);
-    // console.log(e.target.name);
     setMessage(e.target.value);
   };
 
@@ -46,7 +45,7 @@ const ChatSection = ({ userData }) => {
       items={[
         {
           key: "1",
-          label: <a target="/chat">Home</a>,
+          label: <NavLink target="/chat">Home</NavLink>,
         },
         {
           key: "2",
@@ -87,7 +86,9 @@ const ChatSection = ({ userData }) => {
   };
 
   useEffect(() => {
-    dispatch(fetchChat(userData.conversationId));
+    if (userData) {
+      dispatch(fetchChat(userData.conversationId));
+    }
 
     setRender(false);
     socket.on("message", (value) => {
@@ -95,7 +96,13 @@ const ChatSection = ({ userData }) => {
       setMessageData(value);
     });
     setMessageData("");
-  }, [dispatch, messageData]);
+  }, [dispatch, userData]);
+
+  useEffect(() => {
+    if (userData) {
+      dispatch(fetchChat(userData.conversationId));
+    }
+  }, [dispatch, userData]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
