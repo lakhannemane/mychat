@@ -39,7 +39,7 @@ const ActivitySidebar = ({ Accounts, feedActive, setFeedActive }) => {
 
         }
 
-    }, [Accounts.account, dispatch, isModalOpen])
+    }, [Accounts.account, dispatch])
 
     useEffect(() => {
         if (allFeedData.feed) {
@@ -50,9 +50,10 @@ const ActivitySidebar = ({ Accounts, feedActive, setFeedActive }) => {
 
 
 
+    useEffect(() => {
+    }, [isModalOpen])
 
-    console.log("feed active  ", feedActive)
-    console.log("active portal", portalActive)
+
 
 
 
