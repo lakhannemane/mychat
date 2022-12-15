@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+console.log("loclastorage token is get", localStorage.getItem("g_token"));
+
 export const fetchHours = createAsyncThunk("hours/fetchHours", async () => {
   try {
     let response = axios.get(

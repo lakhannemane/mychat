@@ -5,7 +5,7 @@ import { GoSettings } from "react-icons/go";
 import { GrFacebookOption } from "react-icons/gr";
 import { IoBasketOutline } from "react-icons/io5";
 import { MdOutlineDesignServices, MdOutlineStore } from "react-icons/md";
-import { SiUpwork } from "react-icons/si";
+import { SiFreelancer, SiUpwork } from "react-icons/si";
 import { useDispatch, useSelector } from "react-redux";
 import {
   allAccounts,
@@ -37,6 +37,7 @@ const ChatMenuPage = ({
   useEffect(() => {
     if (Accounts?.account) {
       setPortalActive(Accounts?.account[0]);
+      localStorage.setItem("g_token", Accounts?.account[0].token);
     }
   }, [Accounts?.account, setPortalActive]);
 
@@ -74,6 +75,8 @@ const ChatMenuPage = ({
                       <GrFacebookOption />
                     ) : ele?.account === "upwork" ? (
                       <SiUpwork />
+                    ) : ele?.account === "freelancer" ? (
+                      <SiFreelancer />
                     ) : (
                       ""
                     )}

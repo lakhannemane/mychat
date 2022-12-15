@@ -31,12 +31,21 @@ const ActivitySidebar = ({ Accounts, feedActive, setFeedActive }) => {
 
     const allFeedData = useSelector(allFeeds);
 
+    const FeedPortal = Accounts?.account?.filter((item, index) => {
+        return item.account === "upwork" || item.account === "freelancer";
+    });
+
+    console.log(
+        FeedPortal,
+        "filter feed portal account is here----------------------------"
+    );
+
 
     useEffect(() => {
 
-        if (Accounts.account) {
-            dispatch(fetchAllFeed(Accounts.account[0]._id))
-            setPortalActive(Accounts.account[0]._id)
+        if (FeedPortal) {
+            dispatch(fetchAllFeed(FeedPortal[0]._id))
+            setPortalActive(FeedPortal[0]._id)
         }
     }, [Accounts.account, dispatch])
 
@@ -127,14 +136,16 @@ const ActivitySidebar = ({ Accounts, feedActive, setFeedActive }) => {
 
                 <div className="poratls-section d-flex justify-content-between w-100 ">
                     <ul className="list-unstyled  recent-portal  align-items-center w-100">
-                        {Accounts?.account && Accounts?.account?.map((portal, index) => {
+                        {Accounts?.account && FeedPortal?.map((portal, index) => {
                             return (
                                 <li
                                     key={index}
                                     onClick={() => ongethandelr(portal)}
                                     className={feedActive && portalActive === portal._id ? "new-item position-relative " : "position-relative"}
                                 >
-                                    {portal.account === "Google" ? <i className="fa-brands fa-google "></i> : portal.account === "Linkdein" ? <i className="fa-brands fa-linkedin-in"></i> : portal.account === "upwork" ? <SiUpwork /> : ""}
+                                    {portal.account === "Google" ? <i className="fa-brands fa-google "></i> : portal.account === "Linkdein" ? <i className="fa-brands fa-linkedin-in"></i> : portal.account === "upwork" ? <SiUpwork /> : portal?.account === "freelancer" ? (
+                                        <SiFreelancer />
+                                    ) : ""}
                                 </li>
                             )
                         })}

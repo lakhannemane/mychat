@@ -32,7 +32,7 @@ const AddFeed = ({ isModalOpen, setIsModalOpen, id, element, setRender }) => {
 
   return (
     <Modal
-      title={id ? "Add Feed" : "Update Feed "}
+      title={id ? "Update Feed" : "Add Feed "}
       open={isModalOpen}
       onOk={handleOk}
       onCancel={handleCancel}
@@ -41,7 +41,7 @@ const AddFeed = ({ isModalOpen, setIsModalOpen, id, element, setRender }) => {
     >
       {id ? (
         <Formik
-          initialValues={{ feed_id: id?._id, title: id?.title }}
+          initialValues={{ feed_id: id?._id, title: id?.title, url: id?.url }}
           validate={(values) => {
             let errors = {};
 
@@ -58,6 +58,12 @@ const AddFeed = ({ isModalOpen, setIsModalOpen, id, element, setRender }) => {
                 className="form-control field-input"
               />
 
+              <Field
+                type="text"
+                name="url"
+                placeholder="Feed Url"
+                className="form-control field-input"
+              />
               <div className="button-save-section text-end ">
                 <button
                   type="submit"
