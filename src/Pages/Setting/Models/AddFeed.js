@@ -4,7 +4,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { addFeed, editFeed } from "../../../Store/Slices/FeedSlice/Feedslice";
 
-const AddFeed = ({ isModalOpen, setIsModalOpen, id, element }) => {
+const AddFeed = ({ isModalOpen, setIsModalOpen, id, element, setRender }) => {
   const dispatch = useDispatch();
   console.log("element", element);
   const handleOk = () => {
@@ -27,6 +27,7 @@ const AddFeed = ({ isModalOpen, setIsModalOpen, id, element }) => {
       dispatch(addFeed(values));
       setIsModalOpen(false);
     }
+    setRender(true);
   };
 
   return (

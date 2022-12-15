@@ -12,6 +12,7 @@ export const fetchInfo = createAsyncThunk(
         },
       }
     );
+    console.log("google apis to getiing category", response);
     return response.data;
   }
 );

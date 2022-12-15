@@ -36,25 +36,25 @@ const ServicesPage = ({
   const dispatch = useDispatch();
   const Information = useSelector((state) => state.Info.category);
 
-  console.log("information value ", Information);
+  console.log("I am in sercvie page ", portalActive);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
   };
 
-  // localStorage.setItem("data", JSON.stringify(Information))
-
   useEffect(() => {
-    if (portalActive.portal === "Google") {
-      dispatch(fetchInfo());
-    }
-  }, [dispatch]);
+    // if (portalActive && portalActive?.account === "Google") {
+    dispatch(fetchInfo());
+    // }
+  }, [dispatch, portalActive]);
 
   return (
     <div className="chativa-bg-chat leftGlobal leftContainer py-4">
       <div className="row justify-content-center">
         <div className="col col-xl-10 col-12">
-          {activeSetting.name === "info" ? (
+          {/* {activeSetting.name ? "yes" : "no"} */}
+          {activeSetting.name === "info" &&
+          portalActive?.account === "Google" ? (
             <div className="row">
               <div className="col-8 ">
                 {Information.length !== 0 && (
@@ -540,7 +540,8 @@ const ServicesPage = ({
                 </div>
               </div>
             </div>
-          ) : activeSetting.name === "services" ? (
+          ) : activeSetting.name === "services" &&
+            portalActive?.account === "Google" ? (
             <div className="row">
               <div className="col-12 ">
                 <Services />
@@ -713,7 +714,7 @@ const ServicesPage = ({
               <div className="col-12">bussiness</div>
             </div>
           ) : (
-            "nothing"
+            <h5 style={{ fontSize: "14px" }}>No Record...</h5>
           )}
 
           {/* =====================footer============= */}

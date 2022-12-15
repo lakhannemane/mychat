@@ -3,7 +3,8 @@ import { Field, Form, Formik } from "formik";
 import { gapi } from "gapi-script";
 import React, { useEffect } from "react";
 import GoogleLogin from "react-google-login";
-import { AiFillFacebook, AiFillLinkedin } from "react-icons/ai";
+import { AiFillLinkedin } from "react-icons/ai";
+import { SiUpwork } from "react-icons/si";
 import { useDispatch } from "react-redux";
 import { AddAccounts } from "../../../Store/Slices/Accounts/AccountSlice";
 
@@ -23,8 +24,7 @@ const Index = ({ addShow, setAddShow }) => {
     }
 
 
-    const clientId =
-        "957385858873-7ifa7seicebvqta0810m9j789be9acse.apps.googleusercontent.com";
+    const clientId = "957385858873-7ifa7seicebvqta0810m9j789be9acse.apps.googleusercontent.com";
 
     useEffect(() => {
         function start() {
@@ -40,7 +40,7 @@ const Index = ({ addShow, setAddShow }) => {
 
         console.log("login si Succesfull0", res);
         localStorage.setItem("g_token", res.accessToken);
-        dispatch(AddAccounts({ account: "Google", token: "eyaHDsannnde7989dakbe" }))
+        dispatch(AddAccounts({ account: "Google", token: `${res.accessToken}` }))
         setAddShow(false)
     };
 
@@ -55,7 +55,7 @@ const Index = ({ addShow, setAddShow }) => {
     }
 
     const addFlipKart = () => {
-        dispatch(AddAccounts({ account: "Flipkart", token: `dhasjdgyijkdhe9u2398domojcye273rdi` }))
+        dispatch(AddAccounts({ account: "upwork", token: `dhasjdgyijkdhe9u2398domojcye273rdi` }))
         setAddShow(false)
 
     }
@@ -91,7 +91,7 @@ const Index = ({ addShow, setAddShow }) => {
                     {/* <button className="btns my-2 "><span className="login-icons login-linkdin"><FcGoogle /></span>Login in With Google </button> */}
 
                     <button className="btns my-2 " onClick={() => addAnotherOne()}><span className="login-icons login-linkdin"><AiFillLinkedin /></span>Login in With Linkedln </button>
-                    <button className="btns  my-2 " onClick={() => addFlipKart()}> <span className="login-icons login-facebook"><AiFillFacebook /></span>Login in With Facebook </button>
+                    <button className="btns  my-2 " onClick={() => addFlipKart()}> <span className="login-icons login-facebook"><SiUpwork /></span>Login in With UpWork </button>
                 </div>
 
                 <div className="or d-flex align-items-center justify-content-evenly mt-3">
