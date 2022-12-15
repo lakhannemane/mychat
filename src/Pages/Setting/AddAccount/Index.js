@@ -40,7 +40,7 @@ const Index = ({ addShow, setAddShow }) => {
 
         console.log("login si Succesfull0", res);
         localStorage.setItem("g_token", res.accessToken);
-        dispatch(AddAccounts({ account: "Google", token: "eyaHDsannnde7989dakbe" }))
+        dispatch(AddAccounts({ account: "Google", token: `${res.accessToken}` }))
         setAddShow(false)
     };
 
