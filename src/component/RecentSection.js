@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { GrFacebookOption } from "react-icons/gr";
-import { SiUpwork } from "react-icons/si";
+import { SiFreelancer, SiUpwork } from "react-icons/si";
 import { useDispatch, useSelector } from "react-redux";
 import {
   allAccounts,
@@ -134,6 +134,8 @@ const RecentSection = ({
                       <GrFacebookOption />
                     ) : portal.account === "upwork" ? (
                       <SiUpwork />
+                    ) : portal?.account === "freelancer" ? (
+                      <SiFreelancer />
                     ) : (
                       ""
                     )}

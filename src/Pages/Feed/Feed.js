@@ -1,13 +1,28 @@
 import moment from "moment";
 import React from "react";
 import { useSelector } from "react-redux";
-import { allFeeds, allJobs } from "../../Store/Slices/FeedSlice/Feedslice";
+import {
+  allFeeds,
+  allJobs,
+  error,
+} from "../../Store/Slices/FeedSlice/Feedslice";
 
 // // import { GoogleLogin } from "react-google-login";
 
 const Activity = ({ feedActive, setFeedActive }) => {
   const Job = useSelector(allJobs);
   const feedData = useSelector(allFeeds);
+
+  const ApiFail = useSelector(error);
+
+  console.log(ApiFail, "api fail result");
+
+  let content;
+  if (ApiFail === "error") {
+    content = <h5 style={{ fontSize: "14px" }}>No Record...</h5>;
+  } else {
+    content = "";
+  }
 
   return (
     <div style={{ width: "100%" }}>
@@ -17,6 +32,7 @@ const Activity = ({ feedActive, setFeedActive }) => {
             <div className="row">
               <div className="col-12">
                 <div className="feed-rss-section">
+                  {content}
                   {feedData.message ? (
                     <p>No Record...</p>
                   ) : (
