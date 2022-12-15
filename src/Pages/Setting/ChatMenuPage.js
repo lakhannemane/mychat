@@ -5,7 +5,7 @@ import { GoSettings } from "react-icons/go";
 import { GrFacebookOption } from "react-icons/gr";
 import { IoBasketOutline } from "react-icons/io5";
 import { MdOutlineDesignServices, MdOutlineStore } from "react-icons/md";
-import { SiUpwork } from "react-icons/si";
+import { SiFreelancer, SiUpwork } from "react-icons/si";
 import { useDispatch, useSelector } from "react-redux";
 import {
   allAccounts,
@@ -35,10 +35,11 @@ const ChatMenuPage = ({
   }, [addShow, dispatch]);
 
   useEffect(() => {
-    if (Accounts.account) {
-      setPortalActive(Accounts.account[0]);
+    if (Accounts?.account) {
+      setPortalActive(Accounts?.account[0]);
+      localStorage.setItem("g_token", Accounts?.account[0].token);
     }
-  }, [Accounts.account, setPortalActive]);
+  }, [Accounts?.account, setPortalActive]);
 
   const setActivehandler = (data) => {
     console.log("data valuu", data);
@@ -66,14 +67,16 @@ const ChatMenuPage = ({
                         : "position-relative"
                     }
                   >
-                    {ele.account === "Google" ? (
+                    {ele?.account === "Google" ? (
                       <i className="fa-brands fa-google "></i>
-                    ) : ele.account === "Linkdein" ? (
+                    ) : ele?.account === "Linkdein" ? (
                       <i className="fa-brands fa-linkedin-in"></i>
-                    ) : ele.account === "Flipkart" ? (
+                    ) : ele?.account === "Flipkart" ? (
                       <GrFacebookOption />
-                    ) : ele.account === "upwork" ? (
+                    ) : ele?.account === "upwork" ? (
                       <SiUpwork />
+                    ) : ele?.account === "freelancer" ? (
+                      <SiFreelancer />
                     ) : (
                       ""
                     )}

@@ -1179,14 +1179,15 @@ select option {
 }
 
 .btns {
-  border: none;
+  background: #fff;
+  border: 1px solid grey !important;
   border-radius: 5px;
-  padding: 2px 0;
-  background: white;
-  font-weight: 400 !important;
-  color: #081d34 !important;
-  background: #efefef !important;
+  border-radius: 30px !important;
   box-shadow: none !important;
+  color: #081d34 !important;
+  font-weight: 400 !important;
+  padding: 2px 0;
+  width: 100%;
 }
 
 .form-add-acount {

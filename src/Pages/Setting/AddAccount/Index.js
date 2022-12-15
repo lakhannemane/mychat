@@ -4,7 +4,7 @@ import { gapi } from "gapi-script";
 import React, { useEffect } from "react";
 import GoogleLogin from "react-google-login";
 import { AiFillLinkedin } from "react-icons/ai";
-import { SiUpwork } from "react-icons/si";
+import { SiFreelancer, SiUpwork } from "react-icons/si";
 import { useDispatch } from "react-redux";
 import { AddAccounts } from "../../../Store/Slices/Accounts/AccountSlice";
 
@@ -36,11 +36,11 @@ const Index = ({ addShow, setAddShow }) => {
 
         gapi.load("client:auth2", start);
     }, []);
-    const onSuccess = (res) => {
+    const onSuccess = async (res) => {
 
-        console.log("login si Succesfull0", res);
+        console.log("login si Succesfull0", res.accessToken);
+        await dispatch(AddAccounts({ account: "Google", token: `${res.accessToken}` }))
         localStorage.setItem("g_token", res.accessToken);
-        dispatch(AddAccounts({ account: "Google", token: `${res.accessToken}` }))
         setAddShow(false)
     };
 
@@ -60,6 +60,12 @@ const Index = ({ addShow, setAddShow }) => {
 
     }
 
+    const addFreelancing = () => {
+        dispatch(AddAccounts({ account: "freelancer", token: `dhasjdgyijkdhe9u2398domojcye273rdi` }))
+        setAddShow(false)
+
+    }
+
 
     return (
         <Modal
@@ -75,23 +81,40 @@ const Index = ({ addShow, setAddShow }) => {
             <div className="Add-ccount-login" >
                 <h3>Welcome back</h3>
 
-                <div className="button-group d-flex flex-column ">
-                    {/* {localStorage.getItem("g_token") ? } */}
-                    <GoogleLogin
-                        clientId={clientId}
-                        buttonText="Login in with Google"
-                        onSuccess={onSuccess}
-                        onFailure={onFailure}
-                        cookiePolicy={"single_host_origin"}
-                        // isSignedIn={true}
-                        style={{ background: "none !important" }}
+                <div className="button-group ">
 
-                        className="btns d-flex justify-content-center"
-                    ></GoogleLogin>
+                    <div className="row">
+                        <div className="col-lg-6 col-md-6 col-sm-12 my-2">
+                            <GoogleLogin
+                                clientId={clientId}
+                                buttonText="Login in with Google"
+                                onSuccess={onSuccess}
+                                onFailure={onFailure}
+                                cookiePolicy={"single_host_origin"}
+                                // isSignedIn={true}
+                                style={{ background: "none !important" }}
+
+                                className="btns d-flex justify-content-center"
+                            ></GoogleLogin>
+                        </div>
+                        <div className="col-lg-6 col-md-6 col-sm-12 my-2">
+                            <button className="btns  " onClick={() => addAnotherOne()}><span className="login-icons login-linkdin"><AiFillLinkedin /></span>Login in With Linkedln </button>
+
+                        </div>
+                        <div className="col-lg-6 col-md-6 col-sm-12 my-2">
+                            <button className="btns " onClick={() => addFlipKart()}> <span className="login-icons login-facebook"><SiUpwork /></span>Login in With UpWork </button>
+
+                        </div>
+                        <div className="col-lg-6 col-md-6 col-sm-12 my-2">
+                            <button className="btns " onClick={() => addFreelancing()}> <span className="login-icons login-facebook"><SiFreelancer /></span>Login in With UpWork </button>
+
+                        </div>
+
+                    </div>
+                    {/* {localStorage.getItem("g_token") ? } */}
+
                     {/* <button className="btns my-2 "><span className="login-icons login-linkdin"><FcGoogle /></span>Login in With Google </button> */}
 
-                    <button className="btns my-2 " onClick={() => addAnotherOne()}><span className="login-icons login-linkdin"><AiFillLinkedin /></span>Login in With Linkedln </button>
-                    <button className="btns  my-2 " onClick={() => addFlipKart()}> <span className="login-icons login-facebook"><SiUpwork /></span>Login in With UpWork </button>
                 </div>
 
                 <div className="or d-flex align-items-center justify-content-evenly mt-3">

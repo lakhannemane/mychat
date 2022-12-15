@@ -107,6 +107,12 @@ const feedSlice = createSlice({
     [fetchSingleFeed.pending]: (state, action) => {},
     [fetchSingleFeed.fulfilled]: (state, action) => {
       state.jobs = action.payload;
+
+      if (action.payload.message) {
+        state.status = "error";
+      } else {
+        state.status = "success";
+      }
     },
     [fetchSingleFeed.rejected]: (state, action) => {},
     // add feed
@@ -123,3 +129,5 @@ const feedSlice = createSlice({
 export default feedSlice.reducer;
 export const allFeeds = (state) => state.feed.feed;
 export const allJobs = (state) => state.feed.jobs;
+
+export const error = (state) => state.feed.status;
