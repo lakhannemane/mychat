@@ -36,11 +36,11 @@ const Index = ({ addShow, setAddShow }) => {
 
         gapi.load("client:auth2", start);
     }, []);
-    const onSuccess = (res) => {
+    const onSuccess = async (res) => {
 
-        console.log("login si Succesfull0", res);
+        console.log("login si Succesfull0", res.accessToken);
+        await dispatch(AddAccounts({ account: "Google", token: `${res.accessToken}` }))
         localStorage.setItem("g_token", res.accessToken);
-        dispatch(AddAccounts({ account: "Google", token: `${res.accessToken}` }))
         setAddShow(false)
     };
 

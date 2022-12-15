@@ -35,10 +35,10 @@ const ChatMenuPage = ({
   }, [addShow, dispatch]);
 
   useEffect(() => {
-    if (Accounts.account) {
-      setPortalActive(Accounts.account[0]);
+    if (Accounts?.account) {
+      setPortalActive(Accounts?.account[0]);
     }
-  }, [Accounts.account, setPortalActive]);
+  }, [Accounts?.account, setPortalActive]);
 
   const setActivehandler = (data) => {
     console.log("data valuu", data);
@@ -66,13 +66,13 @@ const ChatMenuPage = ({
                         : "position-relative"
                     }
                   >
-                    {ele.account === "Google" ? (
+                    {ele?.account === "Google" ? (
                       <i className="fa-brands fa-google "></i>
-                    ) : ele.account === "Linkdein" ? (
+                    ) : ele?.account === "Linkdein" ? (
                       <i className="fa-brands fa-linkedin-in"></i>
-                    ) : ele.account === "Flipkart" ? (
+                    ) : ele?.account === "Flipkart" ? (
                       <GrFacebookOption />
-                    ) : ele.account === "upwork" ? (
+                    ) : ele?.account === "upwork" ? (
                       <SiUpwork />
                     ) : (
                       ""
